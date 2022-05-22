@@ -9,7 +9,7 @@
     "dev:starter": "turbo run dev --parallel --no-cache",
     "serve": "turbo run serve",
     "lint": "turbo run lint",
-    "test:watch": "vitest",
+    "test:watch": "vitest --config ./vitest-exclude-recipe.config.ts",
     "test": "vitest run --config ./vitest-exclude-recipe.config.ts --no-threads",
     "test:all": "vitest run --no-threads",
     "clean": "turbo run clean && rm -rf node_modules",
