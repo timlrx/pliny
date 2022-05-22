@@ -1,6 +1,6 @@
 {
   "name": "starter-blog",
-  "version": "1.5.2",
+  "version": "0.0.1-rc.1",
   "private": true,
   "scripts": {
     "start": "next dev",
