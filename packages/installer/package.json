@@ -1,8 +1,8 @@
 {
   "name": "@pliny/installer",
-  "version": "0.44.0",
-  "description": "Package installation for the Blitz CLI",
-  "homepage": "https://github.com/blitz-js/blitz#readme",
+  "version": "0.0.1-rc.1",
+  "description": "Package installation for the Pliny CLI",
+  "homepage": "https://github.com/timlrx/pliny",
   "license": "MIT",
   "scripts": {
     "dev": "tsup-node src/* --watch --no-splitting --format esm,cjs --dts --silent",
@@ -44,7 +44,10 @@
     "vinyl": "2.2.1"
   },
   "devDependencies": {
-    "typescript": "^4.6.2",
-    "tsup": "5.12.0"
+    "tsup": "5.12.0",
+    "typescript": "^4.6.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
