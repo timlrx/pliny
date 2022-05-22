@@ -48,8 +48,8 @@ export class New extends Command {
   static flags = {
     help: Flags.help({ char: 'h' }),
     template: Flags.string({
-      description: 'Pick your new app template. Options: minimal, blog.',
-      options: ['minimal, blog'],
+      description: 'Pick your new app template. Options: starter-blog.',
+      options: ['starter-blog'],
     }),
     npm: Flags.boolean({
       description: 'Use npm as the package manager',
@@ -81,7 +81,7 @@ export class New extends Command {
   private async installTemplate(flags: Flags, args: Record<string, any>): Promise<void> {
     const name = args.name
     // Can revert to `starter/${args.template}` to support more starter templates in the future
-    const template = `${args.template}`
+    const template = `${this.template}`
     let cmd
     // Should run no-install regardless of flag and do a post-install
     const opts = ['--example', REPO_ROOT, '--example-path', template, name]
@@ -147,21 +147,22 @@ export class New extends Command {
 
   private async determineTemplate(flags: Flags): Promise<void> {
     if (flags.template) {
-      return
-    }
-    const choices: Array<{ name: Template; message?: string }> = [
-      { name: 'starter-blog', message: 'Default starter blog template with tailwind' },
-      { name: 'starter-doc', message: 'Documentation template (TODO, WIP)' },
-    ]
-    const { template } = (await this.enquirer.prompt({
-      type: 'select',
-      name: 'template',
-      message: 'Pick your new app template',
-      initial: 0,
-      choices,
-    })) as { template: Template }
+      this.template = flags.template as Template
+    } else {
+      const choices: Array<{ name: Template; message?: string }> = [
+        { name: 'starter-blog', message: 'Default starter blog template with tailwind' },
+        { name: 'starter-doc', message: 'Documentation template (TODO, WIP)' },
+      ]
+      const { template } = (await this.enquirer.prompt({
+        type: 'select',
+        name: 'template',
+        message: 'Pick your new app template',
+        initial: 0,
+        choices,
+      })) as { template: Template }
 
-    this.template = template
+      this.template = template
+    }
   }
 
   async run() {
@@ -171,7 +172,7 @@ export class New extends Command {
 
     await this.determineLanguage(flags)
     // Currently, there's only one starter template - disable option
-    // await this.determineTemplate(flags)
+    await this.determineTemplate(flags)
     await this.determinePkgManagerToInstallDeps(flags)
     await this.installTemplate(flags, args)
     const { pkgManager, template } = this

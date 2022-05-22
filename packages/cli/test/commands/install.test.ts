@@ -20,7 +20,7 @@ describe('`install` command', () => {
   it('properly parses remote installer args', () => {
     const normalizePath = Install.prototype.normalizeRecipePath
     expect(normalizePath('test-installer')).toEqual({
-      path: 'https://github.com/timlrx/pliny',
+      path: 'https://github.com/timlrx/pliny/',
       subdirectory: 'recipes/test-installer',
       location: RecipeLocation.Remote,
     })

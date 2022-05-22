@@ -49,8 +49,6 @@ describe('`new` command', () => {
       stdout.stop()
     })
 
-    // jest.setTimeout(200 * 1000)
-
     async function whileStayingInCWD(task: () => PromiseLike<void>) {
       const oldCWD = process.cwd()
       await task()
@@ -71,15 +69,17 @@ describe('`new` command', () => {
     }
 
     async function usingTempDir(fn: (...args: any[]) => any, options?: any) {
-      const folder = path.join(os.tmpdir(), Math.random().toString(36).substring(2))
+      // const folder = path.join(os.tmpdir(), Math.random().toString(36).substring(2))
+      const folder = path.join(__dirname, 'tmp')
       await fs.mkdirp(folder, options)
-      try {
-        await fn(folder)
-      } finally {
-        await fs.remove(folder)
-      }
+      await fn(folder)
+      // try {
+      //   await fn(folder)
+      // } finally {
+      //   await fs.remove(folder)
+      // }
     }
-
+    // node packages/cli/bin/run new /home/timlrx/pliny/packages/cli/test/commands/tmp --template=starter-blog --ts
     async function withNewApp(
       flags: string[],
       test: (dirName: string, packageJson: any) => Promise<void> | void
@@ -87,7 +87,8 @@ describe('`new` command', () => {
       await usingTempDir(async (tempDir) => {
         // await whileStayingInCWD(() => New.run([tempDir, '--skip-install', ...flags]))
         // TODO: Revert to the above line after skip-install option is enabled on create-next-app
-        await whileStayingInCWD(() => New.run([tempDir, ...flags]))
+        process.chdir(tempDir)
+        await New.run([tempDir, ...flags])
 
         const packageJsonFile = fs.readFileSync(path.join(tempDir, 'package.json'), {
           encoding: 'utf8',
@@ -97,12 +98,12 @@ describe('`new` command', () => {
 
         await test(tempDir, packageJson)
 
-        rimraf.sync(tempDir)
+        // rimraf.sync(tempDir)
       })
     }
 
     test('generate typescript application', async () => {
-      await withNewApp(['--ts'], (dirName, packageJson) => {
+      await withNewApp(['--template=starter-blog', '--ts'], (dirName, packageJson) => {
         const files = [
           'package.json',
           'pages/index.tsx',
@@ -116,7 +117,7 @@ describe('`new` command', () => {
 
         files.forEach((file) => expect(fs.existsSync(path.join(dirName, file))).toBeTruthy())
       })
-    }, 100000)
+    }, 1000000)
 
     // test('pins Blitz to the current version', async () =>
     //   await withNewApp([], async (_dirName, packageJson) => {

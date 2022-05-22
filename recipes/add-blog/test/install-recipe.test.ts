@@ -20,7 +20,7 @@ describe('install recipe', () => {
 
   async function usingTempDir(fn: (...args: any[]) => any, options?: any) {
     // const folder = path.join(os.tmpdir(), Math.random().toString(36).substring(2))
-    const folder = path.join(__dirname, 'do-not-delete')
+    const folder = path.join(__dirname, 'tmp')
     await fs.mkdirp(folder, options)
     // await fn(folder)
     try {
@@ -31,13 +31,13 @@ describe('install recipe', () => {
   }
 
   async function withNewApp(
-    args: RecipeCLIArgs,
+    args: string[],
     test: (dirName: string, packageJson: any) => Promise<void> | void
   ) {
     await usingTempDir(async (tempDir) => {
       fs.copySync(path.join(__dirname, '__fixtures__/sample-next-js-app'), `${tempDir}`)
       process.chdir(tempDir)
-      await Install.run([recipeDir, 'ContentName=dog', 'ContentDir=content', '--yes'])
+      await Install.run([recipeDir, ...args])
 
       const packageJsonFile = fs.readFileSync(path.join(tempDir, 'package.json'), {
         encoding: 'utf8',
@@ -50,11 +50,11 @@ describe('install recipe', () => {
   }
 
   test('copy over files with correct substitutions for js app', async () => {
-    await withNewApp({ ContentDir: 'content', ContentName: 'dog' }, (dirName, packageJson) => {
+    await withNewApp(['ContentName=dog', 'ContentDir=content', '--yes'], (dirName, packageJson) => {
       const files = ['content/dog/sample.mdx', 'pages/dog/index.js', 'pages/dog/[...slug].js']
       files.forEach((file) => {
         expect(fs.existsSync(path.resolve(dirName, file))).toBeTruthy()
       })
     })
-  })
+  }, 10000)
 })
