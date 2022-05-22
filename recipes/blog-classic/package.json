@@ -1,0 +1,26 @@
+{
+  "name": "@pliny/blog-classic",
+  "version": "1.0.0",
+  "description": "The Recipe for generating a blog page",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"No tests yet\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timlrx/pliny.git"
+  },
+  "keywords": [
+    "pliny"
+  ],
+  "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",
+  "license": "MIT",
+  "dependencies": {
+    "@pliny/installer": "workspace:*",
+    "jscodeshift": "0.13.1"
+  },
+  "devDependencies": {
+    "@types/jscodeshift": "0.11.5"
+  }
+}

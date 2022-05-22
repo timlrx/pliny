@@ -1,0 +1,48 @@
+{
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "prepare": "husky install && cp -R node_modules/esbuild starter-blog/node_modules && cp -R node_modules/@oclif packages/cli/node_modules/@oclif",
+    "build": "turbo run build --filter=!starter-blog",
+    "dev": "turbo run dev --parallel --no-cache --filter=!starter-blog",
+    "build:starter": "turbo run build",
+    "dev:starter": "turbo run dev --parallel --no-cache",
+    "serve": "turbo run serve",
+    "lint": "turbo run lint",
+    "test:watch": "vitest",
+    "test": "vitest run --config ./vitest-exclude-recipe.config.ts --no-threads",
+    "test:all": "vitest run --no-threads",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timlrx/pliny"
+  },
+  "lint-staged": {
+    "./packages/*/src/**/*.+(js|jsx|ts|tsx)": [
+      "eslint --fix"
+    ],
+    "./packages/*/src/**/*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
+    "@types/webpack": "^4.41.26",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.2.1",
+    "turbo": "1.2.9",
+    "vitest": "0.12.6"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "recipe/*",
+      "starter-blog"
+    ]
+  },
+  "packageManager": "yarn@1.22.17"
+}

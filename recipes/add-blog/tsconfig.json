@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": "../../starter-blog",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/data/*": ["data/*"],
+      "@/layouts/*": ["layouts/*"],
+      "@/lib/*": ["lib/*"],
+      "@/css/*": ["css/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
+    }
+  },
+  "extends": "@pliny/config/tsconfig.base.json",
+  "references": [
+    {
+      "path": "../../starter-blog"
+    }
+  ],
+  "include": ["**/*.ts", "**/*.tsx"]
+}

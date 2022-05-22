@@ -1,0 +1,9 @@
+{
+  "extends": "@pliny/config/tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": "./",
+    "outDir": "lib"
+  },
+  "include": ["src", "types"]
+}

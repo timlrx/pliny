@@ -1,0 +1,14 @@
+{
+  "extends": "@pliny/config/tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": "./",
+    "module": "commonjs",
+    "target": "es2015",
+    "esModuleInterop": true,
+    "isolatedModules": false,
+    "outDir": "lib"
+  },
+  "include": ["src", "types"],
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,14 @@
+.github/
+.idea/
+.vscode/
+.git/
+commitlint.config.js
+package.json
+craco.config.js
+node_modules/
+webpack.config.js
+jest.config.ts
+
+dist/
+coverage/
+cypress/

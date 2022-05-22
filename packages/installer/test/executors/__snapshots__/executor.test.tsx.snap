@@ -1,0 +1,10 @@
+// Vitest Snapshot v1
+
+exports[`Executor > should render Frontmatter 1`] = `
+"
++––––––––––––––+
+⎪   New File   ⎪
++––––––––––––––+
+Testing text for a new file
+"
+`;

@@ -1,0 +1,10 @@
+{
+  "extends": "@pliny/config/tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src/",
+    "baseUrl": "./",
+    "outDir": "dist"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["dist", "node_modules"]
+}
