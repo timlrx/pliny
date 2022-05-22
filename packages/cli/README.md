@@ -1,37 +1,29 @@
 # `cli`
 
-Command-line utility for initializing a new blitz app, code generation, database management, and other functions. It is meant to be user-friendly and easy to extend.
+Command-line utility for initializing a new pliny app, code generation, content management, and other functions. It is meant to be user-friendly and easy to extend.
 
 ## Installation
 
 ```bash
-npm i -g blitz
+npm i -g pliny
 ```
 
 ## Usage
 
-These are some examples of common commands from the blitz API. A full list is available at <https://blitzjs.com/docs/cli-overview>.
+Here are some examples of common commands:
 
-### Create a new Blitz project called "my-blog"
-
-```bash
-blitz new my-blog
-```
-
-### Generate all available code scaffolding for a resource named Project
+### Create a new starter blog project called "my-blog"
 
 ```bash
-blitz generate all project
+pliny new starter-blog my-blog
 ```
 
-### Create a production build
+### Add a blog content type, "blog", to an existing Next.js application in a folder called "data"
 
 ```bash
-blitz build
+pliny install add-blog ContentDir=data ContentName=blog
 ```
 
-### Launch the development server
+## Credits
 
-```bash
-blitz dev
-```
+Adapted from [Blitz.js installer](https://github.com/blitz-js/blitz)
