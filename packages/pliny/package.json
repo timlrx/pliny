@@ -2,7 +2,7 @@
   "name": "pliny",
   "description": "Main entry point for pliny components and CLI",
   "homepage": "https://github.com/timlrx/pliny",
-  "version": "0.0.1-rc.1",
+  "version": "0.0.1-rc.2",
   "main": "./dist/index.mjs",
   "exports": {
     "./analytics": "./dist/analytics/index.mjs",
@@ -88,10 +88,10 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.75",
     "rimraf": "^3.0.2",
-    "typescript": "^4.6.2",
     "tsup": "5.12.0",
-    "@mailchimp/mailchimp_marketing": "^3.0.75"
+    "typescript": "^4.6.2"
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
@@ -99,6 +99,22 @@
     ],
     "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
       "prettier --write"
+    ]
+  },
+  "oclif": {
+    "commands": "@pliny/cli/dist/commands",
+    "bin": "pliny",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-not-found",
+      "@oclif/plugin-autocomplete",
+      "@oclif/plugin-version"
+    ],
+    "additionalHelpFlags": [
+      "-h"
+    ],
+    "additionalVersionFlags": [
+      "-v"
     ]
   },
   "publishConfig": {
