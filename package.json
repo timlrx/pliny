@@ -31,7 +31,7 @@
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^8.0.0",
     "@types/webpack": "^4.41.26",
-    "husky": "^6.0.0",
+    "husky": "^8.0.0",
     "lint-staged": "^11.0.0",
     "prettier": "^2.2.1",
     "turbo": "1.2.9",
@@ -44,5 +44,5 @@
       "starter-blog"
     ]
   },
-  "packageManager": "yarn@1.22.17"
+  "packageManager": "yarn@3.2.1"
 }

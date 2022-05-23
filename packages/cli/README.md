@@ -15,7 +15,7 @@ Here are some examples of common commands:
 ### Create a new starter blog project called "my-blog"
 
 ```bash
-pliny new starter-blog my-blog
+pliny new --template=starter-blog my-blog
 ```
 
 ### Add a blog content type, "blog", to an existing Next.js application in a folder called "data"
