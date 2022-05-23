@@ -2,8 +2,11 @@
   "name": "pliny",
   "description": "Main entry point for pliny components and CLI",
   "homepage": "https://github.com/timlrx/pliny",
-  "version": "0.0.1-rc.2",
+  "version": "0.0.1-rc.3",
   "main": "./dist/index.mjs",
+  "bin": {
+    "pliny": "./bin/run"
+  },
   "exports": {
     "./analytics": "./dist/analytics/index.mjs",
     "./analytics/": "./dist/analytics/",
@@ -99,22 +102,6 @@
     ],
     "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
       "prettier --write"
-    ]
-  },
-  "oclif": {
-    "commands": "@pliny/cli/dist/commands",
-    "bin": "pliny",
-    "plugins": [
-      "@oclif/plugin-help",
-      "@oclif/plugin-not-found",
-      "@oclif/plugin-autocomplete",
-      "@oclif/plugin-version"
-    ],
-    "additionalHelpFlags": [
-      "-h"
-    ],
-    "additionalVersionFlags": [
-      "-v"
     ]
   },
   "publishConfig": {
