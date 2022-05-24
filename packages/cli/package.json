@@ -2,7 +2,7 @@
   "name": "@pliny/cli",
   "description": "Pliny CLI",
   "homepage": "https://github.com/timlrx/pliny",
-  "version": "0.0.1-rc.1",
+  "version": "0.0.1-rc.2",
   "license": "MIT",
   "bin": "./bin/run",
   "scripts": {

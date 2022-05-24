@@ -1,0 +1,14 @@
+{
+  "mode": "pre",
+  "tag": "rc",
+  "initialVersions": {
+    "@pliny/cli": "0.0.1-rc.1",
+    "@pliny/config": "0.0.0",
+    "@pliny/installer": "0.0.1-rc.1",
+    "pliny": "0.0.1-rc.3",
+    "starter-blog": "0.0.1-rc.1"
+  },
+  "changesets": [
+    "shiny-tips-beam"
+  ]
+}
