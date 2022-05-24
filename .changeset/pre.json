@@ -9,6 +9,7 @@
     "starter-blog": "0.0.1-rc.1"
   },
   "changesets": [
-    "shiny-tips-beam"
+    "shiny-tips-beam",
+    "soft-ears-fetch"
   ]
 }
