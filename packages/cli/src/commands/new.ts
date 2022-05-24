@@ -1,10 +1,7 @@
 import { Flags } from '@oclif/core'
-import chalk from 'chalk'
 import { AppGenerator } from '@pliny/installer'
 import spawn from 'cross-spawn'
-import { resolve, join } from 'path'
-import * as fs from 'fs-extra'
-import { log } from '../logging'
+import { resolve } from 'path'
 import hasbin from 'hasbin'
 import { Command } from '../command'
 const debug = require('debug')('pliny:new')
@@ -105,14 +102,6 @@ export class New extends Command {
     })
   }
 
-  private runLocalNodeCLI = (command: string) => {
-    if (this.pkgManager === 'yarn') {
-      return spawn.sync('yarn', ['run', ...command.split(' ')])
-    } else {
-      return spawn.sync('npx', command.split(' '))
-    }
-  }
-
   private async determinePkgManagerToInstallDeps(flags: Flags): Promise<void> {
     const isPkgManagerSpecifiedAsFlag = flags.npm || flags.yarn
     if (isPkgManagerSpecifiedAsFlag) {
@@ -182,23 +171,10 @@ export class New extends Command {
         targetDirectory: args.name,
         templateRoot: resolve(args.name),
         useTs: this.useTs,
+        yarn: pkgManager === 'yarn',
+        pnpm: pkgManager === 'pnpm',
       })
       generator.run()
-    }
-
-    // Manually post-install
-
-    // Ensure the generated files are formatted with the installed prettier version
-    const formattingSpinner = log.spinner(log.withBrand('Formatting your code')).start()
-    const prettierResult = this.runLocalNodeCLI('prettier --loglevel silent --write .')
-    if (prettierResult.status !== 0) {
-      formattingSpinner.fail(
-        chalk.yellow.bold(
-          "We had an error running Prettier, but don't worry your app will still run fine :)"
-        )
-      )
-    } else {
-      formattingSpinner.succeed()
     }
   }
 }

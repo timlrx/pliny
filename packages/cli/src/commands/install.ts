@@ -9,6 +9,7 @@ import { Command } from '../command'
 const debug = require('debug')('pliny:install')
 
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace NodeJS {
     interface Global {
       GLOBAL_AGENT: {
