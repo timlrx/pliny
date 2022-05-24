@@ -4,7 +4,6 @@
   "homepage": "https://github.com/timlrx/pliny",
   "version": "0.0.1-rc.3",
   "main": "./dist/index.mjs",
-  "bin": "./bin/run",
   "exports": {
     "./analytics": "./dist/analytics/index.mjs",
     "./analytics/": "./dist/analytics/",
@@ -74,7 +73,6 @@
   },
   "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",
   "dependencies": {
-    "@pliny/cli": "workspace:*",
     "contentlayer": "0.2.5",
     "github-slugger": "^1.3.0",
     "image-size": "1.0.0",
