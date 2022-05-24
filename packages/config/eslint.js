@@ -1,7 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
-    'airbnb-typescript',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
@@ -11,8 +10,6 @@ module.exports = {
     node: true,
   },
   parserOptions: {
-    project: './tsconfig.json',
-    tsconfigRootDir: __dirname,
     ecmaVersion: 2020,
     ecmaFeatures: {
       legacyDecorators: true,
@@ -36,6 +33,7 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 0,
     '@typescript-eslint/ban-ts-ignore': 0,
     '@typescript-eslint/ban-types': 0,
+    '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars-experimental': ['warn'],
     '@typescript-eslint/no-use-before-define': ['error', { variables: false, functions: false }],
@@ -49,23 +47,8 @@ module.exports = {
     'react/static-property-placement': 0,
     'react/no-array-index-key': 0,
     'arrow-parens': 1,
-    'comma-dangle': 1,
     '@typescript-eslint/no-shadow': 'off',
     'no-useless-return': 'off',
     'import/no-extraneous-dependencies': 'off',
-    'max-len': [
-      'warn',
-      {
-        code: 80,
-        tabWidth: 2,
-        comments: 80,
-        ignoreComments: true,
-        ignoreTrailingComments: true,
-        ignoreUrls: true,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true,
-        ignoreRegExpLiterals: true,
-      },
-    ],
   },
 }
