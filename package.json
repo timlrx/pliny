@@ -10,10 +10,14 @@
     "serve": "turbo run serve",
     "lint": "turbo run lint",
     "test:watch": "vitest --config ./vitest-exclude-recipe.config.ts",
-    "test": "vitest run --config ./vitest-exclude-recipe.config.ts --no-threads",
+    "test": "vitest run --config ./vitest-exclude-recipe.config.ts",
     "test:all": "vitest run --no-threads",
     "clean": "turbo run clean && rm -rf node_modules",
-    "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "prerelease": "build run build && yarn run test",
+    "release": "changeset publish"
   },
   "repository": {
     "type": "git",
@@ -31,6 +35,7 @@
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^8.0.0",
     "@types/webpack": "^4.41.26",
+    "@changesets/cli": "^2.22.0",
     "husky": "^8.0.0",
     "lint-staged": "^11.0.0",
     "prettier": "^2.2.1",
