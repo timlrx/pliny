@@ -32,7 +32,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
-yarn.lock
 .turbo
 
 # ide's setting folder
