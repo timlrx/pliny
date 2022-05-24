@@ -40,7 +40,15 @@ export interface SourceRootType {
   path: string
 }
 
-const alwaysIgnoreFiles = ['.blitz', '.DS_Store', '.git', '.next', '.now', 'node_modules']
+const alwaysIgnoreFiles = [
+  '.blitz',
+  '.DS_Store',
+  '.git',
+  '.next',
+  '.now',
+  'node_modules',
+  '.contentlayer',
+]
 const ignoredExtensions = ['.ico', '.png', '.jpg']
 const tsExtension = /\.(tsx?)$/
 const codeFileExtensions = /\.(tsx?|jsx?)$/
@@ -135,9 +143,9 @@ export abstract class Generator<
   private useTs: boolean
   private prettier: typeof import('prettier') | undefined
 
-  prettierDisabled: boolean = false
+  prettierDisabled = false
   unsafe_disableConflictChecker = false
-  returnResults: boolean = false
+  returnResults = false
 
   /**
    * When `type: 'absolute'`, it's an absolute path
@@ -189,7 +197,7 @@ export abstract class Generator<
 
   replaceTemplateValues(input: string, templateValues: any) {
     let result = input
-    for (let templateKey in templateValues) {
+    for (const templateKey in templateValues) {
       const token = `__${templateKey}__`
       if (result.includes(token)) {
         result = result.replace(new RegExp(token, 'g'), templateValues[templateKey])
@@ -255,7 +263,7 @@ export abstract class Generator<
     } catch {}
     const prettierOptions = await this.prettier?.resolveConfig(sourcePath)
 
-    for (let filePath of paths) {
+    for (const filePath of paths) {
       try {
         let pathSuffix = filePath
         pathSuffix = path.join(this.getTargetDirectory(), pathSuffix)
