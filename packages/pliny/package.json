@@ -75,11 +75,11 @@
   "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",
   "dependencies": {
     "@pliny/cli": "workspace:*",
-    "contentlayer": "0.1.2",
+    "contentlayer": "0.2.5",
     "github-slugger": "^1.3.0",
     "image-size": "1.0.0",
     "js-yaml": "4.1.0",
-    "next-contentlayer": "0.1.2",
+    "next-contentlayer": "0.2.5",
     "remark": "^14.0.2",
     "unist-util-visit": "^4.0.0"
   },
