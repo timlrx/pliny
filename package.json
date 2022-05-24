@@ -4,6 +4,8 @@
   "scripts": {
     "prepare": "husky install && cp -R node_modules/esbuild starter-blog/node_modules && cp -R node_modules/@oclif packages/cli/node_modules/@oclif",
     "build": "turbo run build --filter=!starter-blog",
+    "?build-publishable-release": "Workaround for changeset and workspace alias: https://github.com/changesets/changesets/issues/432",
+    "build-publishable-release": "turbo run build-publishable-release --filter=!starter-blog",
     "dev": "turbo run dev --parallel --no-cache --filter=!starter-blog",
     "build:starter": "turbo run build",
     "dev:starter": "turbo run dev --parallel --no-cache",
@@ -16,7 +18,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "prerelease": "yarn run build && yarn run test",
+    "prerelease": "yarn run build-publishable-release",
     "release": "changeset publish"
   },
   "repository": {
