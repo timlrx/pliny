@@ -33,6 +33,7 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .turbo
+/_release
 
 # ide's setting folder
 .vscode/

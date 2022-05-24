@@ -7,7 +7,9 @@
   "bin": "./bin/run",
   "scripts": {
     "dev": "tsup-node src/* --watch --no-splitting --format esm,cjs --dts --silent",
-    "build": "rimraf dist && tsup-node src/* --no-splitting --format esm,cjs --dts --silent"
+    "build": "rimraf dist && tsup-node src/* --no-splitting --format esm,cjs --dts --silent",
+    "?build-publishable-release": "When https://github.com/changesets/changesets/issues/432 is closed we can remove",
+    "build-publishable-release": "yarn build && rimraf ./_release && yarn pack && mkdir ./_release && tar zxvf ./package.tgz --directory ./_release && rm ./package.tgz"
   },
   "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",
   "main": "dist/index.js",
@@ -83,6 +85,7 @@
     "url": "https://github.com/timlrx/pliny"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "_release/package"
   }
 }
