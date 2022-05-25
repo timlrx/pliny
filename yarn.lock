@@ -2828,7 +2828,7 @@ __metadata:
     typescript: ^4.6.2
     v8-compile-cache: 2.3.0
   bin:
-    cli: ./bin/run
+    pliny: ./bin/run
   languageName: unknown
   linkType: soft
 
