@@ -18,7 +18,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "yarn build && yarn workspaces foreach --verbose --topological-dev --parallel --no-private npm publish --tolerate-republish && yarn changeset tag"
+    "release": "yarn run build && changeset publish"
   },
   "repository": {
     "type": "git",

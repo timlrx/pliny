@@ -27,7 +27,7 @@
     "@oclif/plugin-not-found": "2.3.1",
     "@oclif/plugin-plugins": "2.1.0",
     "@oclif/plugin-version": "1.0.4",
-    "@pliny/installer": "workspace:*",
+    "@pliny/installer": "^0.0.1-rc.4",
     "camelcase": "^6.2.0",
     "chalk": "^4.1.0",
     "console-table-printer": "^2.7.5",
