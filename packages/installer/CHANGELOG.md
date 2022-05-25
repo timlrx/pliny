@@ -1,5 +1,12 @@
 # @pliny/installer
 
+## 0.0.1-rc.5
+
+### Patch Changes
+
+- 264a96b: remove next/compiled and add packages as dependency
+- 5dbf7d1: remove build-publishable-release script
+
 ## 0.0.1-rc.4
 
 ### Patch Changes

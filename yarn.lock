@@ -3073,7 +3073,7 @@ __metadata:
     "@oclif/plugin-not-found": 2.3.1
     "@oclif/plugin-plugins": 2.1.0
     "@oclif/plugin-version": 1.0.4
-    "@pliny/installer": ^0.0.1-rc.4
+    "@pliny/installer": ^0.0.1-rc.5
     camelcase: ^6.2.0
     chalk: ^4.1.0
     console-table-printer: ^2.7.5
@@ -3122,7 +3122,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pliny/installer@^0.0.1-rc.4, @pliny/installer@workspace:packages/installer":
+"@pliny/installer@^0.0.1-rc.5, @pliny/installer@workspace:packages/installer":
   version: 0.0.0-use.local
   resolution: "@pliny/installer@workspace:packages/installer"
   dependencies:
@@ -12967,7 +12967,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pliny@^0.0.1-rc.5, pliny@workspace:packages/pliny":
+"pliny@^0.0.1-rc.6, pliny@workspace:packages/pliny":
   version: 0.0.0-use.local
   resolution: "pliny@workspace:packages/pliny"
   dependencies:
@@ -15228,7 +15228,7 @@ __metadata:
     next: 12.1.6
     next-contentlayer: 0.2.5
     next-themes: ^0.2.0
-    pliny: ^0.0.1-rc.5
+    pliny: ^0.0.1-rc.6
     postcss: ^8.4.5
     preact: ^10.6.2
     prettier: ^2.5.1
