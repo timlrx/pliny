@@ -1,5 +1,11 @@
 # @pliny/cli
 
+## 0.0.1-rc.5
+
+### Patch Changes
+
+- e046c07: fix cli settings
+
 ## 0.0.1-rc.4
 
 ### Patch Changes
