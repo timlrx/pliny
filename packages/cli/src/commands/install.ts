@@ -225,11 +225,6 @@ export class Install extends Command {
   }
 
   async run() {
-    const { setupTsnode } = await import('../utils/setup-ts-node')
-    // require('../utils/setup-ts-node').setupTsnode()
-    setupTsnode()
-    // await this.setupProxySupport()
-
     const { args, flags, argv } = await this.parse(Install)
     let selectedRecipe = args.recipe
     if (!selectedRecipe) {
