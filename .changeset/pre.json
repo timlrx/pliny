@@ -9,6 +9,7 @@
     "starter-blog": "0.0.1-rc.1"
   },
   "changesets": [
+    "famous-spoons-listen",
     "shiny-tips-beam",
     "soft-ears-fetch",
     "sour-cars-mix",
