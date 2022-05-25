@@ -1,6 +1,5 @@
 ---
 '@pliny/cli': patch
-'@pliny/config': patch
 '@pliny/installer': patch
 ---
 
