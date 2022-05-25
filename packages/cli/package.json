@@ -4,7 +4,9 @@
   "homepage": "https://github.com/timlrx/pliny",
   "version": "0.0.1-rc.4",
   "license": "MIT",
-  "bin": "./bin/run",
+  "bin": {
+    "pliny": "./bin/run"
+  },
   "scripts": {
     "dev": "tsup-node src/* --watch --no-splitting --format esm,cjs --dts --silent",
     "build": "rimraf dist && tsup-node src/* --no-splitting --format esm,cjs --dts --silent",
@@ -63,6 +65,7 @@
   "oclif": {
     "commands": "./dist/commands",
     "bin": "pliny",
+    "dirname": "pliny",
     "plugins": [
       "@oclif/plugin-help",
       "@oclif/plugin-not-found",
