@@ -1,5 +1,13 @@
 # @pliny/cli
 
+## 0.0.1-rc.9
+
+### Patch Changes
+
+- c78af92: bump all packages
+- Updated dependencies [c78af92]
+  - @pliny/installer@0.0.1-rc.4
+
 ## 0.0.1-rc.8
 
 ### Patch Changes
