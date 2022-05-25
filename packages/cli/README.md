@@ -5,7 +5,7 @@ Command-line utility for initializing a new pliny app, code generation, content 
 ## Installation
 
 ```bash
-npm i -g pliny
+npm i -g @pliny/cli
 ```
 
 ## Usage
@@ -18,10 +18,16 @@ Here are some examples of common commands:
 pliny new --template=starter-blog my-blog
 ```
 
-### Add a blog content type, "blog", to an existing Next.js application in a folder called "data"
+### Adding a blog page to an existing Next.js application:
 
 ```bash
 pliny install add-blog ContentDir=data ContentName=blog
+```
+
+### Add the blog-classic templates to the `layouts` folder:
+
+```bash
+pliny install add-classic
 ```
 
 ## Credits

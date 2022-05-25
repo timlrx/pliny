@@ -7,7 +7,7 @@ Pliny makes creating, editing and publishing markdown content easy and simple. I
 ## Installation
 
 ```bash
-npm i -g pliny
+npm i -g @pliny/cli
 ```
 
 ## Usage
@@ -20,10 +20,20 @@ Here are some examples of common commands:
 pliny new --template=starter-blog my-blog
 ```
 
-### Add a blog content type, "blog", to an existing Next.js application in a folder called "data"
+### Add a recipe
+
+Currently, there are 2 main types of recipes - scaffolding a content type e.g. the pages associated with a blog or adding templates to the `layouts` folder. As a convention, recipes to scaffold are in the form of `add-[content type]` while layouts are in the form of `[content type]-[theme]`.
+
+Adding a blog page to an existing Next.js application:
 
 ```bash
 pliny install add-blog ContentDir=data ContentName=blog
+```
+
+Add the blog-classic templates to the `layouts` folder:
+
+```bash
+pliny install add-classic
 ```
 
 ## Features
