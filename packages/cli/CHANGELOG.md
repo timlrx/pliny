@@ -1,5 +1,11 @@
 # @pliny/cli
 
+## 0.0.1-rc.7
+
+### Patch Changes
+
+- bda93d3: add oclif manifest
+
 ## 0.0.1-rc.6
 
 ### Patch Changes
