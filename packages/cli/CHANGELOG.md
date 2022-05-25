@@ -1,5 +1,11 @@
 # @pliny/cli
 
+## 0.0.1-rc.10
+
+### Patch Changes
+
+- d1680a8: fix workspace dependency
+
 ## 0.0.1-rc.9
 
 ### Patch Changes
