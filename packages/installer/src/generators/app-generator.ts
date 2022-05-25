@@ -1,6 +1,7 @@
 import { resolve, join } from 'path'
 import chalk from 'chalk'
 import spawn from 'cross-spawn'
+import process from 'process'
 import * as fs from 'fs-extra'
 import { log } from '../logging'
 import { Generator, GeneratorOptions, SourceRootType } from '../generator'
@@ -73,6 +74,7 @@ export class AppGenerator extends Generator<AppGeneratorOptions> {
     }
 
     const formattingSpinner = log.spinner(log.withBrand('Formatting your code')).start()
+    process.chdir(this.targetDirectory)
     const prettierResult = runLocalNodeCLI('prettier --loglevel silent --write .')
     if (prettierResult.status !== 0) {
       formattingSpinner.fail(
