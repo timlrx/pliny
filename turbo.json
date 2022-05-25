@@ -7,7 +7,7 @@
       "outputs": ["dist/**", ".next/**"]
     },
     "build-publishable-release": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build-publishable-release"],
       "outputs": ["dist/**", ".next/**"]
     },
     "lint": {
