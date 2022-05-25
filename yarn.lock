@@ -3081,6 +3081,7 @@ __metadata:
     dotenv-expand: ^5.1.0
     enquirer: 2.3.6
     esm: 3.2.25
+    find-up: 5.0.0
     fs-extra: ^9.1.0
     global-agent: 2.2.0
     got: ^11.8.1
@@ -3089,6 +3090,7 @@ __metadata:
     minimist: 1.2.5
     nock: 13.0.6
     oclif: ^3
+    ora: 5.4.1
     p-event: 4.2.0
     pkg-dir: ^5.0.0
     pluralize: ^8.0.0
@@ -3140,6 +3142,7 @@ __metadata:
     jscodeshift: 0.13.1
     mem-fs: 2.2.0
     mem-fs-editor: 9.4.0
+    ora: 5.4.1
     pluralize: ^8.0.0
     recast: 0.20.5
     rimraf: ^3.0.2
@@ -7774,6 +7777,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"find-up@npm:5.0.0, find-up@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "find-up@npm:5.0.0"
+  dependencies:
+    locate-path: ^6.0.0
+    path-exists: ^4.0.0
+  checksum: 07955e357348f34660bde7920783204ff5a26ac2cafcaa28bace494027158a97b9f56faaf2d89a6106211a8174db650dd9f503f9c0d526b1202d5554a00b9095
+  languageName: node
+  linkType: hard
+
 "find-up@npm:^2.1.0":
   version: 2.1.0
   resolution: "find-up@npm:2.1.0"
@@ -7799,16 +7812,6 @@ __metadata:
     locate-path: ^5.0.0
     path-exists: ^4.0.0
   checksum: 4c172680e8f8c1f78839486e14a43ef82e9decd0e74145f40707cc42e7420506d5ec92d9a11c22bd2c48fb0c384ea05dd30e10dd152fefeec6f2f75282a8b844
-  languageName: node
-  linkType: hard
-
-"find-up@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "find-up@npm:5.0.0"
-  dependencies:
-    locate-path: ^6.0.0
-    path-exists: ^4.0.0
-  checksum: 07955e357348f34660bde7920783204ff5a26ac2cafcaa28bace494027158a97b9f56faaf2d89a6106211a8174db650dd9f503f9c0d526b1202d5554a00b9095
   languageName: node
   linkType: hard
 
@@ -12493,7 +12496,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ora@npm:^5.4.1":
+"ora@npm:5.4.1, ora@npm:^5.4.1":
   version: 5.4.1
   resolution: "ora@npm:5.4.1"
   dependencies:

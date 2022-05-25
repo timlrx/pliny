@@ -40,6 +40,7 @@
     "jscodeshift": "0.13.1",
     "mem-fs": "2.2.0",
     "mem-fs-editor": "9.4.0",
+    "ora": "5.4.1",
     "pluralize": "^8.0.0",
     "recast": "0.20.5",
     "rimraf": "^3.0.2",

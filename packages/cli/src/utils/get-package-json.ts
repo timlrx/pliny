@@ -1,9 +1,10 @@
 import { existsSync } from 'fs'
 import path, { join, dirname } from 'path'
 import { readJSON } from 'fs-extra'
-import findUp from 'next/dist/compiled/find-up'
-import { CONFIG_FILES } from 'next/dist/shared/lib/constants'
+import findUp from 'find-up'
 // import {getProjectRoot} from "next/dist/server/lib/utils"
+
+const CONFIG_FILES = ['next.config.js', 'next.config.mjs']
 
 export async function getProjectRoot(dir: string) {
   const builtConfigPath = await findUp(CONFIG_FILES, { cwd: dir })
