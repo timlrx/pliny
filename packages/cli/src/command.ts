@@ -1,5 +1,5 @@
 import { Command as OclifCommand } from '@oclif/core'
-const Enquirer = require('enquirer')
+import Enquirer from 'enquirer'
 
 export abstract class Command extends OclifCommand {
   protected enquirer = new Enquirer()
