@@ -1,5 +1,11 @@
 # @pliny/installer
 
+## 0.0.1-rc.6
+
+### Patch Changes
+
+- 5d0eb8d: run prettier only on target directory
+
 ## 0.0.1-rc.5
 
 ### Patch Changes
