@@ -84,7 +84,6 @@
     "url": "https://github.com/timlrx/pliny"
   },
   "publishConfig": {
-    "access": "public",
-    "directory": "_release/package"
+    "access": "public"
   }
 }
