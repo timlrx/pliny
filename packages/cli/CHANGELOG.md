@@ -1,5 +1,11 @@
 # @pliny/cli
 
+## 0.0.1-rc.4
+
+### Patch Changes
+
+- ada87e8: fix github action release to work with yarn workspaces
+
 ## 0.0.1-rc.3
 
 ### Patch Changes
