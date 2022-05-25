@@ -9,9 +9,7 @@
   },
   "scripts": {
     "dev": "tsup-node src/* --watch --no-splitting --format esm,cjs --dts --silent",
-    "build": "rimraf dist && tsup-node src/* --no-splitting --format esm,cjs --dts --silent && oclif manifest",
-    "?build-publishable-release": "When https://github.com/changesets/changesets/issues/432 is closed we can remove",
-    "build-publishable-release": "yarn build && rimraf ./_release && yarn pack && mkdir ./_release && tar zxvf ./package.tgz --directory ./_release && rm ./package.tgz"
+    "build": "rimraf dist && tsup-node src/* --no-splitting --format esm,cjs --dts --silent && oclif manifest"
   },
   "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",
   "main": "dist/index.js",
@@ -27,7 +25,7 @@
     "@oclif/plugin-not-found": "2.3.1",
     "@oclif/plugin-plugins": "2.1.0",
     "@oclif/plugin-version": "1.0.4",
-    "@pliny/installer": "^0.0.1-rc.4",
+    "@pliny/installer": "^0.0.1-rc.5",
     "camelcase": "^6.2.0",
     "chalk": "^4.1.0",
     "console-table-printer": "^2.7.5",

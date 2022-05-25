@@ -6,9 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "tsup-node src/* --watch --no-splitting --format esm,cjs --dts --silent",
-    "build": "rimraf dist && tsup-node src/* --no-splitting --format esm,cjs --dts --silent",
-    "?build-publishable-release": "When https://github.com/changesets/changesets/issues/432 is closed we can remove",
-    "build-publishable-release": "yarn build"
+    "build": "rimraf dist && tsup-node src/* --no-splitting --format esm,cjs --dts --silent"
   },
   "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",
   "main": "dist/index.js",
