@@ -1,5 +1,11 @@
 # @pliny/cli
 
+## 0.0.1-rc.6
+
+### Patch Changes
+
+- 2e1ff11: remove ts-node
+
 ## 0.0.1-rc.5
 
 ### Patch Changes
