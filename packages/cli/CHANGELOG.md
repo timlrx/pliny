@@ -1,5 +1,11 @@
 # @pliny/cli
 
+## 0.0.1-rc.12
+
+### Patch Changes
+
+- d6b4070: add test for generator
+
 ## 0.0.1-rc.11
 
 ### Patch Changes
