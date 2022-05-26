@@ -8,9 +8,8 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-
- test:
-    test:
+  test:
+    name: Unit Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,7 +22,7 @@ jobs:
         run: yarn build
       - name: Run unit tests
         run: yarn test
-      
+
   release:
     name: Release
     runs-on: ubuntu-latest
