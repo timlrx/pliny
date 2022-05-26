@@ -1,6 +1,6 @@
 export * from './recipe-executor'
 export * from './recipe-builder'
-export * from './generator'
+export * from './generators/generator'
 export * from './generators/app-generator'
 export * from './executors/executor'
 export { type as AddDependencyType } from './executors/add-dependency-executor'

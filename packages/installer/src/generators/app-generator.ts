@@ -4,7 +4,7 @@ import spawn from 'cross-spawn'
 import process from 'process'
 import * as fs from 'fs-extra'
 import { log } from '../logging'
-import { Generator, GeneratorOptions, SourceRootType } from '../generator'
+import { Generator, GeneratorOptions, SourceRootType } from './generator'
 
 export interface AppGeneratorOptions extends GeneratorOptions {
   templateRoot: string

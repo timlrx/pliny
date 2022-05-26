@@ -1,4 +1,4 @@
-import { Generator, GeneratorOptions, SourceRootType } from '../generator'
+import { Generator, GeneratorOptions, SourceRootType } from '../generators/generator'
 import { Box, Text } from 'ink'
 import { useEffect, useState } from 'react'
 import * as React from 'react'

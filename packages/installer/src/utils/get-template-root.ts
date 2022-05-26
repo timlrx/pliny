@@ -1,7 +1,7 @@
 import fs from 'fs'
 import { baseLogger } from '../logging'
 import * as path from 'path'
-import { SourceRootType } from '../generator'
+import { SourceRootType } from '../generators/generator'
 
 export const getTemplateRoot = (
   templateDir: string | undefined,
