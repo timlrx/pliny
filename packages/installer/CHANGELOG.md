@@ -1,5 +1,11 @@
 # @pliny/installer
 
+## 0.0.1-rc.7
+
+### Patch Changes
+
+- cd6305d: add missing react dependency for installer
+
 ## 0.0.1-rc.6
 
 ### Patch Changes
