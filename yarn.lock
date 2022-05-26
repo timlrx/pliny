@@ -3144,6 +3144,7 @@ __metadata:
     mem-fs-editor: 9.4.0
     ora: 5.4.1
     pluralize: ^8.0.0
+    react: 17.0.2
     recast: 0.20.5
     rimraf: ^3.0.2
     tsup: 5.12.0
