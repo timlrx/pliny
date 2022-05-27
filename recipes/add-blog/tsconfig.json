@@ -13,7 +13,7 @@
   "extends": "@pliny/config/tsconfig.base.json",
   "references": [
     {
-      "path": "../../starter-blog"
+      "path": "../../starter-blog/tsconfig.recipe.json"
     }
   ],
   "include": ["**/*.ts", "**/*.tsx"]

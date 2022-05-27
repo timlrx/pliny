@@ -38,9 +38,10 @@ export class AppGenerator extends Generator<AppGeneratorOptions> {
         'jest.config.ts',
         'package.ts.json',
         'types.ts',
+        'tsconfig.recipe.json',
       ]
     }
-    return ['jsconfig.json', 'jest.config.js', 'package.js.json']
+    return ['jsconfig.json', 'jest.config.js', 'package.js.json', 'tsconfig.recipe.json']
   }
 
   getTemplateValues() {

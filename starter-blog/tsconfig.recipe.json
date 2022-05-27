@@ -1,3 +1,5 @@
+// Needed to resolve path reference to type check recipes
+// Can be deleted if you are cloning the app
 {
   "compilerOptions": {
     "incremental": true,
@@ -7,7 +9,7 @@
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
+    "emitDeclarationOnly": true,
     "composite": true,
     "esModuleInterop": true,
     "module": "esnext",
