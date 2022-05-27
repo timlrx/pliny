@@ -43,6 +43,7 @@
     "react": "17.0.2",
     "recast": "0.20.5",
     "rimraf": "^3.0.2",
+    "tslog": "^3.1.1",
     "vinyl": "2.2.1"
   },
   "devDependencies": {
