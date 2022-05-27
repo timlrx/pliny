@@ -4,6 +4,7 @@
   "description": "Recipe for deploying to render.com",
   "private": true,
   "main": "index.ts",
+  "type": "module",
   "scripts": {
     "test": "echo \"No tests yet\""
   },

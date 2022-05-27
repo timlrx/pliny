@@ -4,6 +4,7 @@
   "description": "The Recipe for generating a blog page",
   "private": true,
   "main": "index.ts",
+  "type": "module",
   "scripts": {
     "test": "echo \"No tests yet\""
   },

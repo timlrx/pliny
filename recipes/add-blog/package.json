@@ -4,6 +4,7 @@
   "description": "The Recipe for adding new content type",
   "private": true,
   "main": "index.ts",
+  "type": "module",
   "scripts": {
     "test": "echo \"No tests yet\""
   },
