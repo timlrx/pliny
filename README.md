@@ -33,7 +33,7 @@ pliny install add-blog ContentDir=data ContentName=blog
 Add the blog-classic templates to the `layouts` folder:
 
 ```bash
-pliny install add-classic
+pliny install blog-classic
 ```
 
 ## Features

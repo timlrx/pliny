@@ -20,7 +20,7 @@ describe('`install` command', () => {
   it('properly parses remote installer args', () => {
     const normalizePath = Install.prototype.normalizeRecipePath
     expect(normalizePath('test-installer')).toEqual({
-      path: 'https://github.com/timlrx/pliny/',
+      path: 'https://github.com/timlrx/pliny',
       subdirectory: 'recipes/test-installer',
       location: RecipeLocation.Remote,
     })
@@ -34,32 +34,10 @@ describe('`install` command', () => {
     })
   })
 
-  // // TODO: update official list
-  // it('list of official recipes', async () => {
-  //   const recipeList = await Install.prototype.getOfficialRecipeList()
+  it('list of official recipes', async () => {
+    const recipeList = await Install.prototype.getOfficialRecipeList()
 
-  //   expect(recipeList).toEqual(
-  //     expect.arrayContaining([
-  //       'base-web',
-  //       'bumbag-ui',
-  //       'chakra-ui',
-  //       'emotion',
-  //       'gh-action-yarn-mariadb',
-  //       'gh-action-yarn-postgres',
-  //       'ghost',
-  //       'graphql-apollo-server',
-  //       'logrocket',
-  //       'material-ui',
-  //       'quirrel',
-  //       'reflexjs',
-  //       'render',
-  //       'secureheaders',
-  //       'stitches',
-  //       'styled-components',
-  //       'tailwind',
-  //       'theme-ui',
-  //     ])
-  //   )
-  //   expect(recipeList).toEqual(expect.not.arrayContaining(['tsconfig.json']))
-  // }, 10000)
+    expect(recipeList).toEqual(expect.arrayContaining(['add-blog', 'blog-classic', 'render']))
+    expect(recipeList).toEqual(expect.not.arrayContaining(['tsconfig.json']))
+  }, 10000)
 })

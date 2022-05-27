@@ -52,7 +52,7 @@ function checkLockFileExists(filename: string) {
 }
 
 const GH_ROOT = 'https://github.com/'
-const REPO_ROOT = `${GH_ROOT}timlrx/pliny/`
+const REPO_ROOT = `${GH_ROOT}timlrx/pliny`
 const API_ROOT = 'https://api.github.com/repos/'
 const RAW_ROOT = 'https://raw.githubusercontent.com/'
 const CODE_ROOT = 'https://codeload.github.com/'
@@ -154,7 +154,7 @@ export class Install extends Command {
   }
 
   async getOfficialRecipeList(): Promise<string[]> {
-    return await gotJSON(`${REPO_ROOT}git/trees/canary?recursive=1`).then(
+    return await gotJSON(`${API_ROOT}timlrx/pliny/git/trees/main?recursive=1`).then(
       (release: GithubRepoAPITrees) =>
         release.tree.reduce((recipesList: string[], item) => {
           const filePath = item.path.split('/')
@@ -275,9 +275,9 @@ export class Install extends Command {
         console.log(`${chalk.bold('Please provide one of the following:')}
 
 1. The name of a recipe to install (e.g. "blog-classic")
-   ${chalk.dim(`- Available recipes listed at ${REPO_ROOT}tree/main/recipes`)}
+   ${chalk.dim(`- Available recipes listed at ${REPO_ROOT}/tree/main/recipes`)}
 2. The full name of a GitHub repository (e.g. "blitz-js/example-recipe"),
-3. A full URL to a Github repository (e.g. "https://github.com/blitz-js/example-recipe"), or
+3. A full URL to a Github repository (e.g. "https://github.com/timlrx/pliny/example-recipe"), or
 4. A file path to a locally-written recipe.\n`)
         process.exit(1)
       } else {
