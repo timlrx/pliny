@@ -1,5 +1,11 @@
 # @pliny/installer
 
+## 0.0.1-rc.9
+
+### Patch Changes
+
+- 280b889: add missing tslog to dependency
+
 ## 0.0.1-rc.8
 
 ### Patch Changes
