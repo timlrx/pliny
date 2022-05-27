@@ -1,5 +1,11 @@
 # @pliny/cli
 
+## 0.0.1-rc.14
+
+### Patch Changes
+
+- 91ed686: fix install scripts
+
 ## 0.0.1-rc.13
 
 ### Patch Changes
