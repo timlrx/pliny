@@ -1,5 +1,11 @@
 # @pliny/installer
 
+## 0.0.1-rc.8
+
+### Patch Changes
+
+- d78d04f: create separate tsconfig to resolve recipes
+
 ## 0.0.1-rc.7
 
 ### Patch Changes

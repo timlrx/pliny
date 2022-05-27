@@ -1,5 +1,13 @@
 # @pliny/cli
 
+## 0.0.1-rc.15
+
+### Patch Changes
+
+- 168752d: add back ts-node
+- Updated dependencies [d78d04f]
+  - @pliny/installer@0.0.1-rc.8
+
 ## 0.0.1-rc.14
 
 ### Patch Changes
