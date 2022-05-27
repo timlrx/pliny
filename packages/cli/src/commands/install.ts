@@ -5,6 +5,7 @@ import { baseLogger, log } from '../logging'
 import { join, resolve } from 'path'
 import { Stream } from 'stream'
 import { promisify } from 'util'
+import { setupTsnode } from '../utils/setup-ts-node'
 import { Command } from '../command'
 const debug = require('debug')('pliny:install')
 
@@ -219,13 +220,13 @@ export class Install extends Command {
   ) {
     const recipeModule = await import(recipePath)
     const recipe = recipeModule.default as RecipeExecutor<any>
-    // const recipe = require(recipePath).default as RecipeExecutor<any>
 
     await recipe.run(...runArgs)
   }
 
   async run() {
     const { args, flags, argv } = await this.parse(Install)
+    setupTsnode()
     let selectedRecipe = args.recipe
     if (!selectedRecipe) {
       const officialRecipeList = await this.getOfficialRecipeList()
