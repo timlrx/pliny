@@ -120,7 +120,7 @@ export class New extends Command {
   }
 
   private async determineLanguage(flags: Flags): Promise<void> {
-    if (flags.ts) {
+    if ('ts' in flags) {
       this.useTs = flags.ts
     } else {
       const { language } = (await this.enquirer.prompt({

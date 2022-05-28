@@ -65,11 +65,10 @@ export class AppGenerator extends Generator<AppGeneratorOptions> {
   async postWrite() {
     const runLocalNodeCLI = (command: string) => {
       const { pkgManager } = this
-      if (pkgManager === 'yarn') {
-        return spawn.sync('yarn', ['run', ...command.split(' ')])
-      } else if (pkgManager === 'pnpm') {
+      if (pkgManager === 'pnpm') {
         return spawn.sync('pnpx', command.split(' '))
       } else {
+        // use npx for yarn
         return spawn.sync('npx', command.split(' '))
       }
     }
