@@ -1,5 +1,11 @@
 # @pliny/installer
 
+## 0.0.1-rc.10
+
+### Patch Changes
+
+- e1d9346: add console-table-printer to dependency
+
 ## 0.0.1-rc.9
 
 ### Patch Changes
