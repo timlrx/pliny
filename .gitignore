@@ -34,6 +34,7 @@ yarn-error.log*
 lerna-debug.log*
 .turbo
 /_release
+oclif.manifest.json
 
 # ide's setting folder
 .vscode/
