@@ -3092,7 +3092,7 @@ __metadata:
     "@oclif/plugin-not-found": 2.3.1
     "@oclif/plugin-plugins": 2.1.0
     "@oclif/plugin-version": 1.0.4
-    "@pliny/installer": ^0.0.1-rc.8
+    "@pliny/installer": ^0.0.1-rc.11
     camelcase: ^6.2.0
     chalk: ^4.1.0
     console-table-printer: ^2.7.5
@@ -3142,7 +3142,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pliny/installer@^0.0.1-rc.8, @pliny/installer@workspace:packages/installer":
+"@pliny/installer@^0.0.1-rc.11, @pliny/installer@workspace:packages/installer":
   version: 0.0.0-use.local
   resolution: "@pliny/installer@workspace:packages/installer"
   dependencies:

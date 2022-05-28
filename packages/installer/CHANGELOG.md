@@ -1,5 +1,11 @@
 # @pliny/installer
 
+## 0.0.1-rc.11
+
+### Patch Changes
+
+- eb3b192: fix detecting ts flag and use npx for yarn
+
 ## 0.0.1-rc.10
 
 ### Patch Changes
