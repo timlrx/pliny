@@ -1,7 +1,6 @@
 import { expect, describe, it } from 'vitest'
-import { findImports, findContentlayerDefineDocumentType } from '@pliny/installer'
+import { findImports, findMakeSource, findContentlayerDefineDocument } from '@pliny/installer'
 import j from 'jscodeshift'
-import type { Options as RecastOptions } from 'recast'
 
 describe('find imports', () => {
   it('single import', () => {
@@ -22,19 +21,31 @@ describe('find imports', () => {
   })
 })
 
+describe('find makeSource', () => {
+  it('default export of makeSource', () => {
+    const file = `      
+      export default makeSource({
+        /* options */
+      })
+    `
+    const output = findMakeSource(j(file))
+    expect(output.length).toBe(1)
+  })
+})
+
 describe('find defineDocumentType', () => {
   it('variable declaration', () => {
     const file = `
       const Blog = defineDocumentType(() => ({}))
     `
-    const output = findContentlayerDefineDocumentType(j(file))
+    const output = findContentlayerDefineDocument(j(file))
     expect(output.length).toBe(1)
   })
   it('export named declaration', () => {
     const file = `
       export const Blog = defineDocumentType(() => ({}))
     `
-    const output = findContentlayerDefineDocumentType(j(file))
+    const output = findContentlayerDefineDocument(j(file))
     expect(output.length).toBe(1)
   })
   it('variable declaration and export named declaration', () => {
@@ -42,7 +53,7 @@ describe('find defineDocumentType', () => {
       export const Blog = defineDocumentType(() => ({}))
       const Blog2 = defineDocumentType(() => ({}))
     `
-    const output = findContentlayerDefineDocumentType(j(file))
+    const output = findContentlayerDefineDocument(j(file))
     expect(output.length).toBe(2)
   })
 })

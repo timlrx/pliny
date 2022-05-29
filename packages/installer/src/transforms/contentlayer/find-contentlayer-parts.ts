@@ -5,8 +5,13 @@ export const findImports = (program: Program) => {
   return program.find(j.ImportDeclaration).paths()
 }
 
-export const findContentlayerDefineDocumentType = (program: Program) => {
-  const defineDocumentType = program.find(j.VariableDeclaration).filter((path) => {
+export const findMakeSource = (program: Program) => {
+  // In contentlayer make source should always be default exported
+  return program.find(j.ExportDefaultDeclaration).paths()
+}
+
+export const findContentlayerDefineDocument = (program: Program) => {
+  const defineDocument = program.find(j.VariableDeclaration).filter((path) => {
     const firstInnerDeclaration = path.value.declarations[0]
     let status = false
     // path.name is a number if it contains an array i.e. a body node
@@ -21,7 +26,7 @@ export const findContentlayerDefineDocumentType = (program: Program) => {
     }
     return status
   })
-  const exportedDefineDocumentType = program.find(j.ExportNamedDeclaration).filter((path) => {
+  const exportedDefineDocument = program.find(j.ExportNamedDeclaration).filter((path) => {
     const declaration = path.value.declaration
     let status = false
     if (declaration.type == 'VariableDeclaration' && declaration.declarations) {
@@ -38,6 +43,6 @@ export const findContentlayerDefineDocumentType = (program: Program) => {
     }
     return status
   })
-  const allPaths = [...defineDocumentType.paths(), ...exportedDefineDocumentType.paths()]
+  const allPaths = [...defineDocument.paths(), ...exportedDefineDocument.paths()]
   return allPaths
 }
