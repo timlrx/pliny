@@ -32,6 +32,9 @@ export const paths = {
   blitzConfig() {
     return `blitz.config${ext()}`
   },
+  contentlayerConfig() {
+    return `contentlayer.config${ext()}`
+  },
   nextConfig() {
     return `next.config.js`
   },
