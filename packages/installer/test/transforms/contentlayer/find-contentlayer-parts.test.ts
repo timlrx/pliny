@@ -1,5 +1,10 @@
 import { expect, describe, it } from 'vitest'
-import { findImports, findMakeSource, findContentlayerDefineDocument } from '@pliny/installer'
+import {
+  findImports,
+  findMakeSource,
+  findContentlayerDefineDocument,
+  findContentlayerParts,
+} from '@pliny/installer'
 import j from 'jscodeshift'
 
 describe('find imports', () => {
@@ -55,5 +60,25 @@ describe('find defineDocumentType', () => {
     `
     const output = findContentlayerDefineDocument(j(file))
     expect(output.length).toBe(2)
+  })
+})
+
+describe('find defineDocumentType', () => {
+  it('variable declaration', () => {
+    const file = `
+      import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+      import rehypeCitation from 'rehype-citation'
+  
+      const Blog = defineDocumentType(() => ({}))
+      export const Author = defineDocumentType(() => ({}))
+  
+      export default makeSource({
+        /* options */
+      })
+    `
+    const output = findContentlayerParts(j(file))
+    expect(output.imports.length).toBe(2)
+    expect(output.defineDocument.length).toBe(2)
+    expect(output.makeSource.length).toBe(1)
   })
 })

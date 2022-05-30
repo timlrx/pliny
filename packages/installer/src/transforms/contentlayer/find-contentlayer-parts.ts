@@ -46,3 +46,12 @@ export const findContentlayerDefineDocument = (program: Program) => {
   const allPaths = [...defineDocument.paths(), ...exportedDefineDocument.paths()]
   return allPaths
 }
+
+export const findContentlayerParts = (program: Program) => {
+  const contentlayerParts = {
+    imports: findImports(program),
+    defineDocument: findContentlayerDefineDocument(program),
+    makeSource: findMakeSource(program),
+  }
+  return contentlayerParts
+}
