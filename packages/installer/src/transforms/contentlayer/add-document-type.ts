@@ -51,5 +51,23 @@ export function addDocumentType(
   } else {
     throw new Error('Expect contentlayer config file to have imports')
   }
+
+  // export default makeSource({
+  //   contentDirPath: 'data',
+  //   documentTypes: [Blog, Authors],
+  // })
+
+  // Add variableName to documentTypes array in makeSource
+  const documentTypesField = j(makeSource).find(j.Identifier, { name: 'documentTypes' })
+
+  if (documentTypesField.length) {
+    documentTypesField.forEach((p) => {
+      const arr = p.parentPath.value.value
+      arr.elements.push(variableName)
+    })
+  } else {
+    throw new Error('Expect contentlayer makeSource to have documentType field with an array')
+  }
+
   return program
 }

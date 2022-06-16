@@ -24,6 +24,7 @@ exports[`contentlayer addDocumentType transform > should be inserted after impor
       }));
 
       export default makeSource({
+        documentTypes: [Blog],
         /* options */
       })
     "
@@ -56,6 +57,7 @@ exports[`contentlayer addDocumentType transform > should be inserted after other
       }));
 
       export default makeSource({
+        documentTypes: [Blog],
         /* options */
       })
     "

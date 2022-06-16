@@ -17,10 +17,11 @@ describe('contentlayer addDocumentType transform', () => {
       import { defineDocumentType, makeSource } from 'contentlayer/source-files'
       import rehypeCitation from 'rehype-citation'
   
-      const Blog = defineDocumentType(() => ({}))
+      const Blog = defineDocumentType(() => ({})) 
       export const Author = defineDocumentType(() => ({}))
   
       export default makeSource({
+        documentTypes: [],
         /* options */
       })
     `
@@ -39,11 +40,12 @@ describe('contentlayer addDocumentType transform', () => {
   })
 
   it('should be inserted after imports if no other defineDocumentType', () => {
-    const file = `
+    const file2 = `
       import { defineDocumentType, makeSource } from 'contentlayer/source-files'
       import rehypeCitation from 'rehype-citation'
-  
+
       export default makeSource({
+        documentTypes: [],
         /* options */
       })
     `
@@ -56,7 +58,7 @@ describe('contentlayer addDocumentType transform', () => {
         date: { type: 'date', required: true },
       },
     }
-    const program = addDocumentType(j(file), 'Blog', newDocumentType)
+    const program = addDocumentType(j(file2), 'Blog', newDocumentType)
 
     expect(program.toSource(recastOptions)).toMatchSnapshot()
   })
