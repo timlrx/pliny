@@ -34,6 +34,7 @@ describe('contentlayer addDocumentType transform', () => {
         date: { type: 'date', required: true },
       },
     }
+    // @ts-ignore
     const program = addDocumentType(j(file), 'Blog', newDocumentType)
 
     expect(program.toSource(recastOptions)).toMatchSnapshot()
@@ -58,6 +59,7 @@ describe('contentlayer addDocumentType transform', () => {
         date: { type: 'date', required: true },
       },
     }
+    // @ts-ignore
     const program = addDocumentType(j(file2), 'Blog', newDocumentType)
 
     expect(program.toSource(recastOptions)).toMatchSnapshot()
