@@ -27,7 +27,7 @@ Currently, there are 2 main types of recipes - scaffolding a content type e.g. t
 Adding a blog page to an existing Next.js application:
 
 ```bash
-pliny install add-blog ContentDir=data ContentName=blog
+pliny install add-blog ContentDir=data ContentName=Blog
 ```
 
 Add the blog-classic templates to the `layouts` folder:

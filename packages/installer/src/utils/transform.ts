@@ -2,7 +2,7 @@ import * as fs from 'fs-extra'
 import j from 'jscodeshift'
 import getBabelOptions, { Overrides } from 'recast/parsers/_babel_options'
 import * as babel from 'recast/parsers/babel'
-import { Program } from '../types'
+import { Program, RecipeCLIArgs } from '../types'
 
 export const customTsParser = {
   parse(source: string, options?: Overrides) {
@@ -23,19 +23,27 @@ export interface TransformResult {
   error?: Error
 }
 
-export type StringTransformer = (program: string) => string | Promise<string>
-export type Transformer = (program: Program) => Program | Promise<Program>
+export type StringTransformer = (
+  program: string,
+  cliArgs?: RecipeCLIArgs
+) => string | Promise<string>
+export type Transformer = (program: Program, cliArgs?: RecipeCLIArgs) => Program | Promise<Program>
 
 export function stringProcessFile(
   original: string,
-  transformerFn: StringTransformer
+  transformerFn: StringTransformer,
+  cliArgs?: RecipeCLIArgs
 ): string | Promise<string> {
-  return transformerFn(original)
+  return transformerFn(original, cliArgs)
 }
 
-export async function processFile(original: string, transformerFn: Transformer): Promise<string> {
+export async function processFile(
+  original: string,
+  transformerFn: Transformer,
+  cliArgs?: RecipeCLIArgs
+): Promise<string> {
   const program = j(original, { parser: customTsParser })
-  return (await transformerFn(program)).toSource()
+  return (await transformerFn(program, cliArgs)).toSource()
 }
 
 export async function transform(

@@ -20,6 +20,7 @@ describe('path utils', () => {
     expect(paths.blitzConfig()).toBe('blitz.config.ts')
     expect(paths.babelConfig()).toBe('babel.config.js')
     expect(paths.nextConfig()).toBe('next.config.js')
+    expect(paths.contentlayerConfig()).toBe('contentlayer.config.ts')
   })
 
   // SKIP test because the fs mock is failing on windows
@@ -35,5 +36,6 @@ describe('path utils', () => {
     expect(paths.blitzConfig()).toBe('blitz.config.js')
     expect(paths.babelConfig()).toBe('babel.config.js')
     expect(paths.nextConfig()).toBe('next.config.js')
+    expect(paths.contentlayerConfig()).toBe('contentlayer.config.js')
   })
 })
