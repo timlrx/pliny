@@ -22,7 +22,7 @@ const jsonValueToExpression = (value: JsonValue): ExpressionKind =>
           )
       )
 
-export function addDocumentType(
+export function addContentlayerDocumentType(
   program: Program,
   variableName: string,
   documentTypeDef: JsonValue

@@ -17,6 +17,7 @@ import { useEnterToContinue } from '../utils/use-enter-to-continue'
 import { useUserInput } from '../utils/use-user-input'
 import { Executor, executorArgument, ExecutorConfig, getExecutorArgument } from './executor'
 import { filePrompt } from './file-prompt'
+const debug = require('debug')('pliny:installer')
 
 export interface Config extends ExecutorConfig {
   selectTargetFiles?(cliArgs: RecipeCLIArgs): any[]
@@ -55,8 +56,8 @@ export const Propose: Executor['Propose'] = ({ cliArgs, cliFlags, onProposalAcce
       setFilePath(fileToTransform)
       const originalFile = fs.readFileSync(fileToTransform).toString('utf-8')
       const newFile = await ((step as Config).transformPlain
-        ? stringProcessFile(originalFile, (step as Config).transformPlain!)
-        : processFile(originalFile, (step as Config).transform!))
+        ? stringProcessFile(originalFile, (step as Config).transformPlain, cliArgs)
+        : processFile(originalFile, (step as Config).transform, cliArgs))
       return createPatch(fileToTransform, originalFile, newFile)
     }
 
@@ -102,7 +103,7 @@ const Diff = ({ diff }: { diff: string }) => (
       .split('\n')
       .slice(2)
       .map((line, idx) => {
-        let styleProps: any = {}
+        const styleProps: any = {}
         if (line.startsWith('-') && !line.startsWith('---')) {
           styleProps.bold = true
           styleProps.color = 'red'
@@ -154,14 +155,20 @@ const ProposeWithoutInput = ({
   )
 }
 
-export const Commit: Executor['Commit'] = ({ onChangeCommitted, proposalData: filePath, step }) => {
+export const Commit: Executor['Commit'] = ({
+  onChangeCommitted,
+  proposalData: filePath,
+  step,
+  cliArgs,
+}) => {
+  debug(cliArgs)
   React.useEffect(() => {
     void (async function () {
       const results = await transform(
         async (original) =>
           await ((step as Config).transformPlain
-            ? stringProcessFile(original, (step as Config).transformPlain!)
-            : processFile(original, (step as Config).transform!)),
+            ? stringProcessFile(original, (step as Config).transformPlain, cliArgs)
+            : processFile(original, (step as Config).transform, cliArgs)),
         [filePath]
       )
       if (results.some((r) => r.status === TransformStatus.Failure)) {

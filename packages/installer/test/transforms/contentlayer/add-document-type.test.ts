@@ -1,5 +1,5 @@
 import { expect, describe, it } from 'vitest'
-import { addDocumentType } from '@pliny/installer'
+import { addContentlayerDocumentType } from '@pliny/installer'
 import type { DocumentTypeDef } from 'contentlayer/source-files'
 import type { Options as RecastOptions } from 'recast'
 import j from 'jscodeshift'
@@ -35,7 +35,7 @@ describe('contentlayer addDocumentType transform', () => {
       },
     }
     // @ts-ignore
-    const program = addDocumentType(j(file), 'Blog', newDocumentType)
+    const program = addContentlayerDocumentType(j(file), 'Blog', newDocumentType)
 
     expect(program.toSource(recastOptions)).toMatchSnapshot()
   })
@@ -60,7 +60,7 @@ describe('contentlayer addDocumentType transform', () => {
       },
     }
     // @ts-ignore
-    const program = addDocumentType(j(file2), 'Blog', newDocumentType)
+    const program = addContentlayerDocumentType(j(file2), 'Blog', newDocumentType)
 
     expect(program.toSource(recastOptions)).toMatchSnapshot()
   })
