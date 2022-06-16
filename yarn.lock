@@ -3151,6 +3151,7 @@ __metadata:
     "@types/jscodeshift": 0.11.5
     ast-types: 0.14.2
     console-table-printer: ^2.7.5
+    contentlayer: 0.2.5
     cross-spawn: 7.0.3
     diff: 5.0.0
     enquirer: 2.3.6

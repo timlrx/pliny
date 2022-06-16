@@ -48,9 +48,9 @@
     "vinyl": "2.2.1"
   },
   "devDependencies": {
+    "contentlayer": "0.2.5",
     "tsup": "5.12.0",
-    "typescript": "^4.6.2",
-    "contentlayer": "0.2.5"
+    "typescript": "^4.6.2"
   },
   "publishConfig": {
     "access": "public"
