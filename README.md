@@ -40,26 +40,33 @@ pliny install blog-classic
 
 ## Features
 
-1. Best in class developer experience for building a markdown website, courtesy of [contentlayer], including:
+### Content Modeling with [Contentlayer]
 
 - Live reload on content changes
 - Fast and incremental builds
 - Simple but powerful schema DSL to design your content model (validates your content and generates types)
 - Auto-generated TypeScript types based on your content model (e.g. frontmatter or CMS schema)
 
-2. Out of the box templates based on [Next.js][nextjs] and [Tailwindcss][tailwindcss]
+### Templates
 
-3. Full suite of markdown plugins including:
+- Based on [Next.js][nextjs] and [Tailwindcss][tailwindcss]
+- Highly configurable config, easily extendable [nextjs] website
+- Mobile friendly
+- Supports light and dark theme
+- Layouts to customize templates
+- Blog theme is completed, docs is in the works
+
+### Full suite of markdown plugins
 
 - Server-side syntax highlighting with line numbers and line highlighting via [rehype-prism-plus]
 - Math display supported via [KaTeX][katex]
 - Citation and bibliography support via [rehype-citation]
 
-4. React components for common services
+### Modular React components for services
 
 - Newsletter (Buttondown, Convertkit, Email Octopus, Klaviyo, Mailchimp, Revue)
 - Analytics (Google Analytics, Plausible Analytics, Simple Analytics, Umami Analytics)
-- Comment system (Disqus, Giscus, Utterances)
+- Comments (Disqus, Giscus, Utterances)
 
 [nextjs]: https://nextjs.org/
 [tailwindcss]: https://tailwindcss.com/
