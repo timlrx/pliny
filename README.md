@@ -4,7 +4,7 @@
 
 Pliny makes creating, editing and publishing markdown content easy and simple. It is based on [Next.js][nextjs], [Tailwind CSS][tailwindcss] and [Contentlayer][contentlayer].
 
-![](pliny-sketch.svg)
+![](pliny-sketch.png)
 
 ## Installation
 
