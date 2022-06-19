@@ -1,7 +1,8 @@
+import React from 'react'
 import dynamic from 'next/dynamic'
-import { DisqusConfig } from './Disqus'
-import { GiscusConfig } from './Giscus'
-import { UtterancesConfig } from './Utterances'
+import { DisqusConfig, DisqusProps } from './Disqus'
+import { GiscusConfig, GiscusProps } from './Giscus'
+import { UtterancesConfig, UtterancesProps } from './Utterances'
 
 declare global {
   interface Window {
@@ -45,21 +46,22 @@ export interface CommentsProps {
   slug?: string
 }
 
-const UtterancesComponent = dynamic(
+const UtterancesComponent = dynamic<UtterancesProps>(
   () => {
-    return import('./Utterances')
+    return import('./Utterances').then((mod) => mod.default)
   },
   { ssr: false }
 )
-const GiscusComponent = dynamic(
+const GiscusComponent = dynamic<GiscusProps>(
   () => {
-    return import('./Giscus')
+    return import('./Giscus').then((mod) => mod.default)
   },
   { ssr: false }
 )
-const DisqusComponent = dynamic(
+
+const DisqusComponent = dynamic<DisqusProps>(
   () => {
-    return import('./Disqus')
+    return import('./Disqus').then((mod) => mod.default)
   },
   { ssr: false }
 )
