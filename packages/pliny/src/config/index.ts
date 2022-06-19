@@ -1,6 +1,7 @@
 import type { AnalyticsConfig } from '../analytics'
 import type { CommentsConfig } from '../comments'
 import type { NewsletterConfig } from '../newsletter'
+import type { SearchConfig } from '../search'
 
 export interface CoreConfig {
   title: string
@@ -29,6 +30,7 @@ export type PlinyConfig = Record<string, any> &
     analytics?: AnalyticsConfig
     comments?: CommentsConfig
     newsletter?: NewsletterConfig
+    search?: SearchConfig
   }
 
 const sampleConfig: PlinyConfig = {
@@ -90,6 +92,17 @@ const sampleConfig: PlinyConfig = {
       // please provide a link below to your custom theme css file.
       // example: https://giscus.app/themes/custom_example.css
       themeURL: '',
+    },
+  },
+  search: {
+    provider: 'algolia',
+    algoliaConfig: {
+      // The application ID provided by Algolia
+      appId: 'YOUR_APP_ID',
+      // Public API key: it is safe to commit it
+      apiKey: 'YOUR_SEARCH_API_KEY',
+      indexName: 'YOUR_INDEX_NAME',
+      //... other Algolia params
     },
   },
 }

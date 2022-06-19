@@ -9,6 +9,8 @@
     "./analytics/": "./dist/analytics/",
     "./comments": "./dist/comments/index.mjs",
     "./comments/": "./dist/comments/",
+    "./search": "./dist/search/index.mjs",
+    "./search/": "./dist/search/",
     "./config": "./dist/config/index.mjs",
     "./mdx-components": "./dist/mdx-components/index.mjs",
     "./mdx-plugins": "./dist/mdx-plugins/index.mjs",
@@ -37,6 +39,12 @@
       ],
       "comments/*": [
         "dist/comments/*"
+      ],
+      "search": [
+        "dist/search"
+      ],
+      "search/*": [
+        "dist/search/*"
       ],
       "config": [
         "dist/config"
@@ -73,6 +81,7 @@
   },
   "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",
   "dependencies": {
+    "@docsearch/react": "^3.1.0",
     "contentlayer": "0.2.5",
     "github-slugger": "^1.3.0",
     "image-size": "1.0.0",
