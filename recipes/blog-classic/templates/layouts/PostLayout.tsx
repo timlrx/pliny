@@ -107,7 +107,10 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 <Link href={editUrl(path)}>{'View on GitHub'}</Link>
               </div>
               {siteMetadata.comments && (
-                <div className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300">
+                <div
+                  className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
+                  id="comment"
+                >
                   {!loadComments && (
                     <button onClick={() => setLoadComments(true)}>Load Comments</button>
                   )}

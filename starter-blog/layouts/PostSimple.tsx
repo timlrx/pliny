@@ -51,7 +51,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
               <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">{children}</div>
             </div>
             {siteMetadata.comments && (
-              <div className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300">
+              <div className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300" id="comment">
                 {!loadComments && (
                   <button onClick={() => setLoadComments(true)}>Load Comments</button>
                 )}
