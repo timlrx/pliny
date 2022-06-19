@@ -42,6 +42,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/jsx-handler-names': 0,
     'react/jsx-fragments': 0,
+    'react/react-in-jsx-scope': 'off',
     'react/no-unused-prop-types': 0,
     'react/jsx-props-no-spreading': 0,
     'react/static-property-placement': 0,
