@@ -1,12 +1,12 @@
-import AlgoliaSearch from './Algolia'
+import React from 'react'
+import { AlgoliaSearchProvider, AlgoliaSearchContext } from './Algolia'
 import type { AlgoliaConfig } from './Algolia'
 
 export type SearchConfig = AlgoliaConfig
 
 export interface SearchConfigProps {
   searchConfig: AlgoliaConfig
-  ButtonChildren?: React.FunctionComponent<any>
-  className?: string
+  children: React.ReactNode
 }
 /**
  * Command palette like search component.
@@ -17,17 +17,20 @@ export interface SearchConfigProps {
  * @param {SearchConfig} searchConfig
  * @return {*}
  */
-const Search = ({ searchConfig, ButtonChildren, className }: SearchConfigProps) => {
+export const SearchProvider = ({ searchConfig, children }: SearchConfigProps) => {
   switch (searchConfig.provider) {
     case 'algolia':
       return (
-        <AlgoliaSearch
-          algoliaConfig={searchConfig.algoliaConfig}
-          ButtonChildren={ButtonChildren}
-          className={className}
-        />
+        <AlgoliaSearchProvider algoliaConfig={searchConfig.algoliaConfig}>
+          {children}
+        </AlgoliaSearchProvider>
       )
   }
 }
 
-export default Search
+export const SearchContext = (provider: string) => {
+  switch (provider) {
+    case 'algolia':
+      return AlgoliaSearchContext
+  }
+}
