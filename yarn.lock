@@ -13651,10 +13651,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"preact@npm:^10.6.2":
-  version: 10.7.2
-  resolution: "preact@npm:10.7.2"
-  checksum: 2f0655e0430f1c6927b40cb4abffb2c0ee4fe63e3201d44e37d0992c0ab534346f206cf23c0405572b70908e3eba2f7f60ab8e4531f409ebcbc35af06920cd60
+"preact@npm:^10.8.2":
+  version: 10.8.2
+  resolution: "preact@npm:10.8.2"
+  checksum: 183358ba03b4c104c89b383ea926099b49acd0435f24e95dee9ff0e81350d1bfbd77908f6a2ed16b3654d75e84832fd5b4479216c85fe8af6ad8c2ebe795c4f9
   languageName: node
   linkType: hard
 
@@ -15868,7 +15868,7 @@ __metadata:
     next-themes: ^0.2.0
     pliny: ^0.0.2
     postcss: ^8.4.5
-    preact: ^10.6.2
+    preact: ^10.8.2
     prettier: ^2.5.1
     prettier-plugin-tailwindcss: ^0.1.11
     react: 17.0.2
