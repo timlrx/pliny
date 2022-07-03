@@ -1,6 +1,5 @@
 import React from 'react'
-import { AlgoliaSearchProvider, AlgoliaSearchContext } from './Algolia'
-import { KBarSearchProvider, KBarContext } from './KBar'
+import dynamic from 'next/dynamic'
 import type { AlgoliaConfig } from './Algolia'
 import type { KBarConfig } from './KBar'
 
@@ -19,6 +18,36 @@ export interface SearchQuery {
 export interface SearchContext {
   query: SearchQuery
 }
+
+const AlgoliaSearchProvider = dynamic(
+  () => {
+    return import('./Algolia').then((mod) => mod.AlgoliaSearchProvider)
+  },
+  { ssr: false }
+)
+
+const KBarSearchProvider = dynamic(
+  () => {
+    return import('./KBar').then((mod) => mod.KBarSearchProvider)
+  },
+  { ssr: false }
+)
+
+const AlgoliaSearchContext = dynamic(
+  //@ts-ignore
+  () => {
+    return import('./Algolia').then((mod) => mod.AlgoliaSearchContext)
+  },
+  { ssr: false }
+)
+
+const KBarContext = dynamic(
+  //@ts-ignore
+  () => {
+    return import('./KBar').then((mod) => mod.KBarContext)
+  },
+  { ssr: false }
+)
 
 /**
  * Command palette like search component - `ctrl-k` to open the palette.
@@ -46,8 +75,10 @@ export const SearchProvider = ({ searchConfig, children }: SearchConfigProps) =>
 export const SearchContext = (provider: string): React.Context<SearchContext> => {
   switch (provider) {
     case 'algolia':
+      //@ts-ignore
       return AlgoliaSearchContext
     case 'kbar':
+      //@ts-ignore
       return KBarContext
   }
 }
