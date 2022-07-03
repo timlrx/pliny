@@ -1,33 +1,25 @@
-import { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect } from 'react'
 import Router from 'next/router'
 import { CoreContent, MDXDocument } from '../utils/contentlayer'
 import formatDate from '../utils/formatDate'
 import {
   KBarPortal,
-  KBarPositioner,
   KBarSearch,
   KBarAnimator,
-  KBarResults,
+  KBarPositioner,
   useMatches,
   useRegisterActions,
+  useKBar,
   Action,
+  ActionImpl,
 } from 'kbar'
 
 const Portal = ({ searchDocumentsPath }: { searchDocumentsPath: string }) => {
-  const [searchItems, setSearchItems] = useState([])
+  const [searchActions, setSearchActions] = useState([])
 
   useEffect(() => {
-    async function fetchData() {
-      const res = await fetch(searchDocumentsPath)
-      const json = await res.json()
-      setSearchItems(json)
-    }
-    fetchData()
-  }, [searchDocumentsPath])
-
-  const actions = useMemo(() => {
-    const actions: Action[] = []
     const mapPosts = (posts: CoreContent<MDXDocument>[]) => {
+      const actions: Action[] = []
       for (const post of posts) {
         actions.push({
           id: post.path,
@@ -38,12 +30,19 @@ const Portal = ({ searchDocumentsPath }: { searchDocumentsPath: string }) => {
           perform: () => Router.push('/' + post.path),
         })
       }
+      return actions
     }
-    mapPosts(searchItems)
-    return actions
-  }, [searchItems])
 
-  useRegisterActions(actions, [actions])
+    async function fetchData() {
+      const res = await fetch(searchDocumentsPath)
+      const json = await res.json()
+      const actions = mapPosts(json)
+      setSearchActions(actions)
+    }
+    fetchData()
+  }, [searchDocumentsPath])
+
+  useRegisterActions(searchActions, [searchActions])
 
   return (
     <KBarPortal>
@@ -80,40 +79,151 @@ const Portal = ({ searchDocumentsPath }: { searchDocumentsPath: string }) => {
   )
 }
 
+interface RenderParams<T = ActionImpl | string> {
+  item: T
+  active: boolean
+}
+
+// The default Kbar results component has some issues with preact.
+// https://github.com/timc1/kbar/issues/208
+// Using custom, non-virtualized implementation in the meantime.
 const RenderResults = () => {
   const { results } = useMatches()
+  const activeRef = React.useRef([])
+  const itemsRef = React.useRef([])
+  itemsRef.current = results
+
+  const { query, search, currentRootActionId, activeIndex, options } = useKBar((state) => ({
+    search: state.searchQuery,
+    currentRootActionId: state.currentRootActionId,
+    activeIndex: state.activeIndex,
+  }))
+
+  const START_INDEX = 0
+
+  React.useEffect(() => {
+    const handler = (event) => {
+      if (event.key === 'ArrowUp' || (event.ctrlKey && event.key === 'p')) {
+        event.preventDefault()
+        query.setActiveIndex((index) => {
+          let nextIndex = index > START_INDEX ? index - 1 : index
+          // avoid setting active index on a group
+          if (typeof itemsRef.current[nextIndex] === 'string') {
+            if (nextIndex === 0) {
+              activeRef.current[nextIndex]?.scrollIntoView()
+              return index
+            }
+            nextIndex -= 1
+          }
+          activeRef.current[nextIndex]?.scrollIntoView()
+
+          return nextIndex
+        })
+      } else if (event.key === 'ArrowDown') {
+        event.preventDefault()
+        query.setActiveIndex((index) => {
+          let nextIndex = index < itemsRef.current.length - 1 ? index + 1 : index
+          // avoid setting active index on a group
+          if (typeof itemsRef.current[nextIndex] === 'string') {
+            if (nextIndex === itemsRef.current.length - 1) return index
+            nextIndex += 1
+          }
+          activeRef.current[nextIndex]?.scrollIntoView()
+          return nextIndex
+        })
+      } else if (event.key === 'Enter') {
+        event.preventDefault()
+        // storing the active dom element in a ref prevents us from
+        // having to calculate the current action to perform based
+        // on the `activeIndex`, which we would have needed to add
+        // as part of the dependencies array.
+        query.setActiveIndex((index) => {
+          activeRef.current[index]?.click()
+          return index
+        })
+        query.toggle()
+      }
+    }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [query])
+
+  const execute = React.useCallback(
+    (item: RenderParams['item']) => {
+      if (typeof item === 'string') return
+      if (item.command) {
+        item.command.perform(item)
+        query.toggle()
+      } else {
+        query.setSearch('')
+        query.setCurrentRootAction(item.id)
+      }
+      options.callbacks?.onSelectAction?.(item)
+    },
+    [query, options]
+  )
 
   if (results.length) {
     return (
-      <KBarResults
-        items={results}
-        onRender={({ item, active }) => (
-          <div>
-            {typeof item === 'string' ? (
-              <div className="pt-3">
-                <div className="block border-t border-gray-100 px-4 pt-6 pb-2 text-xs font-semibold uppercase text-slate-400 dark:border-gray-800 dark:text-slate-500">
-                  {item}
-                </div>
-              </div>
-            ) : (
-              <div
-                className={`block cursor-pointer px-4 py-2 text-slate-600 dark:text-slate-300 ${
-                  active ? 'bg-gray-100 dark:bg-gray-800' : 'bg-transparent'
-                }`}
-              >
-                {item.subtitle && (
-                  <div className="text-xs text-slate-400 dark:text-slate-500">{item.subtitle}</div>
+      <div>
+        <div
+          style={{
+            maxHeight: 400,
+            position: 'relative',
+            overflow: 'auto',
+          }}
+        >
+          {results.map((item, index) => (
+            // eslint-disable-next-line react/jsx-key
+            <div key={typeof item === 'string' ? item : item.id}>
+              <div id={`listbox-item-${index}`}>
+                {typeof item === 'string' ? (
+                  <div className="pt-3" ref={(el) => (activeRef.current[index] = el)}>
+                    <div className="text-primary-600 block border-t border-gray-100 px-4 pt-6 pb-2 text-xs font-semibold uppercase dark:border-gray-800">
+                      {item}
+                    </div>
+                  </div>
+                ) : (
+                  <div
+                    tabIndex={-1}
+                    role="option"
+                    aria-selected={activeIndex === index}
+                    ref={(el) => (activeRef.current[index] = el)}
+                    id={`listbox-content-${index}`}
+                    onClick={() => execute(item)}
+                    onPointerMove={() => {
+                      if (activeIndex !== index) {
+                        query.setActiveIndex(index)
+                      }
+                    }}
+                    onPointerDown={() => query.setActiveIndex(index)}
+                    className={`${
+                      activeIndex === index ? 'bg-primary-600' : 'bg-transparent'
+                    } block cursor-pointer px-4 py-2 text-gray-600 focus:outline-none dark:text-gray-200`}
+                  >
+                    {item.subtitle && (
+                      <div
+                        className={`${
+                          activeIndex === index
+                            ? 'text-gray-200'
+                            : 'text-gray-400 dark:text-gray-500'
+                        } text-xs`}
+                      >
+                        {item.subtitle}
+                      </div>
+                    )}
+                    <div>{item.name}</div>
+                  </div>
                 )}
-                <div>{item.name}</div>
               </div>
-            )}
-          </div>
-        )}
-      />
+            </div>
+          ))}
+        </div>
+      </div>
     )
   } else {
     return (
-      <div className="block border-t border-gray-100 px-4 py-8 text-center text-slate-400 dark:border-gray-800 dark:text-slate-600">
+      <div className="block border-t border-gray-100 px-4 py-8 text-center text-gray-400 dark:border-gray-800 dark:text-gray-600">
         No results for your search...
       </div>
     )

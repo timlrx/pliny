@@ -19,33 +19,24 @@ export const KBarSearchProvider: FC<{
   children: ReactNode
   kbarConfig: KBarSearchProps
 }> = ({ kbarConfig, children }) => {
-  const { searchDocumentsPath, defaultActions = [] } = kbarConfig
+  const { searchDocumentsPath, defaultActions } = kbarConfig
 
-  let siteNameContent = ''
-  if (typeof window !== 'undefined') {
-    siteNameContent = document
-      .querySelector("meta[property='og:site_name']")
-      .getAttribute('content')
-  }
-  const startingActions: Action[] =
-    defaultActions.length > 0
-      ? defaultActions
-      : [
-          {
-            id: 'homepage',
-            name: 'Homepage',
-            keywords: siteNameContent,
-            section: 'Home',
-            perform: () => Router.push('/'),
-          },
-        ]
+  const startingActions: Action[] = Array.isArray(defaultActions)
+    ? defaultActions
+    : [
+        {
+          id: 'homepage',
+          name: 'Homepage',
+          keywords: '',
+          section: 'Home',
+          perform: () => Router.push('/'),
+        },
+      ]
 
   return (
-    <>
-      <KBarProvider actions={startingActions}>
-        <Portal searchDocumentsPath={searchDocumentsPath} />
-        {children}
-      </KBarProvider>
-    </>
+    <KBarProvider actions={startingActions}>
+      <Portal searchDocumentsPath={searchDocumentsPath} />
+      {children}
+    </KBarProvider>
   )
 }
