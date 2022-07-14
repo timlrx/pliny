@@ -59,6 +59,7 @@ const sampleConfig: PlinyConfig = {
     plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
     simpleAnalytics: false, // true or false
     umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
+    posthogProjectApiKey: '', // e.g. AhnJK8392ndPOav87as450xd
     googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
   },
   newsletter: {
@@ -95,18 +96,17 @@ const sampleConfig: PlinyConfig = {
     },
   },
   search: {
-    // provider: 'kbar',
-    // kbarConfig: {
-    //   searchDocumentsPath: 'search.json', // path to load documents to search
-    // },
-    provider: 'algolia',
-    algoliaConfig: {
-      // The application ID provided by Algolia
-      appId: 'YOUR_APP_ID',
-      // Public API key: it is safe to commit it
-      apiKey: 'YOUR_SEARCH_API_KEY',
-      indexName: 'YOUR_INDEX_NAME',
-      //... other Algolia params
+    provider: 'kbar', // kbar or algolia
+    kbarConfig: {
+      searchDocumentsPath: 'search.json', // path to load documents to search
     },
+    // algoliaConfig: {
+    //   // The application ID provided by Algolia
+    //   appId: 'YOUR_APP_ID',
+    //   // Public API key: it is safe to commit it
+    //   apiKey: 'YOUR_SEARCH_API_KEY',
+    //   indexName: 'YOUR_INDEX_NAME',
+    //   //... other Algolia params
+    // },
   },
 }
