@@ -3,6 +3,7 @@ import GA, { GoogleAnalyticsProps } from './GoogleAnalytics'
 import Plausible, { PlausibleProps } from './Plausible'
 import SimpleAnalytics from './SimpleAnalytics'
 import Umami, { UmamiProps } from './Umami'
+import Posthog, { PosthogProps } from './Posthog'
 
 declare global {
   interface Window {
@@ -15,6 +16,7 @@ declare global {
 export interface AnalyticsConfig
   extends Partial<GoogleAnalyticsProps>,
     Partial<PlausibleProps>,
+    Partial<PosthogProps>,
     Partial<UmamiProps> {
   simpleAnalytics?: boolean
 }
@@ -25,6 +27,7 @@ export interface AnalyticsConfig
  *  plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
  *  simpleAnalytics: false, // true or false
  *  umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
+ *  posthogProjectApiKey: '', // e.g. AhnJK8392ndPOav87as450xd
  *  googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
  * }
  */
@@ -48,6 +51,9 @@ const Analytics = ({ analyticsConfig }: AnalyticsProps) => {
         <Plausible plausibleDataDomain={analyticsConfig.plausibleDataDomain} />
       )}
       {isProduction && analyticsConfig.simpleAnalytics && <SimpleAnalytics />}
+      {isProduction && analyticsConfig.posthogProjectApiKey && (
+        <Posthog posthogProjectApiKey={analyticsConfig.posthogProjectApiKey} />
+      )}
       {isProduction && analyticsConfig.umamiWebsiteId && (
         <Umami umamiWebsiteId={analyticsConfig.umamiWebsiteId} />
       )}

@@ -65,8 +65,9 @@ pliny install blog-classic
 ### Modular React components for services
 
 - Newsletter (Buttondown, Convertkit, Email Octopus, Klaviyo, Mailchimp, Revue)
-- Analytics (Google Analytics, Plausible Analytics, Simple Analytics, Umami Analytics)
+- Analytics (Google Analytics, Plausible Analytics, Simple Analytics, Umami Analytics, Posthog)
 - Comments (Disqus, Giscus, Utterances)
+- Search (Algolia, Kbar local search)
 
 [nextjs]: https://nextjs.org/
 [tailwindcss]: https://tailwindcss.com/
