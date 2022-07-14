@@ -31,7 +31,7 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
-  const { path, slug, date, title, tags } = content
+  const { filePath, path, slug, date, title, tags } = content
   const basePath = path.split('/')[0]
   const [loadComments, setLoadComments] = useState(false)
 
@@ -104,7 +104,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   {'Discuss on Twitter'}
                 </Link>
                 {` • `}
-                <Link href={editUrl(path)}>{'View on GitHub'}</Link>
+                <Link href={editUrl(filePath)}>{'View on GitHub'}</Link>
               </div>
               {siteMetadata.comments && (
                 <div
