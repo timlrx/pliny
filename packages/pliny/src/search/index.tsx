@@ -1,5 +1,8 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
+import { AlgoliaSearchContext } from './Algolia'
+import { KBarContext } from './KBar'
+
 import type { AlgoliaConfig } from './Algolia'
 import type { KBarConfig } from './KBar'
 
@@ -33,22 +36,6 @@ const KBarSearchProvider = dynamic(
   { ssr: false }
 )
 
-const AlgoliaSearchContext = dynamic(
-  //@ts-ignore
-  () => {
-    return import('./Algolia').then((mod) => mod.AlgoliaSearchContext)
-  },
-  { ssr: false }
-)
-
-const KBarContext = dynamic(
-  //@ts-ignore
-  () => {
-    return import('./KBar').then((mod) => mod.KBarContext)
-  },
-  { ssr: false }
-)
-
 /**
  * Command palette like search component - `ctrl-k` to open the palette.
  * Or use the search context to bind toggle to an onOpen event.
@@ -75,10 +62,8 @@ export const SearchProvider = ({ searchConfig, children }: SearchConfigProps) =>
 export const SearchContext = (provider: string): React.Context<SearchContext> => {
   switch (provider) {
     case 'algolia':
-      //@ts-ignore
       return AlgoliaSearchContext
     case 'kbar':
-      //@ts-ignore
       return KBarContext
   }
 }
