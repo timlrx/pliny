@@ -95,6 +95,10 @@ const sampleConfig: PlinyConfig = {
     },
   },
   search: {
+    // provider: 'kbar',
+    // kbarConfig: {
+    //   searchDocumentsPath: 'search.json', // path to load documents to search
+    // },
     provider: 'algolia',
     algoliaConfig: {
       // The application ID provided by Algolia

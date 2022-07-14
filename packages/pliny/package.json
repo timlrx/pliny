@@ -76,8 +76,8 @@
     }
   },
   "scripts": {
-    "dev": "tsup-node src/**/* --watch --no-splitting --inject ./react-import.js --format esm --dts --silent",
-    "build": "rimraf dist && tsup-node src/**/* --no-splitting --inject ./react-import.js --format esm --dts --silent"
+    "dev": "tsup-node src/**/* --watch --inject ./react-import.js --format esm --dts --silent",
+    "build": "rimraf dist && tsup-node src/**/* --inject ./react-import.js --format esm --dts --silent"
   },
   "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",
   "dependencies": {
@@ -86,6 +86,7 @@
     "github-slugger": "^1.3.0",
     "image-size": "1.0.0",
     "js-yaml": "4.1.0",
+    "kbar": "0.1.0-beta.36",
     "next-contentlayer": "0.2.5",
     "remark": "^14.0.2",
     "unist-util-visit": "^4.0.0"
@@ -98,7 +99,7 @@
   "devDependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.75",
     "rimraf": "^3.0.2",
-    "tsup": "5.12.0",
+    "tsup": "6.1.2",
     "typescript": "^4.6.2"
   },
   "lint-staged": {

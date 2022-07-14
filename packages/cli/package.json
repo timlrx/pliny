@@ -56,7 +56,7 @@
     "nock": "13.0.6",
     "oclif": "^3",
     "stdout-stderr": "0.1.13",
-    "tsup": "5.12.0",
+    "tsup": "6.1.2",
     "typescript": "^4.6.2"
   },
   "oclif": {
