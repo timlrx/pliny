@@ -1,5 +1,14 @@
 # pliny
 
+## 0.0.3
+
+### Patch Changes
+
+- b59e129: add search component with algolia integration
+- 6b5d0a4: add kbar option to search component
+- a6215f8: fix issues with comments dynamic import and add back id tag
+- 9b9f193: update tsup to v6.1.2
+
 ## 0.0.2
 
 ### Patch Changes

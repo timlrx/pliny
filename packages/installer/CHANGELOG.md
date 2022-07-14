@@ -1,5 +1,11 @@
 # @pliny/installer
 
+## 0.0.3
+
+### Patch Changes
+
+- 9b9f193: update tsup to v6.1.2
+
 ## 0.0.2
 
 ### Patch Changes
