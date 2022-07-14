@@ -1,5 +1,11 @@
 # pliny
 
+## 0.0.4
+
+### Patch Changes
+
+- b7a89c6: add posthog analytics integration
+
 ## 0.0.3
 
 ### Patch Changes
