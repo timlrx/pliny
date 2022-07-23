@@ -1,5 +1,11 @@
 # pliny
 
+## 0.0.5
+
+### Patch Changes
+
+- d8cada5: Fix sitemap glob and replace tsx file extension
+
 ## 0.0.4
 
 ### Patch Changes
