@@ -9,11 +9,11 @@ async function generateSitemap(siteUrl: string, allContents: MDXDocument[]) {
     .filter((x) => !x.draft && !x.canonicalUrl)
     .map((x) => `/${x._raw.flattenedPath}`)
   const pages = await globby([
-    'pages/*.{js|tsx}',
+    'pages/*.(js|tsx)',
     'public/tags/**/*.xml',
-    '!pages/_*.{js|tsx}',
+    '!pages/_*.(js|tsx)',
     '!pages/api',
-    '!pages/404.{js|tsx}',
+    '!pages/404.(js|tsx)',
   ])
 
   const sitemap = `
@@ -25,9 +25,7 @@ async function generateSitemap(siteUrl: string, allContents: MDXDocument[]) {
                 const path = page
                   .replace('pages/', '/')
                   .replace('public/', '/')
-                  .replace('.js', '')
-                  .replace('.mdx', '')
-                  .replace('.md', '')
+                  .replace(/.js|.tsx|.mdx|.md/g, '')
                   .replace('/feed.xml', '')
                 const route = path === '/index' ? '' : path
                 return `
