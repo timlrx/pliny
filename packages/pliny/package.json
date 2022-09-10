@@ -81,15 +81,15 @@
   },
   "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",
   "dependencies": {
-    "@docsearch/react": "^3.1.0",
-    "contentlayer": "0.2.5",
-    "github-slugger": "^1.3.0",
+    "@docsearch/react": "^3.2.0",
+    "contentlayer": "0.2.8",
+    "github-slugger": "^1.4.0",
     "image-size": "1.0.0",
     "js-yaml": "4.1.0",
     "kbar": "0.1.0-beta.36",
-    "next-contentlayer": "0.2.5",
+    "next-contentlayer": "0.2.8",
     "remark": "^14.0.2",
-    "unist-util-visit": "^4.0.0"
+    "unist-util-visit": "^4.1.0"
   },
   "peerDependencies": {
     "next": ">=12.0.0",

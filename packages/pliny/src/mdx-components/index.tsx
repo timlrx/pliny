@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import React from 'react'
-import * as _jsx_runtime from 'react/jsx-runtime.js'
+import * as _jsx_runtime from 'react/jsx-runtime'
 import ReactDOM from 'react-dom'
 import { ComponentMap } from 'mdx-bundler/client'
 import { coreContent } from '../utils/contentlayer'
