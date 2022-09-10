@@ -93,8 +93,8 @@
   },
   "peerDependencies": {
     "next": ">=12.0.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react": "^17.0.2 || ^18.0.0",
+    "react-dom": "^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.75",
