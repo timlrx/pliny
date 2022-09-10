@@ -99,8 +99,8 @@
   "devDependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.75",
     "rimraf": "^3.0.2",
-    "tsup": "6.1.2",
-    "typescript": "^4.6.2"
+    "tsup": "6.2.3",
+    "typescript": "^4.8.3"
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
