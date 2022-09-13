@@ -11,6 +11,17 @@ package-lock.json
 build
 dist
 .rpt2_cache
+packages/pliny/analytics
+packages/pliny/comments
+packages/pliny/config
+packages/pliny/mdx-components
+packages/pliny/mdx-plugins
+packages/pliny/newsletter
+packages/pliny/search
+packages/pliny/seo
+packages/pliny/ui
+packages/pliny/utils
+packages/pliny/chunk-*
 
 # misc
 .DS_Store

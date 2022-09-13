@@ -22,7 +22,7 @@ export interface GiscusConfig {
 
 export type GiscusProps = GiscusConfig['giscusConfig']
 
-const Giscus = ({
+export const Giscus = ({
   themeURL,
   theme,
   darkTheme,
@@ -78,5 +78,3 @@ const Giscus = ({
 
   return <div className="giscus" id={COMMENTS_ID} />
 }
-
-export default Giscus

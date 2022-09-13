@@ -1,6 +1,6 @@
 import { useState, useRef, ReactNode } from 'react'
 
-const Pre = ({ children }: { children: ReactNode }) => {
+export const Pre = ({ children }: { children: ReactNode }) => {
   const textInput = useRef(null)
   const [hovered, setHovered] = useState(false)
   const [copied, setCopied] = useState(false)
@@ -67,5 +67,3 @@ const Pre = ({ children }: { children: ReactNode }) => {
     </div>
   )
 }
-
-export default Pre

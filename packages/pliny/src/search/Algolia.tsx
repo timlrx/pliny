@@ -216,7 +216,7 @@ export const AlgoliaSearchProvider: React.FC<React.PropsWithChildren<AlgoliaSear
     return Promise.all([
       import('./AlgoliaModal'),
       // import('@docsearch/react'),
-    ]).then(([{ default: Modal }]) => {
+    ]).then(([{ DocSearchModal: Modal }]) => {
       DocSearchModal = Modal
     })
   }, [])

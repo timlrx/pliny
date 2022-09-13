@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react'
 import { KBarProvider, KBarContext, Action } from 'kbar'
 import Router from 'next/router'
-import Portal from './KBarPortal'
+import { Portal } from './KBarPortal'
 
 export { KBarContext }
 

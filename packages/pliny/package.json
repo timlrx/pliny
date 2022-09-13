@@ -3,81 +3,25 @@
   "description": "Main entry point for pliny components and CLI",
   "homepage": "https://github.com/timlrx/pliny",
   "version": "0.0.5",
-  "main": "./dist/index.mjs",
+  "type": "module",
   "exports": {
-    "./analytics": "./dist/analytics/index.mjs",
-    "./analytics/": "./dist/analytics/",
-    "./comments": "./dist/comments/index.mjs",
-    "./comments/": "./dist/comments/",
-    "./search": "./dist/search/index.mjs",
-    "./search/": "./dist/search/",
-    "./config": "./dist/config/index.mjs",
-    "./mdx-components": "./dist/mdx-components/index.mjs",
-    "./mdx-plugins": "./dist/mdx-plugins/index.mjs",
-    "./mdx-plugins/": "./dist/mdx-plugins/",
-    "./newsletter": "./dist/newsletter/index.mjs",
-    "./newsletter/": "./dist/newsletter/",
-    "./seo": "./dist/seo/index.mjs",
-    "./ui/": "./dist/ui/",
-    "./utils/": "./dist/utils/"
+    "./analytics": "./analytics/index.js",
+    "./comments": "./comments/index.js",
+    "./search": "./search/index.js",
+    "./config": "./config/index.js",
+    "./mdx-components": "./mdx-components/index.js",
+    "./mdx-plugins": "./mdx-plugins/index.js",
+    "./newsletter": "./newsletter/index.js",
+    "./seo": "./seo/index.js",
+    "./ui/": "./ui/",
+    "./utils/": "./utils/"
   },
-  "source": "src/index.js",
   "files": [
-    "/bin",
-    "/dist/**"
+    "**"
   ],
-  "typesVersions": {
-    "*": {
-      "analytics": [
-        "dist/analytics"
-      ],
-      "analytics/*": [
-        "dist/analytics/*"
-      ],
-      "comments": [
-        "dist/comments"
-      ],
-      "comments/*": [
-        "dist/comments/*"
-      ],
-      "search": [
-        "dist/search"
-      ],
-      "search/*": [
-        "dist/search/*"
-      ],
-      "config": [
-        "dist/config"
-      ],
-      "mdx-components": [
-        "dist/mdx-components"
-      ],
-      "mdx-plugins": [
-        "dist/mdx-plugins"
-      ],
-      "mdx-plugins/*": [
-        "dist/mdx-plugins/*"
-      ],
-      "newsletter": [
-        "dist/newsletter"
-      ],
-      "newsletter/*": [
-        "dist/newsletter/*"
-      ],
-      "seo": [
-        "dist/seo"
-      ],
-      "ui/*": [
-        "dist/ui/*"
-      ],
-      "utils/*": [
-        "dist/utils/*"
-      ]
-    }
-  },
   "scripts": {
-    "dev": "tsup-node src/**/* --watch --inject ./react-import.js --format esm --dts --silent",
-    "build": "rimraf dist && tsup-node src/**/* --inject ./react-import.js --format esm --dts --silent"
+    "dev": "tsup-node src/**/* --watch --inject ./react-import.js --format esm --splitting --treeshake --dts --silent && cp -fR dist/* && rimraf dist",
+    "build": "rimraf dist && tsup-node src/**/* --inject ./react-import.js --format esm --splitting --treeshake --dts --silent && cp -fR dist/* ./ && rimraf dist"
   },
   "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",
   "dependencies": {

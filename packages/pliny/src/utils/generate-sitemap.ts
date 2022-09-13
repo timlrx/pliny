@@ -3,7 +3,7 @@ import globby from 'globby'
 import prettier from 'prettier'
 import { MDXDocument } from './contentlayer'
 
-async function generateSitemap(siteUrl: string, allContents: MDXDocument[]) {
+export async function generateSitemap(siteUrl: string, allContents: MDXDocument[]) {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js')
   const contentPages = allContents
     .filter((x) => !x.draft && !x.canonicalUrl)
@@ -45,5 +45,3 @@ async function generateSitemap(siteUrl: string, allContents: MDXDocument[]) {
 
   writeFileSync('public/sitemap.xml', formatted)
 }
-
-export default generateSitemap

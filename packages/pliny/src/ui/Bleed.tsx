@@ -5,7 +5,7 @@ export interface BleedProps {
   children: ReactNode
 }
 
-const Bleed = ({ full, children }: BleedProps) => {
+export const Bleed = ({ full, children }: BleedProps) => {
   return (
     <div
       className={`relative mt-6 ${
@@ -16,5 +16,3 @@ const Bleed = ({ full, children }: BleedProps) => {
     </div>
   )
 }
-
-export default Bleed

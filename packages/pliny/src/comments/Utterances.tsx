@@ -14,7 +14,7 @@ export interface UtterancesConfig {
 
 export type UtterancesProps = UtterancesConfig['utterancesConfig']
 
-const Utterances = ({ theme, darkTheme, repo, label, issueTerm }: UtterancesProps) => {
+export const Utterances = ({ theme, darkTheme, repo, label, issueTerm }: UtterancesProps) => {
   const { theme: nextTheme, resolvedTheme } = useTheme()
   const commentsTheme = nextTheme === 'dark' || resolvedTheme === 'dark' ? darkTheme : theme
 
@@ -47,5 +47,3 @@ const Utterances = ({ theme, darkTheme, repo, label, issueTerm }: UtterancesProp
   // Added `relative` to fix a weird bug with `utterances-frame` position
   return <div className="utterances-frame relative" id={COMMENTS_ID} />
 }
-
-export default Utterances

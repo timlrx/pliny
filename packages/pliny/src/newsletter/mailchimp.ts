@@ -6,8 +6,7 @@ mailchimp.setConfig({
   server: process.env.MAILCHIMP_API_SERVER, // E.g. us1
 })
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export const mailchimpHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.body
 
   const response = await mailchimp.lists.addListMember(process.env.MAILCHIMP_AUDIENCE_ID, {

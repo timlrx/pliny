@@ -34,7 +34,7 @@ const generateRss = (config: CoreConfig, posts, page = 'feed.xml') => `
   </rss>
 `
 
-async function generateRSS(config: CoreConfig, allBlogs: MDXBlog[]) {
+export async function generateRSS(config: CoreConfig, allBlogs: MDXBlog[]) {
   const publishPosts = allBlogs.filter((post) => post.draft !== true)
   // RSS for blog post
   if (publishPosts.length > 0) {
@@ -57,5 +57,3 @@ async function generateRSS(config: CoreConfig, allBlogs: MDXBlog[]) {
     }
   }
 }
-
-export default generateRSS

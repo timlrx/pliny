@@ -11,7 +11,7 @@ export type DisqusProps = DisqusConfig['disqusConfig'] & {
   slug?: string
 }
 
-const Disqus = ({ shortname, slug }: DisqusProps) => {
+export const Disqus = ({ shortname, slug }: DisqusProps) => {
   const COMMENTS_ID = 'disqus_thread'
 
   const LoadComments = useCallback(() => {
@@ -39,5 +39,3 @@ const Disqus = ({ shortname, slug }: DisqusProps) => {
 
   return <div className="disqus-frame" id={COMMENTS_ID} />
 }
-
-export default Disqus

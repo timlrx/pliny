@@ -45,17 +45,24 @@ const KBarSearchProvider = dynamic(
  * @return {*}
  */
 export const SearchProvider = ({ searchConfig, children }: SearchConfigProps) => {
-  switch (searchConfig.provider) {
-    case 'algolia':
-      return (
-        <AlgoliaSearchProvider algoliaConfig={searchConfig.algoliaConfig}>
-          {children}
-        </AlgoliaSearchProvider>
-      )
-    case 'kbar':
-      return (
-        <KBarSearchProvider kbarConfig={searchConfig.kbarConfig}>{children}</KBarSearchProvider>
-      )
+  if (searchConfig && searchConfig.provider) {
+    switch (searchConfig.provider) {
+      case 'algolia':
+        return (
+          <AlgoliaSearchProvider algoliaConfig={searchConfig.algoliaConfig}>
+            {children}
+          </AlgoliaSearchProvider>
+        )
+      case 'kbar':
+        return (
+          <KBarSearchProvider kbarConfig={searchConfig.kbarConfig}>{children}</KBarSearchProvider>
+        )
+      default:
+        console.log('No suitable provider found. Please choose from algolia or kbar.')
+        return <>{children}</>
+    }
+  } else {
+    return <>{children}</>
   }
 }
 
