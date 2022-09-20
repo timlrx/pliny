@@ -25,7 +25,7 @@
     "gray-matter": "^4.0.2",
     "image-size": "1.0.0",
     "mdx-bundler": "^9.0.0",
-    "next": "12.3.0",
+    "next": "12.3.1",
     "next-contentlayer": "0.2.8",
     "next-plugin-preact": "3.0.7",
     "next-themes": "^0.2.0",
@@ -51,7 +51,7 @@
     "unist-util-visit": "^4.1.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "12.3.0",
+    "@next/bundle-analyzer": "12.3.1",
     "@svgr/webpack": "^6.3.1",
     "@types/react": "^18.0.18",
     "@typescript-eslint/eslint-plugin": "^5.36.2",
@@ -60,7 +60,7 @@
     "dedent": "^0.7.0",
     "esbuild-register": "3.3.3",
     "eslint": "^8.23.0",
-    "eslint-config-next": "12.3.0",
+    "eslint-config-next": "12.3.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "file-loader": "^6.0.0",
