@@ -1,5 +1,12 @@
 # pliny
 
+## 0.0.6
+
+### Patch Changes
+
+- 6fa9098: export modules from root and use only named exports
+- 724b402: update dependencies
+
 ## 0.0.5
 
 ### Patch Changes

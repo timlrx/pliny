@@ -1,5 +1,11 @@
 # @pliny/installer
 
+## 0.0.4
+
+### Patch Changes
+
+- 724b402: update dependencies
+
 ## 0.0.3
 
 ### Patch Changes
