@@ -74,7 +74,7 @@ export function coreContent<T extends MDXDocument>(content: T) {
 }
 
 export function allCoreContent<T extends MDXDocument>(contents: T[]) {
-  return contents.map((c) => coreContent(c))
+  return contents.map((c) => coreContent(c)).filter((c) => !('draft' in c && c.draft === true))
 }
 
 // TODO: refactor into contentlayer once compute over all docs is enabled

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export const buttondownHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.body
   const API_KEY = process.env.BUTTONDOWN_API_KEY
   const API_URL = 'https://api.buttondown.email/v1/'

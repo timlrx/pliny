@@ -10,7 +10,7 @@ export type ImageNode = Parent & {
   attributes: (Literal & { name: string })[]
 }
 
-export default function remarkImgToJsx() {
+export function remarkImgToJsx() {
   return (tree: Node) => {
     visit(
       tree,

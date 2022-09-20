@@ -4,7 +4,7 @@ export interface PosthogProps {
   posthogProjectApiKey: string
 }
 
-const Posthog = ({ posthogProjectApiKey }: PosthogProps) => {
+export const Posthog = ({ posthogProjectApiKey }: PosthogProps) => {
   return (
     <>
       <Script strategy="lazyOnload" id="posthog-script">
@@ -16,5 +16,3 @@ const Posthog = ({ posthogProjectApiKey }: PosthogProps) => {
     </>
   )
 }
-
-export default Posthog

@@ -1,9 +1,7 @@
-import { FC, ReactNode } from 'react'
-import { KBarProvider, KBarContext, Action } from 'kbar'
+import { useState, useEffect, useCallback, FC, ReactNode } from 'react'
+import type { Action } from 'kbar'
 import Router from 'next/router'
-import Portal from './KBarPortal'
-
-export { KBarContext }
+import { KBarModal as KBarModalType } from './KBarModal'
 
 export interface KBarSearchProps {
   searchDocumentsPath: string
@@ -15,11 +13,40 @@ export interface KBarConfig {
   kbarConfig: KBarSearchProps
 }
 
+let KBarModal: typeof KBarModalType | null = null
+
 export const KBarSearchProvider: FC<{
   children: ReactNode
   kbarConfig: KBarSearchProps
 }> = ({ kbarConfig, children }) => {
   const { searchDocumentsPath, defaultActions } = kbarConfig
+  const [loaded, setLoaded] = useState(false)
+
+  const importDocSearchModalIfNeeded = useCallback(() => {
+    if (KBarModal) {
+      return Promise.resolve()
+    }
+    return Promise.all([import('./KBarModal.js')]).then(([{ KBarModal: Modal }]) => {
+      KBarModal = Modal
+    })
+  }, [])
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.ctrlKey && event.key === 'k') {
+        event.preventDefault()
+        importDocSearchModalIfNeeded().then(() => {
+          setLoaded(true)
+          window.removeEventListener('keydown', handleKeyDown)
+        })
+      }
+    }
+    if (!loaded) window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      /*removes event listener on cleanup*/
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [importDocSearchModalIfNeeded, loaded])
 
   const startingActions: Action[] = Array.isArray(defaultActions)
     ? defaultActions
@@ -34,9 +61,14 @@ export const KBarSearchProvider: FC<{
       ]
 
   return (
-    <KBarProvider actions={startingActions}>
-      <Portal searchDocumentsPath={searchDocumentsPath} />
-      {children}
-    </KBarProvider>
+    <>
+      {loaded && KBarModal ? (
+        <KBarModal startingActions={startingActions} searchDocumentsPath={searchDocumentsPath}>
+          {children}
+        </KBarModal>
+      ) : (
+        children
+      )}
+    </>
   )
 }

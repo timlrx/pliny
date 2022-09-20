@@ -4,11 +4,11 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 // ../node_modules/pliny/dist/**/*.mjs is needed for monorepo setup
-/** @type {import("tailwindcss/tailwind-config").TailwindConfig } */
+/** @type {import("tailwindcss/types").Config } */
 module.exports = {
   content: [
-    '../node_modules/pliny/dist/**/*.mjs',
-    './node_modules/pliny/dist/**/*.mjs',
+    '../node_modules/pliny/**/*.js',
+    './node_modules/pliny/**/*.js',
     './pages/**/*.tsx',
     './components/**/*.tsx',
     './layouts/**/*.tsx',

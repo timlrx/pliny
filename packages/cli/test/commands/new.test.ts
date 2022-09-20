@@ -110,8 +110,7 @@ describe('`new` command', () => {
           'pages/_app.tsx',
           'tsconfig.json',
           'next-env.d.ts',
-          '.eslintrc.json',
-          'node_modules/next',
+          '.eslintrc.js',
           '.gitignore',
         ]
 

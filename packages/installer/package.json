@@ -22,8 +22,8 @@
     "url": "git+https://github.com/timlrx/pliny.git"
   },
   "dependencies": {
-    "@babel/core": "7.18.0",
-    "@babel/plugin-transform-typescript": "7.18.1",
+    "@babel/core": "7.19.0",
+    "@babel/plugin-transform-typescript": "7.19.0",
     "@types/jscodeshift": "0.11.5",
     "ast-types": "0.14.2",
     "console-table-printer": "^2.7.5",
@@ -31,7 +31,7 @@
     "diff": "5.0.0",
     "enquirer": "2.3.6",
     "execa": "6.1.0",
-    "fs-extra": "^9.1.0",
+    "fs-extra": "^10.1.0",
     "globby": "11.0.2",
     "ink": "3.2.0",
     "ink-spinner": "4.0.3",
@@ -42,15 +42,15 @@
     "ora": "5.4.1",
     "pluralize": "^8.0.0",
     "react": "17.0.2",
-    "recast": "0.20.5",
+    "recast": "0.21.2",
     "rimraf": "^3.0.2",
-    "tslog": "^3.1.1",
+    "tslog": "^3.3.4",
     "vinyl": "2.2.1"
   },
   "devDependencies": {
-    "contentlayer": "0.2.5",
-    "tsup": "6.1.2",
-    "typescript": "^4.6.2"
+    "contentlayer": "0.2.8",
+    "tsup": "6.2.3",
+    "typescript": "^4.8.3"
   },
   "publishConfig": {
     "access": "public"

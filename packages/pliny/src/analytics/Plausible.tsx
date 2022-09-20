@@ -4,7 +4,7 @@ export interface PlausibleProps {
   plausibleDataDomain: string
 }
 
-const Plausible = ({ plausibleDataDomain }: PlausibleProps) => {
+export const Plausible = ({ plausibleDataDomain }: PlausibleProps) => {
   return (
     <>
       <Script
@@ -20,8 +20,6 @@ const Plausible = ({ plausibleDataDomain }: PlausibleProps) => {
     </>
   )
 }
-
-export default Plausible
 
 // https://plausible.io/docs/custom-event-goals
 export const logEvent = (eventName, ...rest) => {

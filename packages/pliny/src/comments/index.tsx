@@ -1,8 +1,8 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import { DisqusConfig, DisqusProps } from './Disqus'
-import { GiscusConfig, GiscusProps } from './Giscus'
-import { UtterancesConfig, UtterancesProps } from './Utterances'
+import { Disqus, DisqusConfig, DisqusProps } from './Disqus'
+import { Giscus, GiscusConfig, GiscusProps } from './Giscus'
+import { Utterances, UtterancesConfig, UtterancesProps } from './Utterances'
 
 declare global {
   interface Window {
@@ -48,20 +48,20 @@ export interface CommentsProps {
 
 const UtterancesComponent = dynamic<UtterancesProps>(
   () => {
-    return import('./Utterances').then((mod) => mod.default)
+    return import('./Utterances').then((mod) => mod.Utterances)
   },
   { ssr: false }
 )
 const GiscusComponent = dynamic<GiscusProps>(
   () => {
-    return import('./Giscus').then((mod) => mod.default)
+    return import('./Giscus').then((mod) => mod.Giscus)
   },
   { ssr: false }
 )
 
 const DisqusComponent = dynamic<DisqusProps>(
   () => {
-    return import('./Disqus').then((mod) => mod.default)
+    return import('./Disqus').then((mod) => mod.Disqus)
   },
   { ssr: false }
 )
@@ -75,7 +75,7 @@ const DisqusComponent = dynamic<DisqusProps>(
  * @param {CommentsProps} { comments, slug }
  * @return {*}
  */
-const Comments = ({ commentsConfig, slug }: CommentsProps) => {
+export const Comments = ({ commentsConfig, slug }: CommentsProps) => {
   switch (commentsConfig.provider) {
     case 'giscus':
       return <GiscusComponent {...commentsConfig.giscusConfig} />
@@ -86,4 +86,12 @@ const Comments = ({ commentsConfig, slug }: CommentsProps) => {
   }
 }
 
-export default Comments
+export { Disqus, Giscus, Utterances }
+export type {
+  DisqusConfig,
+  DisqusProps,
+  GiscusConfig,
+  GiscusProps,
+  UtterancesConfig,
+  UtterancesProps,
+}

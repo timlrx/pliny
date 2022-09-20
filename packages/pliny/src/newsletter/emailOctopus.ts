@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export const emailOctopusHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.body
   const API_KEY = process.env.EMAILOCTOPUS_API_KEY
   const LIST_ID = process.env.EMAILOCTOPUS_LIST_ID

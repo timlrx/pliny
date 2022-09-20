@@ -1,6 +1,6 @@
 import Script from 'next/script'
 
-const SimpleAnalyticsScript = () => {
+export const SimpleAnalytics = () => {
   return (
     <>
       <Script strategy="lazyOnload" id="sa-script">
@@ -21,5 +21,3 @@ export const logEvent = (eventName, callback) => {
     return window.sa_event?.(eventName)
   }
 }
-
-export default SimpleAnalyticsScript

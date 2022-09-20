@@ -1,6 +1,6 @@
 import { useState, ReactNode } from 'react'
-import Comments from 'pliny/comments'
-import formatDate from 'pliny/utils/formatDate'
+import { Comments } from 'pliny/comments'
+import { formatDate } from 'pliny/utils/formatDate'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'

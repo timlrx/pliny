@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import GA, { GoogleAnalyticsProps } from './GoogleAnalytics'
-import Plausible, { PlausibleProps } from './Plausible'
-import SimpleAnalytics from './SimpleAnalytics'
-import Umami, { UmamiProps } from './Umami'
-import Posthog, { PosthogProps } from './Posthog'
+import { GA, GoogleAnalyticsProps } from './GoogleAnalytics'
+import { Plausible, PlausibleProps } from './Plausible'
+import { SimpleAnalytics } from './SimpleAnalytics'
+import { Umami, UmamiProps } from './Umami'
+import { Posthog, PosthogProps } from './Posthog'
 
 declare global {
   interface Window {
@@ -44,7 +44,7 @@ const isProduction = process.env.NODE_ENV === 'production'
  * @param {AnalyticsProps} { analytics }
  * @return {*}
  */
-const Analytics = ({ analyticsConfig }: AnalyticsProps) => {
+export const Analytics = ({ analyticsConfig }: AnalyticsProps) => {
   return (
     <>
       {isProduction && analyticsConfig.plausibleDataDomain && (
@@ -64,4 +64,6 @@ const Analytics = ({ analyticsConfig }: AnalyticsProps) => {
   )
 }
 
-export default Analytics
+export { GA, Plausible, SimpleAnalytics, Umami, Posthog }
+
+export type { GoogleAnalyticsProps, PlausibleProps, UmamiProps, PosthogProps }

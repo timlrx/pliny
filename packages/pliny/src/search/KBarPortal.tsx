@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Router from 'next/router'
 import { CoreContent, MDXDocument } from '../utils/contentlayer'
-import formatDate from '../utils/formatDate'
+import { formatDate } from '../utils/formatDate'
 import {
   KBarPortal,
   KBarSearch,
@@ -14,8 +14,14 @@ import {
   ActionImpl,
 } from 'kbar'
 
-const Portal = ({ searchDocumentsPath }: { searchDocumentsPath: string }) => {
+export const Portal = ({ searchDocumentsPath }: { searchDocumentsPath: string }) => {
   const [searchActions, setSearchActions] = useState([])
+  const { query } = useKBar()
+
+  // Display on load as we already wait for crtl+k event to load it
+  useEffect(() => {
+    query.toggle()
+  }, [])
 
   useEffect(() => {
     const mapPosts = (posts: CoreContent<MDXDocument>[]) => {
@@ -191,11 +197,13 @@ const RenderResults = () => {
                     ref={(el) => (activeRef.current[index] = el)}
                     id={`listbox-content-${index}`}
                     onClick={() => execute(item)}
+                    // eslint-disable-next-line react/no-unknown-property
                     onPointerMove={() => {
                       if (activeIndex !== index) {
                         query.setActiveIndex(index)
                       }
                     }}
+                    // eslint-disable-next-line react/no-unknown-property
                     onPointerDown={() => query.setActiveIndex(index)}
                     className={`${
                       activeIndex === index ? 'bg-primary-600' : 'bg-transparent'
@@ -229,5 +237,3 @@ const RenderResults = () => {
     )
   }
 }
-
-export default Portal

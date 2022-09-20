@@ -4,7 +4,7 @@ export interface UmamiProps {
   umamiWebsiteId: string
 }
 
-const UmamiScript = ({ umamiWebsiteId }: UmamiProps) => {
+export const Umami = ({ umamiWebsiteId }: UmamiProps) => {
   return (
     <>
       <Script
@@ -16,5 +16,3 @@ const UmamiScript = ({ umamiWebsiteId }: UmamiProps) => {
     </>
   )
 }
-
-export default UmamiScript

@@ -24,7 +24,7 @@ export interface TOCInlineProps {
  * }
  *
  */
-const TOCInline = ({
+export const TOCInline = ({
   toc,
   indentDepth = 3,
   fromHeading = 1,
@@ -64,5 +64,3 @@ const TOCInline = ({
     </>
   )
 }
-
-export default TOCInline

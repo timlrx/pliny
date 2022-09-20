@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export const klaviyoHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.body
   const API_KEY = process.env.KLAVIYO_API_KEY
   const LIST_ID = process.env.KLAVIYO_LIST_ID

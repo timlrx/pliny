@@ -1,10 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import buttondownHandler from './buttondown'
-import convertkitHandler from './convertkit'
-import mailchimpHandler from './mailchimp'
-import klaviyoHandler from './klaviyo'
-import revueHandler from './revue'
-import emailOctopusHandler from './emailOctopus'
+import { buttondownHandler } from './buttondown'
+import { convertkitHandler } from './convertkit'
+import { mailchimpHandler } from './mailchimp'
+import { klaviyoHandler } from './klaviyo'
+import { revueHandler } from './revue'
+import { emailOctopusHandler } from './emailOctopus'
 
 export interface NewsletterConfig {
   provider: 'buttondown' | 'convertkit' | 'klaviyo' | 'mailchimp' | 'revue' | 'emailoctopus'
@@ -58,10 +58,14 @@ async function NewsletterHandler(
   }
 }
 
-function NewsletterAPI(options: NewsletterConfig): any
-function NewsletterAPI(req: NextApiRequest, res: NextApiResponse, options: NewsletterConfig): any
+export function NewsletterAPI(options: NewsletterConfig): any
+export function NewsletterAPI(
+  req: NextApiRequest,
+  res: NextApiResponse,
+  options: NewsletterConfig
+): any
 
-function NewsletterAPI(
+export function NewsletterAPI(
   ...args: [NewsletterConfig] | [NextApiRequest, NextApiResponse, NewsletterConfig]
 ) {
   if (args.length === 1) {
@@ -71,5 +75,3 @@ function NewsletterAPI(
 
   return NewsletterHandler(args[0], args[1], args[2])
 }
-
-export default NewsletterAPI

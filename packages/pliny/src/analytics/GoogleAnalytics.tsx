@@ -4,7 +4,7 @@ export interface GoogleAnalyticsProps {
   googleAnalyticsId: string
 }
 
-const GoogleAnalytics = ({ googleAnalyticsId }: GoogleAnalyticsProps) => {
+export const GA = ({ googleAnalyticsId }: GoogleAnalyticsProps) => {
   return (
     <>
       <Script
@@ -25,8 +25,6 @@ const GoogleAnalytics = ({ googleAnalyticsId }: GoogleAnalyticsProps) => {
     </>
   )
 }
-
-export default GoogleAnalytics
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
 export const logEvent = (action, category, label, value) => {
