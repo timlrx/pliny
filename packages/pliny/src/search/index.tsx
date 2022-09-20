@@ -1,7 +1,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import { AlgoliaSearchContext } from './Algolia'
-import { KBarContext } from './KBar'
+// import { AlgoliaSearchContext } from './Algolia'
+// import { KBarContext } from 'kbar'
 
 import type { AlgoliaConfig } from './Algolia'
 import type { KBarConfig } from './KBar'
@@ -32,6 +32,22 @@ const AlgoliaSearchProvider = dynamic(
 const KBarSearchProvider = dynamic(
   () => {
     return import('./KBar').then((mod) => mod.KBarSearchProvider)
+  },
+  { ssr: false }
+)
+
+const KBarContext = dynamic(
+  // @ts-ignore
+  () => {
+    return import('kbar').then((mod) => mod.KBarContext)
+  },
+  { ssr: false }
+)
+
+const AlgoliaSearchContext = dynamic(
+  // @ts-ignore
+  () => {
+    return import('./Algolia').then((mod) => mod.AlgoliaSearchContext)
   },
   { ssr: false }
 )
@@ -69,8 +85,10 @@ export const SearchProvider = ({ searchConfig, children }: SearchConfigProps) =>
 export const SearchContext = (provider: string): React.Context<SearchContext> => {
   switch (provider) {
     case 'algolia':
+      // @ts-ignore
       return AlgoliaSearchContext
     case 'kbar':
+      // @ts-ignore
       return KBarContext
   }
 }

@@ -16,6 +16,12 @@ import {
 
 export const Portal = ({ searchDocumentsPath }: { searchDocumentsPath: string }) => {
   const [searchActions, setSearchActions] = useState([])
+  const { query } = useKBar()
+
+  // Display on load as we already wait for crtl+k event to load it
+  useEffect(() => {
+    query.toggle()
+  }, [])
 
   useEffect(() => {
     const mapPosts = (posts: CoreContent<MDXDocument>[]) => {
