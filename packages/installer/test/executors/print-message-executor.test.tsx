@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { expect, describe, it } from 'vitest'
 import { render } from 'ink-testing-library'
 import React from 'react'
@@ -15,20 +16,20 @@ describe('Executor', () => {
   it('should render PrintMessageExecutor', () => {
     const { lastFrame } = render(
       <PrintMessageExecutor
-        cliArgs={null}
+        cliArgs={{}}
         cliFlags={{ yesToAll: false }}
         onChangeCommitted={() => {}}
         step={executorConfig}
       />
     )
 
-    expect(stripAnsi(lastFrame())).toMatchSnapshot()
+    expect(stripAnsi(lastFrame() as string)).toMatchSnapshot()
   })
 
   it('should contain a step name and explanation', () => {
     const { frames } = render(
       <PrintMessageExecutor
-        cliArgs={null}
+        cliArgs={{}}
         cliFlags={{ yesToAll: false }}
         onChangeCommitted={() => {}}
         step={executorConfig}

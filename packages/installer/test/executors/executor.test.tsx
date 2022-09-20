@@ -14,7 +14,7 @@ describe('Executor', () => {
   it('should render Frontmatter', () => {
     const { lastFrame } = render(<Frontmatter executor={executorConfig} />)
 
-    expect(stripAnsi(lastFrame())).toMatchSnapshot()
+    expect(stripAnsi(lastFrame() as string)).toMatchSnapshot()
   })
 
   it('should contain a step name and explanation', () => {
