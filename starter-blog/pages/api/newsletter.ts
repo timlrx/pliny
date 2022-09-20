@@ -1,4 +1,4 @@
-import NewsletterAPI from 'pliny/newsletter'
+import { NewsletterAPI } from 'pliny/newsletter'
 import siteMetadata from '@/data/siteMetadata'
 
 export default NewsletterAPI({

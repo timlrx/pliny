@@ -1,8 +1,8 @@
 /* eslint-disable react/display-name */
 import React from 'react'
 import { MDXLayout, ComponentMap } from 'pliny/mdx-components'
-import TOCInline from 'pliny/ui/TOCInline'
-import Pre from 'pliny/ui/Pre'
+import { TOCInline } from 'pliny/ui/TOCInline'
+import { Pre } from 'pliny/ui/Pre'
 import { BlogNewsletterForm } from 'pliny/ui/NewsletterForm'
 
 import Image from './Image'

@@ -1,5 +1,5 @@
-import generateRss from 'pliny/utils/generate-rss.mjs'
+import { generateRSS } from 'pliny/utils/generate-rss.js'
 import siteMetadata from '../data/siteMetadata.js'
 import { allBlogs } from '../.contentlayer/generated/index.mjs'
 
-generateRss(siteMetadata, allBlogs)
+generateRSS(siteMetadata, allBlogs)
