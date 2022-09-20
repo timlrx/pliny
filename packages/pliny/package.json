@@ -13,8 +13,8 @@
     "./mdx-plugins": "./mdx-plugins/index.js",
     "./newsletter": "./newsletter/index.js",
     "./seo": "./seo/index.js",
-    "./ui/": "./ui/",
-    "./utils/": "./utils/"
+    "./ui/*": "./ui/*",
+    "./utils/*": "./utils/*"
   },
   "files": [
     "**"
