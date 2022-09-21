@@ -1,6 +1,6 @@
 # @pliny/installer
 
-## 0.0.4-beta.0
+## 0.0.4
 
 ### Patch Changes
 
