@@ -2,7 +2,7 @@
   "name": "pliny",
   "description": "Main entry point for pliny components and CLI",
   "homepage": "https://github.com/timlrx/pliny",
-  "version": "0.0.6-beta.0",
+  "version": "0.0.6-beta.1",
   "type": "module",
   "exports": {
     "./analytics": "./analytics/index.js",
