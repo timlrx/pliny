@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import { useRouter } from 'next/router'
+import Head from 'next/head.js'
+import { useRouter } from 'next/router.js'
 import type { CoreConfig } from '../config'
 import { CoreContent, MDXBlog, MDXAuthor } from '../utils/contentlayer'
 

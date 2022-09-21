@@ -1,9 +1,9 @@
 import React, { useState, useRef, useCallback } from 'react'
 import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react'
 import { createPortal } from 'react-dom'
-import { useRouter } from 'next/router'
-import Link from 'next/link'
-import Head from 'next/head'
+import { useRouter } from 'next/router.js'
+import Link from 'next/link.js'
+import Head from 'next/head.js'
 import { useDocSearchKeyboardEvents } from '@docsearch/react'
 import type {
   DocSearchModal as DocSearchModalType,

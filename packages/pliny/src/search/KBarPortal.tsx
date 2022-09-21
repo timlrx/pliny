@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Router from 'next/router'
+import Router from 'next/router.js'
 import { CoreContent, MDXDocument } from '../utils/contentlayer'
 import { formatDate } from '../utils/formatDate'
 import {

@@ -1,6 +1,6 @@
 # @pliny/cli
 
-## 0.0.4
+## 0.0.4-beta.0
 
 ### Patch Changes
 

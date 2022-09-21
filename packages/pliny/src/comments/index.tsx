@@ -1,5 +1,5 @@
 import React from 'react'
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic.js'
 import { Disqus, DisqusConfig, DisqusProps } from './Disqus'
 import { Giscus, GiscusConfig, GiscusProps } from './Giscus'
 import { Utterances, UtterancesConfig, UtterancesProps } from './Utterances'
