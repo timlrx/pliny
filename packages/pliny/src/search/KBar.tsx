@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, FC, ReactNode } from 'react'
 import type { Action } from 'kbar'
-import Router from 'next/router'
+import Router from 'next/router.js'
 import { KBarModal as KBarModalType } from './KBarModal'
 
 export interface KBarSearchProps {

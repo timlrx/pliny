@@ -1,4 +1,4 @@
-import Script from 'next/script'
+import Script from 'next/script.js'
 
 export const SimpleAnalytics = () => {
   return (

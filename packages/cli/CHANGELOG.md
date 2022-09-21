@@ -1,5 +1,13 @@
 # @pliny/cli
 
+## 0.0.4-beta.0
+
+### Patch Changes
+
+- 724b402: update dependencies
+- Updated dependencies [724b402]
+  - @pliny/installer@0.0.4-beta.0
+
 ## 0.0.3
 
 ### Patch Changes
