@@ -32,6 +32,7 @@
     "js-yaml": "4.1.0",
     "kbar": "0.1.0-beta.36",
     "next-contentlayer": "0.2.8",
+    "next-themes": "^0.2.0",
     "remark": "^14.0.2",
     "unist-util-visit": "^4.1.0"
   },
@@ -42,6 +43,9 @@
   },
   "devDependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.75",
+    "next": "12.3.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "rimraf": "^3.0.2",
     "tsup": "6.2.3",
     "typescript": "^4.8.3"
