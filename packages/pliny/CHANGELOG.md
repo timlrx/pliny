@@ -1,5 +1,11 @@
 # pliny
 
+## 0.0.6-beta.2
+
+### Patch Changes
+
+- 64ea789: fix react hoisting issues
+
 ## 0.0.6-beta.1
 
 ### Patch Changes
