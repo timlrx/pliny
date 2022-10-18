@@ -9,6 +9,7 @@
     "starter-blog": "0.0.1"
   },
   "changesets": [
-    "chatty-days-sleep"
+    "chatty-days-sleep",
+    "violet-dryers-deliver"
   ]
 }

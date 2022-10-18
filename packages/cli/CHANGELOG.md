@@ -1,5 +1,13 @@
 # @pliny/cli
 
+## 0.0.4-beta.1
+
+### Patch Changes
+
+- 64ea789: fix react hoisting issues
+- Updated dependencies [64ea789]
+  - @pliny/installer@0.0.4-beta.1
+
 ## 0.0.4-beta.0
 
 ### Patch Changes
