@@ -29,7 +29,7 @@
     "next-contentlayer": "0.2.8",
     "next-plugin-preact": "3.0.7",
     "next-themes": "^0.2.0",
-    "pliny": "0.0.6-beta.1",
+    "pliny": "0.0.6-beta.3",
     "postcss": "^8.4.16",
     "preact": "^10.11.0",
     "preact-render-to-string": "^5.2.4",
