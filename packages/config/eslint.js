@@ -6,6 +6,7 @@ module.exports = {
     'plugin:prettier/recommended',
     'prettier',
   ],
+  plugins: ['@typescript-eslint'],
   env: {
     node: true,
   },
@@ -13,11 +14,6 @@ module.exports = {
     ecmaVersion: 2020,
     ecmaFeatures: {
       legacyDecorators: true,
-    },
-  },
-  settings: {
-    react: {
-      version: '16',
     },
   },
   rules: {

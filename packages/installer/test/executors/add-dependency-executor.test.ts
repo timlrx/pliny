@@ -62,7 +62,7 @@ describe('add dependency executor', () => {
  * Primitive mock of spawn function
  */
 const mockSpawn = () => {
-  let calls: string[] = []
+  const calls: string[] = []
 
   return {
     spawn: (command: string, args: string[], _: unknown = {}) => {

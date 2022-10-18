@@ -9,7 +9,6 @@
     "starter-blog": "0.0.1"
   },
   "changesets": [
-    "fair-rockets-sneeze",
-    "nine-impalas-approve"
+    "chatty-days-sleep"
   ]
 }

@@ -1,14 +1,23 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "baseBranch": "origin/master",
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**"
+      ]
     },
     "build-publishable-release": {
-      "dependsOn": ["^build-publishable-release"],
-      "outputs": ["dist/**", ".next/**"]
+      "dependsOn": [
+        "^build-publishable-release"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**"
+      ]
     },
     "lint": {
       "outputs": []

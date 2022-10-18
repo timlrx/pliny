@@ -120,7 +120,6 @@ export const Commit: Executor['Commit'] = ({ cliArgs, cliFlags, step, onChangeCo
       await installPackages(packagesToInstall)
       setDepsInstalled(true)
     }
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     installDeps()
   }, [cliArgs, step])
 
@@ -133,7 +132,6 @@ export const Commit: Executor['Commit'] = ({ cliArgs, cliFlags, step, onChangeCo
       await installPackages(packagesToInstall, true)
       setDevDepsInstalled(true)
     }
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     installDevDeps()
   }, [cliArgs, depsInstalled, step])
 

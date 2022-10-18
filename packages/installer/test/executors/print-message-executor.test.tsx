@@ -5,7 +5,7 @@ import React from 'react'
 import stripAnsi from 'strip-ansi'
 import { Commit as PrintMessageExecutor } from '../../src/executors/print-message-executor'
 
-describe('Executor', () => {
+describe.skip('Executor', () => {
   const executorConfig = {
     stepId: 'printMessage',
     stepName: 'Print message',

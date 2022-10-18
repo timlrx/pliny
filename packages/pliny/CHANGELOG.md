@@ -1,5 +1,11 @@
 # pliny
 
+## 0.0.6-beta.1
+
+### Patch Changes
+
+- 85377ed: module resolution
+
 ## 0.0.6
 
 ### Patch Changes
