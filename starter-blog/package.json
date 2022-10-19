@@ -32,10 +32,8 @@
     "pliny": "0.0.6-beta.3",
     "postcss": "^8.4.16",
     "preact": "^10.11.0",
-    "preact-render-to-string": "^5.2.4",
-    "react": "npm:@preact/compat@^17.1.1",
-    "react-dom": "npm:@preact/compat@^17.1.1",
-    "react-ssr-prepass": "npm:preact-ssr-prepass@1.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "reading-time": "1.5.0",
     "rehype-autolink-headings": "^6.1.0",
     "rehype-citation": "^0.4.0",
@@ -79,8 +77,5 @@
     "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
       "prettier --write"
     ]
-  },
-  "installConfig": {
-    "hoistingLimits": "workspaces"
   }
 }

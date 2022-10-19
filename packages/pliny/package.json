@@ -20,8 +20,8 @@
     "**"
   ],
   "scripts": {
-    "dev": "tsup-node src/**/* --watch --inject ./react-import.js --format esm --splitting --treeshake --dts --silent && cp -fR dist/* && rimraf dist",
-    "build": "rimraf dist && tsup-node src/**/* --inject ./react-import.js --format esm --splitting --treeshake --dts --silent && cp -fR dist/* ./ && rimraf dist"
+    "dev": "tsup-node --watch && cp -fR dist/* ./ && rimraf dist",
+    "build": "rimraf dist && tsup-node && cp -fR dist/* ./ && rimraf dist"
   },
   "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",
   "dependencies": {
@@ -44,8 +44,8 @@
   "devDependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.75",
     "next": "12.3.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "rimraf": "^3.0.2",
     "tsup": "6.2.3",
     "typescript": "^4.8.3"
