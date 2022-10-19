@@ -1,5 +1,4 @@
 const { withContentlayer } = require('next-contentlayer')
-const withPreact = require('next-plugin-preact')
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -59,7 +58,7 @@ const securityHeaders = [
  * @type {import('next/dist/next-server/server/config').NextConfig}
  **/
 module.exports = () => {
-  const plugins = [withPreact, withContentlayer, withBundleAnalyzer]
+  const plugins = [withContentlayer, withBundleAnalyzer]
   return plugins.reduce((acc, next) => next(acc), {
     reactStrictMode: true,
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
@@ -78,6 +77,13 @@ module.exports = () => {
       config.module.rules.push({
         test: /\.svg$/,
         use: ['@svgr/webpack'],
+      })
+
+      Object.assign(config.resolve.alias, {
+        'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
+        react: 'preact/compat',
+        'react-dom/test-utils': 'preact/test-utils',
+        'react-dom': 'preact/compat',
       })
 
       return config
