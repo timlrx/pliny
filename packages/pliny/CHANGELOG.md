@@ -1,5 +1,12 @@
 # pliny
 
+## 0.0.6-beta.4
+
+### Patch Changes
+
+- 280d784: try publishing locally
+- a6ea8ac: upgrade to react 18
+
 ## 0.0.6-beta.2
 
 ### Patch Changes
