@@ -13633,7 +13633,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pliny@0.0.6-beta.3, pliny@workspace:packages/pliny":
+"pliny@0.0.6-beta.4, pliny@workspace:packages/pliny":
   version: 0.0.0-use.local
   resolution: "pliny@workspace:packages/pliny"
   dependencies:
@@ -15932,7 +15932,7 @@ __metadata:
     next-contentlayer: 0.2.8
     next-plugin-preact: 3.0.7
     next-themes: ^0.2.0
-    pliny: 0.0.6-beta.3
+    pliny: 0.0.6-beta.4
     postcss: ^8.4.16
     preact: ^10.11.0
     prettier: ^2.7.0

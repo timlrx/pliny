@@ -1,5 +1,11 @@
 # @pliny/installer
 
+## 0.0.4-beta.2
+
+### Patch Changes
+
+- a6ea8ac: upgrade to react 18
+
 ## 0.0.4-beta.1
 
 ### Patch Changes
