@@ -49,7 +49,7 @@ const alwaysIgnoreFiles = [
   'node_modules',
   '.contentlayer',
 ]
-const ignoredExtensions = ['.ico', '.png', '.jpg']
+const ignoredExtensions = ['.ico', '.png', '.jpg', 'jpeg']
 const tsExtension = /\.(tsx?)$/
 const codeFileExtensions = /\.(tsx?|jsx?)$/
 
