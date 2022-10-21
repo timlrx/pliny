@@ -291,6 +291,8 @@ export abstract class Generator<
         throw error
       }
     }
+    // Copy back node_modules
+    fs.moveSync(`${sourcePath}/node_modules`, `${this.options.destinationRoot}/node_modules`)
   }
 
   async preCommit(): Promise<void> {
