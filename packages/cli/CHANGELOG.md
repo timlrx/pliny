@@ -1,5 +1,11 @@
 # @pliny/cli
 
+## 0.0.4-beta.2
+
+### Patch Changes
+
+- 1469a54: fix installer version
+
 ## 0.0.4-beta.1
 
 ### Patch Changes

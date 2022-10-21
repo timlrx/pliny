@@ -1,5 +1,18 @@
 # pliny
 
+## 0.0.6-beta.5
+
+### Patch Changes
+
+- c7d833b: remove dynamic load for comments
+
+## 0.0.6-beta.4
+
+### Patch Changes
+
+- 280d784: try publishing locally
+- a6ea8ac: upgrade to react 18
+
 ## 0.0.6-beta.2
 
 ### Patch Changes
