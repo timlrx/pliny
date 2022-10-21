@@ -3472,7 +3472,7 @@ __metadata:
     "@oclif/plugin-not-found": 2.3.1
     "@oclif/plugin-plugins": 2.1.0
     "@oclif/plugin-version": 1.1.2
-    "@pliny/installer": 0.0.4-beta.1
+    "@pliny/installer": 0.0.4-beta.3
     camelcase: ^6.2.0
     chalk: ^4.1.0
     console-table-printer: ^2.11.1
@@ -3522,7 +3522,39 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pliny/installer@0.0.4-beta.1, @pliny/installer@workspace:packages/installer":
+"@pliny/installer@npm:0.0.4-beta.3":
+  version: 0.0.4-beta.3
+  resolution: "@pliny/installer@npm:0.0.4-beta.3"
+  dependencies:
+    "@babel/core": 7.19.0
+    "@babel/plugin-transform-typescript": 7.19.0
+    "@types/jscodeshift": 0.11.5
+    ast-types: 0.14.2
+    console-table-printer: ^2.7.5
+    cross-spawn: 7.0.3
+    diff: 5.0.0
+    enquirer: 2.3.6
+    execa: 6.1.0
+    fs-extra: ^10.1.0
+    globby: 11.0.2
+    ink: 3.2.0
+    ink-spinner: 4.0.3
+    ink-testing-library: 2.1.0
+    jscodeshift: 0.13.1
+    mem-fs: 2.2.0
+    mem-fs-editor: 9.4.0
+    ora: 5.4.1
+    pluralize: ^8.0.0
+    react: 18.2.0
+    recast: 0.21.2
+    rimraf: ^3.0.2
+    tslog: ^3.3.4
+    vinyl: 2.2.1
+  checksum: 256a393a67704aaf7b1b4eca28e18d12f2f39752e2b3fa43e1e4051afbdd8ecb183c99b9a1b1f4039629b5e7c9499682e9a6fe1b67c43f0d33e1ae517b5fe6c2
+  languageName: node
+  linkType: hard
+
+"@pliny/installer@workspace:packages/installer":
   version: 0.0.0-use.local
   resolution: "@pliny/installer@workspace:packages/installer"
   dependencies:
