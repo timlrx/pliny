@@ -7,12 +7,12 @@ const colors = require('tailwindcss/colors')
 /** @type {import("tailwindcss/types").Config } */
 module.exports = {
   content: [
-    '../node_modules/pliny/**/*.js',
-    './node_modules/pliny/**/*.js',
-    './pages/**/*.tsx',
-    './components/**/*.tsx',
-    './layouts/**/*.tsx',
-    './lib/**/*.ts',
+    '../node_modules/pliny/**/*.{js,ts,tsx}',
+    './node_modules/pliny/**/*.{js,ts,tsx}',
+    './pages/**/*.{js,ts,tsx}',
+    './components/**/*.{js,ts,tsx}',
+    './layouts/**/*.{js,ts,tsx}',
+    './lib/**/*.{js,ts,tsx}',
     './data/**/*.mdx',
   ],
   darkMode: 'class',
