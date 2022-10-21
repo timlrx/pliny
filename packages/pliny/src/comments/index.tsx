@@ -46,26 +46,6 @@ export interface CommentsProps {
   slug?: string
 }
 
-const UtterancesComponent = dynamic<UtterancesProps>(
-  () => {
-    return import('./Utterances').then((mod) => mod.Utterances)
-  },
-  { ssr: false }
-)
-const GiscusComponent = dynamic<GiscusProps>(
-  () => {
-    return import('./Giscus').then((mod) => mod.Giscus)
-  },
-  { ssr: false }
-)
-
-const DisqusComponent = dynamic<DisqusProps>(
-  () => {
-    return import('./Disqus').then((mod) => mod.Disqus)
-  },
-  { ssr: false }
-)
-
 /**
  * Supports Giscus, Utterances or Disqus
  * If you want to use a comments provider you have to add it to the
@@ -78,11 +58,11 @@ const DisqusComponent = dynamic<DisqusProps>(
 export const Comments = ({ commentsConfig, slug }: CommentsProps) => {
   switch (commentsConfig.provider) {
     case 'giscus':
-      return <GiscusComponent {...commentsConfig.giscusConfig} />
+      return <Giscus {...commentsConfig.giscusConfig} />
     case 'utterances':
-      return <UtterancesComponent {...commentsConfig.utterancesConfig} />
+      return <Utterances {...commentsConfig.utterancesConfig} />
     case 'disqus':
-      return <DisqusComponent slug={slug} {...commentsConfig.disqusConfig} />
+      return <Disqus slug={slug} {...commentsConfig.disqusConfig} />
   }
 }
 
