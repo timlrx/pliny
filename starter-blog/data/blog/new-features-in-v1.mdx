@@ -58,13 +58,10 @@ Some new possibilities include loading components directly in the mdx file using
 For example, the following jsx snippet can be used directly in an MDX file to render the page title component:
 
 ```jsx
+// Or import PageTitle from './components/PageTitle.js' if you are using js
 import PageTitle from './components/PageTitle.tsx'
 ;<PageTitle> Using JSX components in MDX </PageTitle>
 ```
-
-import PageTitle from './components/PageTitle.tsx'
-
-<PageTitle> Using JSX components in MDX </PageTitle>
 
 The default configuration resolves all components relative to the `components` directory.
 
