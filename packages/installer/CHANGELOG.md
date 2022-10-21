@@ -1,5 +1,11 @@
 # @pliny/installer
 
+## 0.0.4-beta.3
+
+### Patch Changes
+
+- 408af6c: do not transform jpeg files
+
 ## 0.0.4-beta.2
 
 ### Patch Changes
