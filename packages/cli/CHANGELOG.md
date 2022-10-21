@@ -1,5 +1,11 @@
 # @pliny/cli
 
+## 0.0.4-beta.3
+
+### Patch Changes
+
+- 27d211c: sync installer version
+
 ## 0.0.4-beta.2
 
 ### Patch Changes
