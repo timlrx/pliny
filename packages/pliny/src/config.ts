@@ -1,7 +1,7 @@
-import type { AnalyticsConfig } from '../analytics'
-import type { CommentsConfig } from '../comments'
-import type { NewsletterConfig } from '../newsletter'
-import type { SearchConfig } from '../search'
+import type { AnalyticsConfig } from './analytics'
+import type { CommentsConfig } from './comments'
+import type { NewsletterConfig } from './newsletter'
+import type { SearchConfig } from './search'
 
 export interface CoreConfig {
   title: string

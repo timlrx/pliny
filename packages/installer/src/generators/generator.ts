@@ -5,6 +5,7 @@ import Enquirer from 'enquirer'
 import { EventEmitter } from 'events'
 import * as fs from 'fs-extra'
 import j from 'jscodeshift'
+import prettier from 'prettier'
 import { create as createStore, Store } from 'mem-fs'
 import { create as createEditor, Editor } from 'mem-fs-editor'
 import { baseLogger, log } from '../logging'
@@ -49,7 +50,7 @@ const alwaysIgnoreFiles = [
   'node_modules',
   '.contentlayer',
 ]
-const ignoredExtensions = ['.ico', '.png', '.jpg', 'jpeg']
+const ignoredExtensions = ['.ico', '.png', '.jpg', '.jpeg']
 const tsExtension = /\.(tsx?)$/
 const codeFileExtensions = /\.(tsx?|jsx?)$/
 
@@ -163,6 +164,7 @@ export abstract class Generator<
     this.store = createStore()
     this.fs = createEditor(this.store)
     this.enquirer = new Enquirer()
+    this.prettier = prettier
     this.useTs =
       typeof this.options.useTs === 'undefined'
         ? fs.existsSync(path.resolve('tsconfig.json'))
@@ -258,9 +260,7 @@ export abstract class Generator<
       const additionalFilesToIgnore = this.filesToIgnore()
       return ![...alwaysIgnoreFiles, ...additionalFilesToIgnore].includes(name)
     })
-    try {
-      this.prettier = await import('prettier')
-    } catch {}
+
     const prettierOptions = await this.prettier?.resolveConfig(sourcePath)
 
     for (const filePath of paths) {
@@ -292,7 +292,9 @@ export abstract class Generator<
       }
     }
     // Copy back node_modules
-    fs.moveSync(`${sourcePath}/node_modules`, `${this.options.destinationRoot}/node_modules`)
+    fs.moveSync(`${sourcePath}/node_modules`, `${this.getTargetDirectory()}/node_modules`, {
+      overwrite: true,
+    })
   }
 
   async preCommit(): Promise<void> {
