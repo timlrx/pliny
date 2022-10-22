@@ -26,7 +26,7 @@ export const KBarSearchProvider: FC<{
     if (KBarModal) {
       return Promise.resolve()
     }
-    return Promise.all([import('./KBarModal.js')]).then(([{ KBarModal: Modal }]) => {
+    return Promise.all([import('./KBarModal')]).then(([{ KBarModal: Modal }]) => {
       KBarModal = Modal
     })
   }, [])
