@@ -1,5 +1,12 @@
 # pliny
 
+## 0.0.6-beta.6
+
+### Patch Changes
+
+- 1d9d815: update build config
+- 47009e9: revert kbar changes
+
 ## 0.0.6-beta.5
 
 ### Patch Changes
