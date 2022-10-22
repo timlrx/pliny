@@ -1,4 +1,3 @@
-import React from 'react'
 import dynamic from 'next/dynamic.js'
 import { Disqus, DisqusConfig, DisqusProps } from './Disqus'
 import { Giscus, GiscusConfig, GiscusProps } from './Giscus'
@@ -46,6 +45,26 @@ export interface CommentsProps {
   slug?: string
 }
 
+const UtterancesComponent = dynamic<UtterancesProps>(
+  () => {
+    return import('./Utterances').then((mod) => mod.Utterances)
+  },
+  { ssr: false }
+)
+const GiscusComponent = dynamic<GiscusProps>(
+  () => {
+    return import('./Giscus').then((mod) => mod.Giscus)
+  },
+  { ssr: false }
+)
+
+const DisqusComponent = dynamic<DisqusProps>(
+  () => {
+    return import('./Disqus').then((mod) => mod.Disqus)
+  },
+  { ssr: false }
+)
+
 /**
  * Supports Giscus, Utterances or Disqus
  * If you want to use a comments provider you have to add it to the
@@ -58,11 +77,11 @@ export interface CommentsProps {
 export const Comments = ({ commentsConfig, slug }: CommentsProps) => {
   switch (commentsConfig.provider) {
     case 'giscus':
-      return <Giscus {...commentsConfig.giscusConfig} />
+      return <GiscusComponent {...commentsConfig.giscusConfig} />
     case 'utterances':
-      return <Utterances {...commentsConfig.utterancesConfig} />
+      return <UtterancesComponent {...commentsConfig.utterancesConfig} />
     case 'disqus':
-      return <Disqus slug={slug} {...commentsConfig.disqusConfig} />
+      return <DisqusComponent slug={slug} {...commentsConfig.disqusConfig} />
   }
 }
 

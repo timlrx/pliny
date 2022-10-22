@@ -3,8 +3,8 @@ import React from 'react'
 import * as _jsx_runtime from 'react/jsx-runtime'
 import ReactDOM from 'react-dom'
 import { ComponentMap } from 'mdx-bundler/client'
-import { coreContent } from '../utils/contentlayer'
-import type { MDXDocument } from '../utils/contentlayer'
+import { coreContent } from './utils/contentlayer'
+import type { MDXDocument } from './utils/contentlayer'
 
 export type { ComponentMap }
 
