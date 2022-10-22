@@ -1,5 +1,13 @@
 # @pliny/cli
 
+## 0.0.4-beta.4
+
+### Patch Changes
+
+- 1d9d815: update build config
+- Updated dependencies [1d9d815]
+  - @pliny/installer@0.0.4-beta.4
+
 ## 0.0.4-beta.3
 
 ### Patch Changes
