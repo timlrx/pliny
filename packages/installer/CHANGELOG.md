@@ -1,5 +1,11 @@
 # @pliny/installer
 
+## 0.0.5
+
+### Patch Changes
+
+- 479ed29: release new version
+
 ## 0.0.4
 
 ### Patch Changes
