@@ -1,5 +1,11 @@
 # pliny
 
+## 0.0.6-beta.7
+
+### Patch Changes
+
+- 5f95b6e: modify package.json exports
+
 ## 0.0.6-beta.6
 
 ### Patch Changes
