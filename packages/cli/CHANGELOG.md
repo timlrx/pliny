@@ -1,26 +1,20 @@
 # @pliny/cli
 
-## 0.0.4-beta.5
+## 0.0.4
 
 ### Patch Changes
 
 - 5788d92: add prettier as dependency
-- Updated dependencies [5788d92]
-  - @pliny/installer@0.0.4-beta.5
-
-## 0.0.4-beta.4
-
-### Patch Changes
-
 - 1d9d815: update build config
-- Updated dependencies [1d9d815]
-  - @pliny/installer@0.0.4-beta.4
-
-## 0.0.4-beta.3
-
-### Patch Changes
-
+- 1469a54: fix installer version
 - 27d211c: sync installer version
+- 64ea789: fix react hoisting issues
+- Updated dependencies [5788d92]
+- Updated dependencies [1d9d815]
+- Updated dependencies [408af6c]
+- Updated dependencies [a6ea8ac]
+- Updated dependencies [64ea789]
+  - @pliny/installer@0.0.4
 
 ## 0.0.4-beta.2
 

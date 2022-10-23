@@ -1,17 +1,17 @@
 # pliny
 
-## 0.0.6-beta.7
+## 0.0.6
 
 ### Patch Changes
 
-- 5f95b6e: modify package.json exports
-
-## 0.0.6-beta.6
-
-### Patch Changes
-
+- 85377ed: module resolution
 - 1d9d815: update build config
+- 280d784: try publishing locally
 - 47009e9: revert kbar changes
+- 5f95b6e: modify package.json exports
+- a6ea8ac: upgrade to react 18
+- c7d833b: remove dynamic load for comments
+- 64ea789: fix react hoisting issues
 
 ## 0.0.6-beta.5
 
