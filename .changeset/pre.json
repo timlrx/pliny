@@ -9,6 +9,7 @@
     "starter-blog": "0.0.1"
   },
   "changesets": [
+    "angry-shirts-sin",
     "chatty-days-sleep",
     "curvy-clocks-work",
     "eight-pugs-battle",

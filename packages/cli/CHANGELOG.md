@@ -1,5 +1,13 @@
 # @pliny/cli
 
+## 0.0.4-beta.5
+
+### Patch Changes
+
+- 5788d92: add prettier as dependency
+- Updated dependencies [5788d92]
+  - @pliny/installer@0.0.4-beta.5
+
 ## 0.0.4-beta.4
 
 ### Patch Changes
