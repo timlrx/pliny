@@ -1,5 +1,15 @@
 # @pliny/installer
 
+## 0.0.4
+
+### Patch Changes
+
+- 5788d92: add prettier as dependency
+- 1d9d815: update build config
+- 408af6c: do not transform jpeg files
+- a6ea8ac: upgrade to react 18
+- 64ea789: fix react hoisting issues
+
 ## 0.0.4-beta.3
 
 ### Patch Changes
