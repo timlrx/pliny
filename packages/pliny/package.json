@@ -2,7 +2,7 @@
   "name": "pliny",
   "description": "Main entry point for pliny components and CLI",
   "homepage": "https://github.com/timlrx/pliny",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "type": "module",
   "exports": {
     "./*": "./*",
