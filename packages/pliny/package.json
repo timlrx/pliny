@@ -24,6 +24,7 @@
   "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",
   "dependencies": {
     "@docsearch/react": "^3.2.0",
+    "@mailchimp/mailchimp_marketing": "^3.0.75",
     "contentlayer": "0.2.8",
     "github-slugger": "^1.4.0",
     "image-size": "1.0.0",
@@ -40,7 +41,6 @@
     "react-dom": "^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "@mailchimp/mailchimp_marketing": "^3.0.75",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
