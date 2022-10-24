@@ -1,5 +1,11 @@
 # pliny
 
+## 0.0.8
+
+### Patch Changes
+
+- 37f2f43: add mailchimp as dependency
+
 ## 0.0.7
 
 ### Patch Changes
