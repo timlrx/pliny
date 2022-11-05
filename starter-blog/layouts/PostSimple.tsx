@@ -43,10 +43,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
               </div>
             </div>
           </header>
-          <div
-            className="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:divide-y-0 "
-            style={{ gridTemplateRows: 'auto 1fr' }}
-          >
+          <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:divide-y-0">
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">{children}</div>
             </div>
@@ -65,6 +62,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                     <Link
                       href={`/${prev.path}`}
                       className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                      aria-label={`Previous post: ${prev.title}`}
                     >
                       &larr; {prev.title}
                     </Link>
@@ -75,6 +73,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                     <Link
                       href={`/${next.path}`}
                       className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                      aria-label={`Next post: ${next.title}`}
                     >
                       {next.title} &rarr;
                     </Link>

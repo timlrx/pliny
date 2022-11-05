@@ -4181,18 +4181,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.0.21":
-  version: 18.0.21
-  resolution: "@types/react@npm:18.0.21"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: 36c1a7c9d507e81e2e629c1ad3db51d7b84d8b010c2d5008da411874286c6a5ccc711ae1d4c470efc0bdc77153cc8804a40e927e929e5164c669ca41b84b846d
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^18.0.18":
+"@types/react@npm:18.0.25":
   version: 18.0.25
   resolution: "@types/react@npm:18.0.25"
   dependencies:
@@ -15185,7 +15174,7 @@ __metadata:
     "@changesets/cli": ^2.24.0
     "@commitlint/cli": ^17.0.0
     "@commitlint/config-conventional": ^17.1.0
-    "@types/react": 18.0.21
+    "@types/react": 18.0.25
     husky: ^8.0.0
     lint-staged: ^13.0.0
     prettier: ^2.7.0
@@ -15852,7 +15841,7 @@ __metadata:
     "@svgr/webpack": ^6.3.1
     "@tailwindcss/forms": ^0.5.3
     "@tailwindcss/typography": ^0.5.7
-    "@types/react": ^18.0.18
+    "@types/react": 18.0.25
     "@typescript-eslint/eslint-plugin": ^5.36.2
     "@typescript-eslint/parser": ^5.36.2
     autoprefixer: ^10.4.13

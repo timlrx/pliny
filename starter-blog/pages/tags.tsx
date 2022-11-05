@@ -33,6 +33,7 @@ export default function Tags({ tags }: InferGetStaticPropsType<typeof getStaticP
                 <Link
                   href={`/tags/${kebabCase(t)}`}
                   className="-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300"
+                  aria-label={`View posts tagged ${t}`}
                 >
                   {` (${tags[t]})`}
                 </Link>

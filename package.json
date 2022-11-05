@@ -34,7 +34,7 @@
     "@changesets/cli": "^2.24.0",
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.1.0",
-    "@types/react": "18.0.21",
+    "@types/react": "18.0.25",
     "husky": "^8.0.0",
     "lint-staged": "^13.0.0",
     "prettier": "^2.7.0",

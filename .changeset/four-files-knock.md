@@ -1,0 +1,5 @@
+---
+'pliny': patch
+---
+
+improve accessibility
