@@ -2379,13 +2379,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/inter@npm:4.5.2":
-  version: 4.5.2
-  resolution: "@fontsource/inter@npm:4.5.2"
-  checksum: 2fa5cb1827a83767b5b34ba829dc6e1ef9281becb1601e4f8083f95980a1fbed96db6f6f4f2a9c907e6228690577c5071e06465d72411f859b3eef4f0c520287
-  languageName: node
-  linkType: hard
-
 "@gar/promisify@npm:^1.0.1, @gar/promisify@npm:^1.1.3":
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
@@ -2642,6 +2635,13 @@ __metadata:
   dependencies:
     glob: 7.1.7
   checksum: 36570701f4ad8763bfac6a7531dc06124ddbd2b819339a77b47d777ba0037a5302d9f42e17128222b3695c44f130caa106e453bc29872be802ad68da5788ec17
+  languageName: node
+  linkType: hard
+
+"@next/font@npm:13.0.2":
+  version: 13.0.2
+  resolution: "@next/font@npm:13.0.2"
+  checksum: 3ca6b8668f77673fe6c9c1887651e149ffcc5f50212df64c0dddfd43a9485919aae6ca4d9f203e149b36fcacba6bba5e558091a53e389d037399860b097b7ddd
   languageName: node
   linkType: hard
 
@@ -4181,7 +4181,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.0.25":
+"@types/react@npm:18.0.25, @types/react@npm:^18.0.18":
   version: 18.0.25
   resolution: "@types/react@npm:18.0.25"
   dependencies:
@@ -15836,12 +15836,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "starter-blog@workspace:starter-blog"
   dependencies:
-    "@fontsource/inter": 4.5.2
     "@next/bundle-analyzer": 13.0.2
+    "@next/font": 13.0.2
     "@svgr/webpack": ^6.3.1
     "@tailwindcss/forms": ^0.5.3
     "@tailwindcss/typography": ^0.5.7
-    "@types/react": 18.0.25
+    "@types/react": ^18.0.18
     "@typescript-eslint/eslint-plugin": ^5.36.2
     "@typescript-eslint/parser": ^5.36.2
     autoprefixer: ^10.4.13
