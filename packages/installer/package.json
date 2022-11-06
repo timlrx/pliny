@@ -1,6 +1,6 @@
 {
   "name": "@pliny/installer",
-  "version": "0.0.5",
+  "version": "0.0.6-beta.0",
   "description": "Package installation for the Pliny CLI",
   "homepage": "https://github.com/timlrx/pliny",
   "license": "MIT",

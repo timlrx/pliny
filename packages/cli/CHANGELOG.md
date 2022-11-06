@@ -1,5 +1,13 @@
 # @pliny/cli
 
+## 0.0.6-beta.0
+
+### Patch Changes
+
+- 8d0b4c1: fix recipe installer
+- Updated dependencies [8d0b4c1]
+  - @pliny/installer@0.0.6-beta.0
+
 ## 0.0.5
 
 ### Patch Changes
