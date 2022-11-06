@@ -29,7 +29,7 @@
     "next": "13.0.2",
     "next-contentlayer": "0.2.8",
     "next-themes": "^0.2.0",
-    "pliny": "0.0.8",
+    "pliny": "0.0.9-beta.0",
     "postcss": "^8.4.16",
     "react": "18.2.0",
     "react-dom": "18.2.0",
