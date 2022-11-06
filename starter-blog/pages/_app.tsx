@@ -21,11 +21,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
       <Analytics analyticsConfig={siteMetadata.analytics} />
-      <SearchProvider searchConfig={siteMetadata.search}>
-        <LayoutWrapper>
+      <LayoutWrapper>
+        <SearchProvider searchConfig={siteMetadata.search}>
           <Component {...pageProps} />
-        </LayoutWrapper>
-      </SearchProvider>
+        </SearchProvider>
+      </LayoutWrapper>
     </ThemeProvider>
   )
 }
