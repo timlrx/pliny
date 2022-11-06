@@ -17,7 +17,7 @@
   "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",
   "license": "MIT",
   "dependencies": {
-    "@pliny/installer": "0.0.6-beta.0",
+    "@pliny/installer": "*",
     "jscodeshift": "0.13.1"
   },
   "devDependencies": {

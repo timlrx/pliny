@@ -3462,7 +3462,7 @@ __metadata:
     "@oclif/plugin-not-found": 2.3.1
     "@oclif/plugin-plugins": 2.1.0
     "@oclif/plugin-version": 1.1.2
-    "@pliny/installer": 0.0.6-beta.0
+    "@pliny/installer": 0.0.6
     camelcase: ^6.2.0
     chalk: ^4.1.0
     console-table-printer: ^2.11.1
@@ -3512,7 +3512,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pliny/installer@0.0.6-beta.0, @pliny/installer@workspace:packages/installer":
+"@pliny/installer@0.0.6, @pliny/installer@workspace:packages/installer":
   version: 0.0.0-use.local
   resolution: "@pliny/installer@workspace:packages/installer"
   dependencies:
@@ -11239,17 +11239,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mdast-util-footnote@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "mdast-util-footnote@npm:1.1.0"
-  dependencies:
-    "@types/mdast": ^3.0.0
-    mdast-util-to-markdown: ^1.0.0
-    micromark-util-normalize-identifier: ^1.0.0
-  checksum: 11a1ae7ab84415a85af2b286fb3c0aca7b170f0f675303bccaebb7d837441df68fea7e54696a2e49941e9b46c80ae344b29e63de1cd2d3b7b4a6e38c1fef11b2
-  languageName: node
-  linkType: hard
-
 "mdast-util-from-markdown@npm:^1.0.0":
   version: 1.2.0
   resolution: "mdast-util-from-markdown@npm:1.2.0"
@@ -11627,22 +11616,6 @@ __metadata:
     micromark-util-types: ^1.0.1
     uvu: ^0.5.0
   checksum: 4b483c46077f696ed310f6d709bb9547434c218ceb5c1220fde1707175f6f68b44da15ab8668f9c801e1a123210071e3af883a7d1215122c913fd626f122bfc2
-  languageName: node
-  linkType: hard
-
-"micromark-extension-footnote@npm:^1.0.0":
-  version: 1.0.2
-  resolution: "micromark-extension-footnote@npm:1.0.2"
-  dependencies:
-    micromark-core-commonmark: ^1.0.0
-    micromark-factory-space: ^1.0.0
-    micromark-util-character: ^1.0.0
-    micromark-util-chunked: ^1.0.0
-    micromark-util-normalize-identifier: ^1.0.0
-    micromark-util-resolve-all: ^1.0.0
-    micromark-util-symbol: ^1.0.0
-    uvu: ^0.5.0
-  checksum: 2acff342fe973fff1431dbf7d6b3c2047101d52ec4375863e4cfdb2e119675941445604db26855e67b8cae1179d079980ab2e4f03e895182f42ae485df847015
   languageName: node
   linkType: hard
 
@@ -13586,7 +13559,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pliny@0.0.9-beta.0, pliny@workspace:packages/pliny":
+"pliny@0.0.9, pliny@workspace:packages/pliny":
   version: 0.0.0-use.local
   resolution: "pliny@workspace:packages/pliny"
   dependencies:
@@ -14791,18 +14764,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-footnotes@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "remark-footnotes@npm:4.0.1"
-  dependencies:
-    "@types/mdast": ^3.0.0
-    mdast-util-footnote: ^1.0.0
-    micromark-extension-footnote: ^1.0.0
-    unified: ^10.0.0
-  checksum: 16cd59bef3c34b08a04bb34a7f738880121604d410ebaea91c4d7685fcf510e0145130d67bdffe16ece2535e92257602e8d8ecbbc9c92200ef080c39b55fadbc
-  languageName: node
-  linkType: hard
-
 "remark-frontmatter@npm:^4.0.1":
   version: 4.0.1
   resolution: "remark-frontmatter@npm:4.0.1"
@@ -15866,7 +15827,7 @@ __metadata:
     next: 13.0.2
     next-contentlayer: 0.2.8
     next-themes: ^0.2.0
-    pliny: 0.0.9-beta.0
+    pliny: 0.0.9
     postcss: ^8.4.16
     prettier: ^2.7.0
     prettier-plugin-tailwindcss: ^0.1.13
@@ -15880,7 +15841,6 @@ __metadata:
     rehype-prism-plus: ^1.5.0
     rehype-slug: ^5.0.0
     remark: ^14.0.2
-    remark-footnotes: ^4.0.1
     remark-gfm: ^3.0.1
     remark-math: ^5.1.1
     tailwindcss: ^3.2.2

@@ -2,4 +2,8 @@ import { generateRSS } from 'pliny/utils/generate-rss.js'
 import siteMetadata from '../data/siteMetadata.js'
 import { allBlogs } from '../.contentlayer/generated/index.mjs'
 
-generateRSS(siteMetadata, allBlogs)
+const rss = () => {
+  generateRSS(siteMetadata, allBlogs)
+  console.log('RSS feed generated...')
+}
+export default rss
