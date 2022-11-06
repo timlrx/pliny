@@ -13586,7 +13586,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pliny@0.0.8, pliny@workspace:packages/pliny":
+"pliny@0.0.9-beta.0, pliny@workspace:packages/pliny":
   version: 0.0.0-use.local
   resolution: "pliny@workspace:packages/pliny"
   dependencies:
@@ -15866,7 +15866,7 @@ __metadata:
     next: 13.0.2
     next-contentlayer: 0.2.8
     next-themes: ^0.2.0
-    pliny: 0.0.8
+    pliny: 0.0.9-beta.0
     postcss: ^8.4.16
     prettier: ^2.7.0
     prettier-plugin-tailwindcss: ^0.1.13
