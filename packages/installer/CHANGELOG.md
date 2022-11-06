@@ -1,5 +1,11 @@
 # @pliny/installer
 
+## 0.0.6
+
+### Patch Changes
+
+- 8d0b4c1: fix recipe installer
+
 ## 0.0.5
 
 ### Patch Changes
