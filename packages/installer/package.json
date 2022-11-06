@@ -5,8 +5,8 @@
   "homepage": "https://github.com/timlrx/pliny",
   "license": "MIT",
   "scripts": {
-    "dev": "tsup-node src/* --watch --no-splitting --format esm,cjs --dts --silent",
-    "build": "rimraf dist && tsup-node src/* --no-splitting --format esm,cjs --dts --silent"
+    "dev": "tsup-node src/* --watch --no-splitting --format cjs --dts --silent",
+    "build": "rimraf dist && tsup-node src/* --no-splitting --format cjs --dts --silent"
   },
   "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",
   "main": "dist/index.js",

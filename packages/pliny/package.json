@@ -2,7 +2,7 @@
   "name": "pliny",
   "description": "Main entry point for pliny components and CLI",
   "homepage": "https://github.com/timlrx/pliny",
-  "version": "0.0.8",
+  "version": "0.0.9-beta.0",
   "type": "module",
   "exports": {
     "./*": "./*",
@@ -41,7 +41,7 @@
     "react-dom": "^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "next": "12.3.1",
+    "next": "13.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rimraf": "^3.0.2",

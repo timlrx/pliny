@@ -1,5 +1,6 @@
 import type { RecipeCLIArgs, RecipeCLIFlags, RecipeExecutor } from '@pliny/installer'
 import { Flags } from '@oclif/core'
+import chalk from 'chalk'
 // import { bootstrap } from 'global-agent'
 import { baseLogger, log } from '../logging'
 import { join, resolve } from 'path'
@@ -218,8 +219,7 @@ export class Install extends Command {
     recipePath: string,
     ...runArgs: Parameters<RecipeExecutor<any>['run']>
   ) {
-    const recipeModule = await import(recipePath)
-    const recipe = recipeModule.default as RecipeExecutor<any>
+    const recipe = require(recipePath).default
 
     await recipe.run(...runArgs)
   }
@@ -259,7 +259,6 @@ export class Install extends Command {
     }
 
     debug('recipeInfo', recipeInfo)
-    const chalk = (await import('chalk')).default
     if (recipeInfo.location === RecipeLocation.Remote) {
       const apiUrl = recipeInfo.path.replace(GH_ROOT, API_ROOT)
       const rawUrl = recipeInfo.path.replace(GH_ROOT, RAW_ROOT)
@@ -315,6 +314,7 @@ export class Install extends Command {
         process.chdir(originalCwd)
 
         await this.installRecipeAtPath(recipeEntry, cliArgs, cliFlags)
+        debug('after installRecipeAtPath')
 
         require('rimraf').sync(recipeRepoPath)
       }

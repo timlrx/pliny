@@ -45,20 +45,20 @@ export const NewsletterForm = ({
       <div className="pb-1 text-lg font-semibold text-gray-800 dark:text-gray-100">{title}</div>
       <form className="flex flex-col sm:flex-row" onSubmit={subscribe}>
         <div>
-          <label className="sr-only" htmlFor="email-input">
-            Email address
+          <label htmlFor="email-input">
+            <span className="sr-only">Email address</span>
+            <input
+              autoComplete="email"
+              className="focus:ring-primary-600 w-72 rounded-md px-4 focus:border-transparent focus:outline-none focus:ring-2 dark:bg-black"
+              id="email-input"
+              name="email"
+              placeholder={subscribed ? "You're subscribed !  🎉" : 'Enter your email'}
+              ref={inputEl}
+              required
+              type="email"
+              disabled={subscribed}
+            />
           </label>
-          <input
-            autoComplete="email"
-            className="focus:ring-primary-600 w-72 rounded-md px-4 focus:border-transparent focus:outline-none focus:ring-2 dark:bg-black"
-            id="email-input"
-            name="email"
-            placeholder={subscribed ? "You're subscribed !  🎉" : 'Enter your email'}
-            ref={inputEl}
-            required
-            type="email"
-            disabled={subscribed}
-          />
         </div>
         <div className="mt-2 flex w-full rounded-md shadow-sm sm:mt-0 sm:ml-3">
           <button

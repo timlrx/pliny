@@ -8,8 +8,8 @@
     "pliny": "./bin/run"
   },
   "scripts": {
-    "dev": "tsup-node src/* --watch --no-splitting --format esm,cjs --dts --silent",
-    "build": "rimraf dist && tsup-node src/* --no-splitting --format esm,cjs --dts --silent && oclif manifest"
+    "dev": "tsup-node src/* --watch --no-splitting --format cjs --dts --silent",
+    "build": "rimraf dist && tsup-node src/* --no-splitting --format cjs --dts --silent && oclif manifest"
   },
   "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",
   "main": "dist/index.js",

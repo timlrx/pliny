@@ -1,0 +1,15 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "@pliny/cli": "0.0.5",
+    "@pliny/config": "0.0.0",
+    "@pliny/installer": "0.0.5",
+    "pliny": "0.0.8",
+    "starter-blog": "0.0.1"
+  },
+  "changesets": [
+    "dirty-worms-type",
+    "four-files-knock"
+  ]
+}

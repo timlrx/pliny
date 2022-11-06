@@ -260,9 +260,9 @@ export abstract class Generator<
       const additionalFilesToIgnore = this.filesToIgnore()
       return ![...alwaysIgnoreFiles, ...additionalFilesToIgnore].includes(name)
     })
+    debug('paths', paths)
 
     const prettierOptions = await this.prettier?.resolveConfig(sourcePath)
-
     for (const filePath of paths) {
       try {
         let pathSuffix = filePath
@@ -292,9 +292,11 @@ export abstract class Generator<
       }
     }
     // Copy back node_modules
-    fs.moveSync(`${sourcePath}/node_modules`, `${this.getTargetDirectory()}/node_modules`, {
-      overwrite: true,
-    })
+    if (fs.existsSync(`${sourcePath}/node_modules`)) {
+      fs.moveSync(`${sourcePath}/node_modules`, `${this.getTargetDirectory()}/node_modules`, {
+        overwrite: true,
+      })
+    }
   }
 
   async preCommit(): Promise<void> {
