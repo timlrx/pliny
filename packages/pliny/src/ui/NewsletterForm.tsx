@@ -68,7 +68,7 @@ export const NewsletterForm = ({
             type="submit"
             disabled={subscribed}
           >
-            {subscribed ? 'Thank you!' : 'Sign up'}
+            {subscribed ? 'Thank you!' : 'Subscribe'}
           </button>
         </div>
       </form>
