@@ -28,6 +28,9 @@ public/sitemap.xml
 # search
 /public/search.json
 
+# typescript
+tsconfig.tsbuildinfo
+
 # misc
 .DS_Store
 
