@@ -23,7 +23,12 @@
       "@/lib/*": ["lib/*"],
       "@/css/*": ["css/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
@@ -31,7 +36,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".contentlayer/generated",
-    ".contentlayer/generated/**/*.json"
+    ".contentlayer/generated/**/*.json",
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }
