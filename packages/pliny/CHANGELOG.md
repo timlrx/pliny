@@ -1,5 +1,12 @@
 # pliny
 
+## 0.0.10
+
+### Patch Changes
+
+- 15d4529: fix sitemap regex
+- cca397f: add use client directive
+
 ## 0.0.9
 
 ### Patch Changes
