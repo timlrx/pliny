@@ -8,6 +8,7 @@ module.exports = {
   content: [
     '../node_modules/pliny/**/*.{js,ts,tsx}',
     './node_modules/pliny/**/*.{js,ts,tsx}',
+    './app/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,tsx}',
     './components/**/*.{js,ts,tsx}',
     './layouts/**/*.{js,ts,tsx}',
