@@ -8,18 +8,16 @@ export const GA = ({ googleAnalyticsId }: GoogleAnalyticsProps) => {
   return (
     <>
       <Script
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
       />
 
-      <Script strategy="lazyOnload" id="ga-script">
+      <Script strategy="afterInteractive" id="ga-script">
         {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${googleAnalyticsId}', {
-              page_path: window.location.pathname,
-            });
+            gtag('config', '${googleAnalyticsId}');
         `}
       </Script>
     </>
