@@ -5,7 +5,9 @@ import globby from 'globby'
 // So these packages can be directly used in Next.js directly
 ;(async () => {
   const clientPaths = await globby([
-    'comments/*.js',
+    'comments/Disqus.js',
+    'comments/Giscus.js',
+    'comments/Utterances.js',
     'search/*.js',
     'ui/NewsletterForm.js',
     'ui/Pre.js',
