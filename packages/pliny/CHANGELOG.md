@@ -1,5 +1,11 @@
 # pliny
 
+## 0.1.0-beta.6
+
+### Patch Changes
+
+- 21080de: Fix newsletter route handlers
+
 ## 0.1.0-beta.5
 
 ### Patch Changes

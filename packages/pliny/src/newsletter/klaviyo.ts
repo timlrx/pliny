@@ -1,8 +1,4 @@
-import { NextApiRequest } from 'next'
-import { NextRequest } from 'next/server'
-
-export const klaviyoHandler = async (req: NextApiRequest | NextRequest) => {
-  const { email } = req.body
+export const klaviyoSubscribe = async (email: string) => {
   const API_KEY = process.env.KLAVIYO_API_KEY
   const LIST_ID = process.env.KLAVIYO_LIST_ID
   const response = await fetch(

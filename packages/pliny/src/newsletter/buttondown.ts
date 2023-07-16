@@ -1,8 +1,4 @@
-import { NextApiRequest } from 'next'
-import { NextRequest } from 'next/server'
-
-export const buttondownHandler = async (req: NextApiRequest | NextRequest) => {
-  const { email } = req.body
+export const buttondownSubscribe = async (email: string) => {
   const API_KEY = process.env.BUTTONDOWN_API_KEY
   const API_URL = 'https://api.buttondown.email/v1/'
   const buttondownRoute = `${API_URL}subscribers`

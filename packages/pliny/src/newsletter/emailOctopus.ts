@@ -1,8 +1,4 @@
-import { NextApiRequest } from 'next'
-import { NextRequest } from 'next/server'
-
-export const emailOctopusHandler = async (req: NextApiRequest | NextRequest) => {
-  const { email } = req.body
+export const emailOctopusSubscribe = async (email: string) => {
   const API_KEY = process.env.EMAILOCTOPUS_API_KEY
   const LIST_ID = process.env.EMAILOCTOPUS_LIST_ID
   const API_URL = 'https://emailoctopus.com/api/1.6/'

@@ -1,9 +1,4 @@
-import { NextApiRequest } from 'next'
-import { NextRequest } from 'next/server'
-
-export const revueHandler = async (req: NextApiRequest | NextRequest) => {
-  const { email } = req.body
-
+export const revueSubscribe = async (email: string) => {
   const API_KEY = process.env.REVUE_API_KEY
   const API_URL = 'https://www.getrevue.co/api/v2/'
   const revueRoute = `${API_URL}subscribers`

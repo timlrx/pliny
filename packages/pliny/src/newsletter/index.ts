@@ -1,12 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { buttondownHandler } from './buttondown'
-import { convertkitHandler } from './convertkit'
-import { mailchimpHandler } from './mailchimp'
-import { klaviyoHandler } from './klaviyo'
-import { revueHandler } from './revue'
-import { emailOctopusHandler } from './emailOctopus'
+import { buttondownSubscribe } from './buttondown'
+import { convertkitSubscribe } from './convertkit'
+import { mailchimpSubscribe } from './mailchimp'
+import { klaviyoSubscribe } from './klaviyo'
+import { revueSubscribe } from './revue'
+import { emailOctopusSubscribe } from './emailOctopus'
 
 export interface NewsletterConfig {
   provider: 'buttondown' | 'convertkit' | 'klaviyo' | 'mailchimp' | 'revue' | 'emailoctopus'
@@ -31,22 +31,22 @@ async function NewsletterAPIHandler(
     let response: Response
     switch (options.provider) {
       case 'buttondown':
-        response = await buttondownHandler(req)
+        response = await buttondownSubscribe(email)
         break
       case 'convertkit':
-        response = await convertkitHandler(req)
+        response = await convertkitSubscribe(email)
         break
       case 'mailchimp':
-        response = await mailchimpHandler(req)
+        response = await mailchimpSubscribe(email)
         break
       case 'klaviyo':
-        response = await klaviyoHandler(req)
+        response = await klaviyoSubscribe(email)
         break
       case 'revue':
-        response = await revueHandler(req)
+        response = await revueSubscribe(email)
         break
       case 'emailoctopus':
-        response = await emailOctopusHandler(req)
+        response = await emailOctopusSubscribe(email)
         break
       default:
         res.status(500).json({ error: `${options.provider} not supported` })
@@ -61,30 +61,30 @@ async function NewsletterAPIHandler(
 }
 
 async function NewsletterRouteHandler(req: NextRequest, options: NewsletterConfig) {
-  const res = await req.json()
-  if (!res.email) {
+  const { email } = await req.json()
+  if (!email) {
     return NextResponse.json({ error: 'Email is required' }, { status: 400 })
   }
   try {
     let response: Response
     switch (options.provider) {
       case 'buttondown':
-        response = await buttondownHandler(req)
+        response = await buttondownSubscribe(email)
         break
       case 'convertkit':
-        response = await convertkitHandler(req)
+        response = await convertkitSubscribe(email)
         break
       case 'mailchimp':
-        response = await mailchimpHandler(req)
+        response = await mailchimpSubscribe(email)
         break
       case 'klaviyo':
-        response = await klaviyoHandler(req)
+        response = await klaviyoSubscribe(email)
         break
       case 'revue':
-        response = await revueHandler(req)
+        response = await revueSubscribe(email)
         break
       case 'emailoctopus':
-        response = await emailOctopusHandler(req)
+        response = await emailOctopusSubscribe(email)
         break
       default:
         return NextResponse.json({ error: `${options.provider} not supported` }, { status: 500 })
