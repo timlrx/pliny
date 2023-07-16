@@ -25,6 +25,7 @@
   "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",
   "dependencies": {
     "@docsearch/react": "^3.5.0",
+    "@giscus/react": "^2.3.0",
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "contentlayer": "^0.3.4",
     "copyfiles": "^2.4.1",
