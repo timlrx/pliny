@@ -1,5 +1,17 @@
 # pliny
 
+## 0.1.0-beta.1
+
+### Minor Changes
+
+- bump package dependencies
+
+## 0.0.11-beta.0
+
+### Patch Changes
+
+- 1e82c4e: update google analytics to follow ga4 recommendations
+
 ## 0.0.10
 
 ### Patch Changes

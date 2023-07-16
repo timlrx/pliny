@@ -1,7 +1,0 @@
-// Vitest Snapshot v1
-
-exports[`Executor > should render PrintMessageExecutor 1`] = `
-"My message
-
-Press ENTER to continue"
-`;

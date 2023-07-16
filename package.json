@@ -2,16 +2,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prepare": "husky install && cp -R node_modules/esbuild starter-blog/node_modules && cp -R node_modules/@oclif packages/cli/node_modules/@oclif",
+    "prepare": "husky install",
     "build": "turbo run build --filter=!starter-blog",
     "dev": "turbo run dev --parallel --no-cache --filter=!starter-blog",
     "build:starter": "turbo run build",
     "dev:starter": "turbo run dev --parallel --no-cache",
     "serve": "turbo run serve",
     "lint": "turbo run lint",
-    "test:watch": "vitest --config ./vitest-exclude-recipe.config.ts",
-    "test": "vitest run --config ./vitest-exclude-recipe.config.ts",
-    "test:all": "vitest run --no-threads",
+    "test": "vitest run",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
     "changeset": "changeset",
@@ -31,22 +29,20 @@
     ]
   },
   "devDependencies": {
-    "@changesets/cli": "^2.24.0",
+    "@changesets/cli": "^2.26.0",
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.1.0",
-    "@types/react": "18.0.25",
+    "@types/react": "18.2.15",
     "husky": "^8.0.0",
     "lint-staged": "^13.0.0",
-    "prettier": "^2.7.0",
-    "turbo": "1.4.6",
-    "vitest": "0.12.6"
+    "prettier": "^3.0.0",
+    "turbo": "1.10.7",
+    "vitest": "0.33.0"
   },
   "workspaces": {
     "packages": [
-      "packages/*",
-      "recipe/*",
-      "starter-blog"
+      "packages/*"
     ]
   },
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@3.6.1"
 }

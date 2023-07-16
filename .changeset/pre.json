@@ -1,0 +1,12 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "@pliny/config": "0.0.0",
+    "pliny": "0.0.10"
+  },
+  "changesets": [
+    "metal-coats-grab",
+    "neat-tables-occur"
+  ]
+}
