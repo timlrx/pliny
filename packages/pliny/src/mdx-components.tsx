@@ -2,20 +2,12 @@
 import React from 'react'
 import * as _jsx_runtime from 'react/jsx-runtime'
 import ReactDOM from 'react-dom'
-import { ComponentMap } from 'mdx-bundler/client'
-import { coreContent } from './utils/contentlayer'
-import type { MDXDocument } from './utils/contentlayer'
+import type { MDXComponents } from 'mdx/types'
 
-export type { ComponentMap }
-
-export interface MDXLayout {
-  layout: string
-  content: MDXDocument
+export interface MDXLayoutRenderer {
+  code: string
+  components?: MDXComponents
   [key: string]: unknown
-}
-
-export interface MDXLayoutRenderer extends MDXLayout {
-  MDXComponents?: ComponentMap
 }
 
 const getMDXComponent = (
@@ -37,14 +29,8 @@ export const useMDXComponent = (
   return React.useMemo(() => getMDXComponent(code, globals), [code, globals])
 }
 
-export const MDXLayoutRenderer = ({
-  layout,
-  content,
-  MDXComponents,
-  ...rest
-}: MDXLayoutRenderer) => {
-  const MDXLayout = useMDXComponent(content.body.code)
-  const mainContent = coreContent(content)
+export const MDXLayoutRenderer = ({ code, components, ...rest }: MDXLayoutRenderer) => {
+  const Mdx = useMDXComponent(code)
 
-  return <MDXLayout layout={layout} content={mainContent} components={MDXComponents} {...rest} />
+  return <Mdx components={components} {...rest} />
 }
