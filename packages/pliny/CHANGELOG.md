@@ -1,5 +1,12 @@
 # pliny
 
+## 0.1.0-beta.4
+
+### Patch Changes
+
+- 44a6f19: Use official giscus component which fixes styling issues
+- 3533d4f: Fix algolia styles
+
 ## 0.1.0-beta.3
 
 ### Patch Changes
