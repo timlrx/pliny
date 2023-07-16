@@ -1,4 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
 import { buttondownHandler } from './buttondown'
 import { convertkitHandler } from './convertkit'
 import { mailchimpHandler } from './mailchimp'
@@ -16,7 +18,7 @@ export interface NewsletterRequest extends NextApiRequest {
 
 export type NewsletterResponse<T = any> = NextApiResponse<T>
 
-async function NewsletterHandler(
+async function NewsletterAPIHandler(
   req: NextApiRequest,
   res: NextApiResponse,
   options: NewsletterConfig
@@ -29,22 +31,22 @@ async function NewsletterHandler(
     let response: Response
     switch (options.provider) {
       case 'buttondown':
-        response = await buttondownHandler(req, res)
+        response = await buttondownHandler(req)
         break
       case 'convertkit':
-        response = await convertkitHandler(req, res)
+        response = await convertkitHandler(req)
         break
       case 'mailchimp':
-        response = await mailchimpHandler(req, res)
+        response = await mailchimpHandler(req)
         break
       case 'klaviyo':
-        response = await klaviyoHandler(req, res)
+        response = await klaviyoHandler(req)
         break
       case 'revue':
-        response = await revueHandler(req, res)
+        response = await revueHandler(req)
         break
       case 'emailoctopus':
-        response = await emailOctopusHandler(req, res)
+        response = await emailOctopusHandler(req)
         break
       default:
         res.status(500).json({ error: `${options.provider} not supported` })
@@ -58,7 +60,54 @@ async function NewsletterHandler(
   }
 }
 
+async function NewsletterRouteHandler(req: NextRequest, options: NewsletterConfig) {
+  const res = await req.json()
+  if (!res.email) {
+    return NextResponse.json({ error: 'Email is required' }, { status: 400 })
+  }
+  try {
+    let response: Response
+    switch (options.provider) {
+      case 'buttondown':
+        response = await buttondownHandler(req)
+        break
+      case 'convertkit':
+        response = await convertkitHandler(req)
+        break
+      case 'mailchimp':
+        response = await mailchimpHandler(req)
+        break
+      case 'klaviyo':
+        response = await klaviyoHandler(req)
+        break
+      case 'revue':
+        response = await revueHandler(req)
+        break
+      case 'emailoctopus':
+        response = await emailOctopusHandler(req)
+        break
+      default:
+        return NextResponse.json({ error: `${options.provider} not supported` }, { status: 500 })
+    }
+    if (response.status == 200) {
+      return NextResponse.json(
+        { message: 'Successfully subscribed to the newsletter' },
+        { status: response.status }
+      )
+    } else if (response.status >= 400) {
+      return NextResponse.json(
+        { error: `There was an error subscribing to the list` },
+        { status: response.status }
+      )
+    }
+    return NextResponse.json({ error: '' }, { status: 201 })
+  } catch (error) {
+    return NextResponse.json({ error: error.message || error.toString() }, { status: 500 })
+  }
+}
+
 export function NewsletterAPI(options: NewsletterConfig): any
+export function NewsletterAPI(req: NextRequest, options: NewsletterConfig): any
 export function NewsletterAPI(
   req: NextApiRequest,
   res: NextApiResponse,
@@ -66,12 +115,24 @@ export function NewsletterAPI(
 ): any
 
 export function NewsletterAPI(
-  ...args: [NewsletterConfig] | [NextApiRequest, NextApiResponse, NewsletterConfig]
+  ...args:
+    | [NewsletterConfig]
+    | [NextRequest, NewsletterConfig]
+    | [NextApiRequest, NextApiResponse, NewsletterConfig]
 ) {
   if (args.length === 1) {
-    return async (req: NewsletterRequest, res: NewsletterResponse) =>
-      await NewsletterHandler(req, res, args[0])
+    return async (req: NewsletterRequest | NextRequest, res: NewsletterResponse) => {
+      // For route handlers, 2nd argument contains the 'params' property instead of a response object
+      if ('params' in res) {
+        return await NewsletterRouteHandler(req as NextRequest, args[0])
+      }
+      return await NewsletterAPIHandler(req as NewsletterRequest, res, args[0])
+    }
   }
 
-  return NewsletterHandler(args[0], args[1], args[2])
+  if (args.length === 2) {
+    return NewsletterRouteHandler(...args)
+  }
+
+  return NewsletterAPIHandler(...args)
 }
