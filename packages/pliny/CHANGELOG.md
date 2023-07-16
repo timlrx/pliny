@@ -1,5 +1,11 @@
 # pliny
 
+## 0.1.0-beta.2
+
+### Patch Changes
+
+- 7d2f6b3: update algolia component
+
 ## 0.1.0-beta.1
 
 ### Minor Changes
