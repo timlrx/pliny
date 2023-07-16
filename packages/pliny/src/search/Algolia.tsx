@@ -3,7 +3,6 @@ import { AnchorHTMLAttributes } from 'react'
 import { createPortal } from 'react-dom'
 import { useRouter } from 'next/navigation.js'
 import Link from 'next/link.js'
-import Head from 'next/head.js'
 import { useDocSearchKeyboardEvents } from '@docsearch/react'
 import type { LinkProps } from 'next/link'
 import type {
@@ -76,10 +75,7 @@ export const AlgoliaSearchProvider: React.FC<React.PropsWithChildren<AlgoliaSear
       return Promise.resolve()
     }
 
-    return Promise.all([
-      import('./AlgoliaModal'),
-      // import('@docsearch/react'),
-    ]).then(([{ DocSearchModal: Modal }]) => {
+    return Promise.all([import('@docsearch/react')]).then(([{ DocSearchModal: Modal }]) => {
       DocSearchModal = Modal
     })
   }, [])
@@ -149,16 +145,6 @@ export const AlgoliaSearchProvider: React.FC<React.PropsWithChildren<AlgoliaSear
     <AlgoliaSearchContext.Provider
       value={{ query: { setSearch: setInitialQuery, toggle: onOpen } }}
     >
-      <Head>
-        {/* This hints the browser that the website will load data from Algolia,
-        and allows it to preconnect to the DocSearch cluster. It makes the first
-        query faster, especially on mobile. */}
-        <link
-          rel="preconnect"
-          href={`https://${algoliaConfig.appId}-dsn.algolia.net`}
-          crossOrigin="anonymous"
-        />
-      </Head>
       {props.children}
       {isOpen &&
         DocSearchModal &&
