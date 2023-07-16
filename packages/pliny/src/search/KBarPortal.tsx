@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Router from 'next/router.js'
+import { useRouter } from 'next/navigation.js'
 import { CoreContent, MDXDocument } from '../utils/contentlayer'
 import { formatDate } from '../utils/formatDate'
 import {
@@ -20,6 +20,7 @@ let init = false
 export const Portal = ({ searchDocumentsPath }: { searchDocumentsPath: string }) => {
   const [searchActions, setSearchActions] = useState([])
   const { query } = useKBar()
+  const router = useRouter()
 
   // Display on load as we already wait for crtl+k event to load it
   useEffect(() => {
@@ -39,7 +40,7 @@ export const Portal = ({ searchDocumentsPath }: { searchDocumentsPath: string })
           keywords: post?.summary || '',
           section: 'Content',
           subtitle: formatDate(post.date, 'en-US'),
-          perform: () => Router.push('/' + post.path),
+          perform: () => router.push('/' + post.path),
         })
       }
       return actions

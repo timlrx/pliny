@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, FC, ReactNode } from 'react'
 import type { Action } from 'kbar'
-import Router from 'next/router.js'
+import { useRouter } from 'next/navigation.js'
 import { KBarModal as KBarModalType } from './KBarModal'
 
 export interface KBarSearchProps {
@@ -19,6 +19,7 @@ export const KBarSearchProvider: FC<{
   children: ReactNode
   kbarConfig: KBarSearchProps
 }> = ({ kbarConfig, children }) => {
+  const router = useRouter()
   const { searchDocumentsPath, defaultActions } = kbarConfig
   const [loaded, setLoaded] = useState(false)
 
@@ -56,7 +57,7 @@ export const KBarSearchProvider: FC<{
           name: 'Homepage',
           keywords: '',
           section: 'Home',
-          perform: () => Router.push('/'),
+          perform: () => router.push('/'),
         },
       ]
 

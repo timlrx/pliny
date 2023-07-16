@@ -5,7 +5,7 @@ export interface NewsletterFormProps {
   apiUrl?: string
 }
 
-export const NewsletterForm = ({
+const NewsletterForm = ({
   title = 'Subscribe to the newsletter',
   apiUrl = '/api/newsletter',
 }: NewsletterFormProps) => {
@@ -79,10 +79,4 @@ export const NewsletterForm = ({
   )
 }
 
-export const BlogNewsletterForm = ({ title, apiUrl }: NewsletterFormProps) => (
-  <div className="flex items-center justify-center">
-    <div className="bg-gray-100 p-6 dark:bg-gray-800 sm:px-14 sm:py-8">
-      <NewsletterForm title={title} apiUrl={apiUrl} />
-    </div>
-  </div>
-)
+export default NewsletterForm

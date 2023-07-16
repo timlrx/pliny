@@ -7,6 +7,5 @@
     "module": "ES2020",
     "moduleResolution": "node"
   },
-  "include": ["src/**/*"],
   "exclude": ["dist", "node_modules"]
 }

@@ -1,0 +1,15 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "@pliny/config": "0.0.0",
+    "pliny": "0.0.10"
+  },
+  "changesets": [
+    "giant-geckos-dress",
+    "metal-coats-grab",
+    "mighty-garlics-appear",
+    "neat-tables-occur",
+    "unlucky-keys-join"
+  ]
+}

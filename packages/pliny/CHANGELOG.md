@@ -1,5 +1,23 @@
 # pliny
 
+## 0.1.0-beta.1
+
+### Minor Changes
+
+- 72932a3: Use default export for components
+
+  Named export breaks react server components. See https://github.com/vercel/next.js/issues/51593
+
+- 7f2539a: Remove functions superseded in next 13 or new set up
+- 459c5d8: Update to use next 13 app dir navigation router
+- bump package dependencies
+
+## 0.0.11-beta.0
+
+### Patch Changes
+
+- 1e82c4e: update google analytics to follow ga4 recommendations
+
 ## 0.0.10
 
 ### Patch Changes

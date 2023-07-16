@@ -1,4 +1,3 @@
-import GithubSlugger from 'github-slugger'
 import type { Document, MDX } from 'contentlayer/core'
 
 export type MDXDocument = Document & { body: MDX }
@@ -75,25 +74,4 @@ export function coreContent<T extends MDXDocument>(content: T) {
 
 export function allCoreContent<T extends MDXDocument>(contents: T[]) {
   return contents.map((c) => coreContent(c)).filter((c) => !('draft' in c && c.draft === true))
-}
-
-// TODO: refactor into contentlayer once compute over all docs is enabled
-export async function getAllTags(allBlogs: MDXBlog[]) {
-  const tagCount: Record<string, number> = {}
-
-  // Iterate through each post, putting all found tags into `tags`
-  allBlogs.forEach((file) => {
-    if (file.tags && file.draft !== true) {
-      file.tags.forEach((tag) => {
-        const formattedTag = GithubSlugger.slug(tag)
-        if (formattedTag in tagCount) {
-          tagCount[formattedTag] += 1
-        } else {
-          tagCount[formattedTag] = 1
-        }
-      })
-    }
-  })
-
-  return tagCount
 }
