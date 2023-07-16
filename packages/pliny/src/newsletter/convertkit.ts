@@ -1,6 +1,7 @@
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiRequest } from 'next'
+import { NextRequest } from 'next/server'
 
-export const convertkitHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+export const convertkitHandler = async (req: NextApiRequest | NextRequest) => {
   const { email } = req.body
   const FORM_ID = process.env.CONVERTKIT_FORM_ID
   const API_KEY = process.env.CONVERTKIT_API_KEY

@@ -1,6 +1,7 @@
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiRequest } from 'next'
+import { NextRequest } from 'next/server'
 
-export const revueHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+export const revueHandler = async (req: NextApiRequest | NextRequest) => {
   const { email } = req.body
 
   const API_KEY = process.env.REVUE_API_KEY
