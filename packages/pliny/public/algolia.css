@@ -731,7 +731,6 @@ svg.DocSearch-Hit-Select-Icon {
 }
 
 /* Custom overrides to work with a primary tailwind css theme */
-
 .light .DocSearch {
   --docsearch-primary-color: theme(colors.primary.600);
   --docsearch-highlight-color: theme(colors.primary.600);
@@ -756,7 +755,7 @@ svg.DocSearch-Hit-Select-Icon {
   --docsearch-primary-color: theme(colors.primary.600);
   --docsearch-highlight-color: theme(colors.primary.600);
   --docsearch-searchbox-shadow: inset 0 0 0 2px theme(colors.primary.600);
-  --docsearch-text-color: theme(colors.gray.200);
+  --docsearch-text-color: theme(colors.gray.300);
   --docsearch-muted-color: theme(colors.gray.400);
   --docsearch-container-background: theme(colors.gray.900 / 80%);
   /* Modal */
@@ -784,13 +783,9 @@ svg.DocSearch-Hit-Select-Icon {
 }
 
 .light .DocSearch-Input {
-  @apply hover: ring-0 ring-0;
+  box-shadow: 0 0 #0000;
 }
 
 .dark .DocSearch-Input {
-  @apply hover: ring-0 ring-0;
-}
-
-.DocSearch-Container {
-  @apply backdrop-blur;
+  box-shadow: 0 0 #0000;
 }

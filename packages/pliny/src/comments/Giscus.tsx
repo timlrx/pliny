@@ -1,5 +1,6 @@
-import { useEffect, useCallback } from 'react'
 import { useTheme } from 'next-themes'
+import GiscusComponent from '@giscus/react'
+import type { Mapping, BooleanString, InputPosition } from '@giscus/react'
 
 // TODO: type optional fields
 export interface GiscusConfig {
@@ -8,14 +9,14 @@ export interface GiscusConfig {
     themeURL?: string
     theme?: string
     darkTheme?: string
-    mapping?: string
-    repo?: string
-    repositoryId?: string
-    category?: string
-    categoryId?: string
-    reactions?: string
-    metadata?: string
-    inputPosition?: string
+    mapping: Mapping
+    repo: string
+    repositoryId: string
+    category: string
+    categoryId: string
+    reactions: BooleanString
+    metadata: BooleanString
+    inputPosition?: InputPosition
     lang?: string
   }
 }
@@ -46,35 +47,21 @@ export const Giscus = ({
 
   const COMMENTS_ID = 'comments-container'
 
-  const LoadComments = useCallback(() => {
-    const script = document.createElement('script')
-    script.src = 'https://giscus.app/client.js'
-    script.setAttribute('data-repo', repo)
-    script.setAttribute('data-repo-id', repositoryId)
-    script.setAttribute('data-category', category)
-    script.setAttribute('data-category-id', categoryId)
-    script.setAttribute('data-mapping', mapping)
-    script.setAttribute('data-reactions-enabled', reactions)
-    script.setAttribute('data-emit-metadata', metadata)
-    script.setAttribute('data-input-position', inputPosition)
-    script.setAttribute('data-lang', lang)
-    script.setAttribute('data-theme', commentsTheme)
-    script.setAttribute('crossorigin', 'anonymous')
-    script.async = true
-
-    const comments = document.getElementById(COMMENTS_ID)
-    if (comments) comments.appendChild(script)
-
-    return () => {
-      const comments = document.getElementById(COMMENTS_ID)
-      if (comments) comments.innerHTML = ''
-    }
-  }, [commentsTheme])
-
-  // Reload on theme change
-  useEffect(() => {
-    LoadComments()
-  }, [LoadComments])
-
-  return <div className="giscus" id={COMMENTS_ID} />
+  return (
+    <GiscusComponent
+      id={COMMENTS_ID}
+      // @ts-ignore
+      repo={repo}
+      repoId={repositoryId}
+      category={category}
+      categoryId={categoryId}
+      mapping={mapping}
+      reactionsEnabled={reactions}
+      emitMetadata={metadata}
+      inputPosition={inputPosition}
+      theme={commentsTheme}
+      lang={lang}
+      loading="lazy"
+    />
+  )
 }

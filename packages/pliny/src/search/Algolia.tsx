@@ -107,7 +107,7 @@ export const AlgoliaSearchProvider: React.FC<React.PropsWithChildren<AlgoliaSear
       const isInternalLink = itemUrl.startsWith('/')
       const isAnchorLink = itemUrl.startsWith('#')
       if (!isInternalLink && !isAnchorLink) {
-        window.location.href = itemUrl
+        window.open(itemUrl, '_blank')
       } else {
         router.push(itemUrl)
       }
