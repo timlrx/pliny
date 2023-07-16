@@ -1,5 +1,11 @@
 # pliny
 
+## 0.1.0-beta.5
+
+### Patch Changes
+
+- 3e31a82: Add support for newsletter route handler
+
 ## 0.1.0-beta.4
 
 ### Patch Changes
