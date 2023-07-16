@@ -1,5 +1,12 @@
 # pliny
 
+## 0.1.0-beta.3
+
+### Patch Changes
+
+- 23d9149: Remove dynamic load of comments
+- 86b57e7: Export example css for algolia
+
 ## 0.1.0-beta.2
 
 ### Patch Changes
