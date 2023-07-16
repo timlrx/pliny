@@ -1,5 +1,3 @@
-import { NextApiRequest } from 'next'
-import { NextRequest } from 'next/server'
 import mailchimp from '@mailchimp/mailchimp_marketing'
 
 mailchimp.setConfig({
@@ -7,9 +5,7 @@ mailchimp.setConfig({
   server: process.env.MAILCHIMP_API_SERVER, // E.g. us1
 })
 
-export const mailchimpHandler = async (req: NextApiRequest | NextRequest) => {
-  const { email } = req.body
-
+export const mailchimpSubscribe = async (email: string) => {
   const response = await mailchimp.lists.addListMember(process.env.MAILCHIMP_AUDIENCE_ID, {
     email_address: email,
     status: 'subscribed',

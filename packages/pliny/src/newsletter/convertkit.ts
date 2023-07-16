@@ -1,8 +1,4 @@
-import { NextApiRequest } from 'next'
-import { NextRequest } from 'next/server'
-
-export const convertkitHandler = async (req: NextApiRequest | NextRequest) => {
-  const { email } = req.body
+export const convertkitSubscribe = async (email: string) => {
   const FORM_ID = process.env.CONVERTKIT_FORM_ID
   const API_KEY = process.env.CONVERTKIT_API_KEY
   const API_URL = 'https://api.convertkit.com/v3/'
