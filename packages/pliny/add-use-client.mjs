@@ -1,28 +1,18 @@
 import fs from 'fs'
 import globby from 'globby'
 
-// Append "use client" to client side components
+// Append "use client" to all path chunks that contain "use" hooks
 // So these packages can be directly used in Next.js directly
+// This allows us to see support file splitting with easy next import
 ;(async () => {
-  const clientPaths = await globby([
-    'comments/Disqus.js',
-    'comments/Giscus.js',
-    'comments/Utterances.js',
-    'search/Algolia.js',
-    'search/KBar.js',
-    'search/KBarModal.js',
-    'search/KBarPortal.js',
-    'ui/NewsletterForm.js',
-    'ui/Pre.js',
-  ])
-  for (const path of clientPaths) {
-    const data = fs.readFileSync(path)
-    const fd = fs.openSync(path, 'w+')
-    const insert = Buffer.from('"use client"\n')
-    fs.writeSync(fd, insert, 0, insert.length, 0)
-    fs.writeSync(fd, data, 0, data.length, insert.length)
-    fs.close(fd, (err) => {
-      if (err) throw err
-    })
+  console.log('Added use client directive to the following files:')
+  const chunkPaths = await globby('chunk*')
+  for (const path of chunkPaths) {
+    const data = fs.readFileSync(path, 'utf8')
+    if (/useState|useEffect|useRef|useCallback|useMemo|useTheme|useRouter/.test(data)) {
+      console.log(path)
+      const insert = Buffer.from('"use client"\n')
+      fs.writeFileSync(path, insert + data)
+    }
   }
 })()

@@ -1,5 +1,11 @@
 # pliny
 
+## 0.1.0-beta.8
+
+### Patch Changes
+
+- 1fe37b1: Add back code splitting and add use client at the chunk level
+
 ## 0.1.0-beta.7
 
 ### Patch Changes
