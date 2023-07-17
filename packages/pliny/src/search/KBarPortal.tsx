@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation.js'
-import { CoreContent, MDXDocument } from '../utils/contentlayer'
-import { formatDate } from '../utils/formatDate'
+import { useEffect } from 'react'
+
 import {
   KBarPortal,
   KBarSearch,
@@ -9,18 +7,13 @@ import {
   KBarPositioner,
   KBarResults,
   useMatches,
-  useRegisterActions,
   useKBar,
-  Action,
-  ActionImpl,
 } from 'kbar'
 
 let init = false
 
-export const Portal = ({ searchDocumentsPath }: { searchDocumentsPath: string }) => {
-  const [searchActions, setSearchActions] = useState([])
+export const Portal = ({ isLoading }: { isLoading: boolean }) => {
   const { query } = useKBar()
-  const router = useRouter()
 
   // Display on load as we already wait for crtl+k event to load it
   useEffect(() => {
@@ -28,34 +21,7 @@ export const Portal = ({ searchDocumentsPath }: { searchDocumentsPath: string })
       init = true
       query.toggle()
     }
-  }, [])
-
-  useEffect(() => {
-    const mapPosts = (posts: CoreContent<MDXDocument>[]) => {
-      const actions: Action[] = []
-      for (const post of posts) {
-        actions.push({
-          id: post.path,
-          name: post.title,
-          keywords: post?.summary || '',
-          section: 'Content',
-          subtitle: formatDate(post.date, 'en-US'),
-          perform: () => router.push('/' + post.path),
-        })
-      }
-      return actions
-    }
-
-    async function fetchData() {
-      const res = await fetch(searchDocumentsPath)
-      const json = await res.json()
-      const actions = mapPosts(json)
-      setSearchActions(actions)
-    }
-    fetchData()
-  }, [searchDocumentsPath])
-
-  useRegisterActions(searchActions, [searchActions])
+  }, [query])
 
   return (
     <KBarPortal>
@@ -84,7 +50,12 @@ export const Portal = ({ searchDocumentsPath }: { searchDocumentsPath: string })
                 ESC
               </span>
             </div>
-            <RenderResults />
+            {!isLoading && <RenderResults />}
+            {isLoading && (
+              <div className="block border-t border-gray-100 px-4 py-8 text-center text-gray-400 dark:border-gray-800 dark:text-gray-600">
+                Loading...
+              </div>
+            )}
           </div>
         </KBarAnimator>
       </KBarPositioner>
@@ -92,14 +63,6 @@ export const Portal = ({ searchDocumentsPath }: { searchDocumentsPath: string })
   )
 }
 
-interface RenderParams<T = ActionImpl | string> {
-  item: T
-  active: boolean
-}
-
-// The default Kbar results component has some issues with preact.
-// https://github.com/timc1/kbar/issues/208
-// Using custom, non-virtualized implementation in the meantime.
 const RenderResults = () => {
   const { results } = useMatches()
 
@@ -111,7 +74,7 @@ const RenderResults = () => {
           <div>
             {typeof item === 'string' ? (
               <div className="pt-3">
-                <div className="text-primary-600 block border-t border-gray-100 px-4 pt-6 pb-2 text-xs font-semibold uppercase dark:border-gray-800">
+                <div className="block border-t border-gray-100 px-4 pb-2 pt-6 text-xs font-semibold uppercase text-primary-600 dark:border-gray-800">
                   {item}
                 </div>
               </div>

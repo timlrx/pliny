@@ -8,7 +8,10 @@ import globby from 'globby'
     'comments/Disqus.js',
     'comments/Giscus.js',
     'comments/Utterances.js',
-    'search/*.js',
+    'search/Algolia.js',
+    'search/KBar.js',
+    'search/KBarModal.js',
+    'search/KBarPortal.js',
     'ui/NewsletterForm.js',
     'ui/Pre.js',
   ])

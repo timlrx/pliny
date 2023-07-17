@@ -54,7 +54,7 @@ async function NewsletterAPIHandler(
     if (response.status >= 400) {
       res.status(response.status).json({ error: `There was an error subscribing to the list.` })
     }
-    res.status(201).json({ error: '' })
+    res.status(201).json({ message: 'Successfully subscribed to the newsletter' })
   } catch (error) {
     res.status(500).json({ error: error.message || error.toString() })
   }
@@ -89,18 +89,16 @@ async function NewsletterRouteHandler(req: NextRequest, options: NewsletterConfi
       default:
         return NextResponse.json({ error: `${options.provider} not supported` }, { status: 500 })
     }
-    if (response.status == 200) {
-      return NextResponse.json(
-        { message: 'Successfully subscribed to the newsletter' },
-        { status: response.status }
-      )
-    } else if (response.status >= 400) {
+    if (response.status >= 400) {
       return NextResponse.json(
         { error: `There was an error subscribing to the list` },
         { status: response.status }
       )
     }
-    return NextResponse.json({ error: '' }, { status: 201 })
+    return NextResponse.json(
+      { message: 'Successfully subscribed to the newsletter' },
+      { status: 201 }
+    )
   } catch (error) {
     return NextResponse.json({ error: error.message || error.toString() }, { status: 500 })
   }

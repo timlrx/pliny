@@ -4,12 +4,13 @@ import { Portal } from './KBarPortal'
 
 export const KBarModal: FC<{
   children: ReactNode
-  startingActions: Action[]
+  actions: Action[]
   searchDocumentsPath: string
-}> = ({ startingActions, searchDocumentsPath, children }) => {
+  isLoading: boolean
+}> = ({ actions, children, isLoading }) => {
   return (
-    <KBarProvider actions={startingActions}>
-      <Portal searchDocumentsPath={searchDocumentsPath} />
+    <KBarProvider actions={actions}>
+      <Portal isLoading={isLoading} />
       {children}
     </KBarProvider>
   )

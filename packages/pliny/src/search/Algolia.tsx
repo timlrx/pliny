@@ -61,6 +61,15 @@ export const AlgoliaSearchContext = React.createContext<AlgoliaSearchContext>(
   {} as AlgoliaSearchContext
 )
 
+/**
+ * Command palette like search component for algolia - `ctrl-k` to open the palette.
+ * To toggle the modal or search from child components, use the search context:
+ * ```
+ * import { AlgoliaSearchContext } from 'pliny/search/algolia'
+ * const { query } = useContext(AlgoliaSearchContext)
+ * ```
+ *
+ */
 export const AlgoliaSearchProvider: React.FC<React.PropsWithChildren<AlgoliaSearchProps>> = (
   props
 ) => {

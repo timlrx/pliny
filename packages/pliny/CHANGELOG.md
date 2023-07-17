@@ -1,5 +1,14 @@
 # pliny
 
+## 0.1.0-beta.7
+
+### Patch Changes
+
+- 33d15e3: Remove next/dynamic from search component
+  Remove redundant context components
+  load kbar data in advance and refactor code
+- 7f71035: Fix newsletter typo
+
 ## 0.1.0-beta.6
 
 ### Patch Changes
