@@ -1,5 +1,11 @@
 # pliny
 
+## 0.1.0-beta.9
+
+### Patch Changes
+
+- e669506: Split all files except ui components so that they are default exported
+
 ## 0.1.0-beta.8
 
 ### Patch Changes

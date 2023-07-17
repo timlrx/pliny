@@ -6,6 +6,7 @@
     "pliny": "0.0.10"
   },
   "changesets": [
+    "dry-dolphins-burn",
     "fuzzy-apples-judge",
     "giant-geckos-dress",
     "good-cheetahs-tap",
