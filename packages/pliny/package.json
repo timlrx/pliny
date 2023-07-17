@@ -18,8 +18,8 @@
     "**"
   ],
   "scripts": {
-    "dev": "tsup-node --watch && cp -fR dist/* ./ && rimraf dist && node add-use-client.mjs && yarn copyfiles",
-    "build": "rimraf dist && tsup && cp -fR dist/* ./ && rimraf dist && node add-use-client.mjs && yarn copyfiles",
+    "dev": "tsup && cp -fR dist/* ./ && tsup --config tsup.ui.config.ts && rimraf dist && node add-use-client.mjs",
+    "build": "tsup && cp -fR dist/* ./ && tsup --config tsup.ui.config.ts && rimraf dist && node add-use-client.mjs && yarn copyfiles",
     "copyfiles": "copyfiles -f public/algolia.css search"
   },
   "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",

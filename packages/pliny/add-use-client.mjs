@@ -15,4 +15,12 @@ import globby from 'globby'
       fs.writeFileSync(path, insert + data)
     }
   }
+  // Handle ui differently as they are not split
+  const clientPaths = await globby(['ui/NewsletterForm.js', 'ui/Pre.js'])
+  for (const path of clientPaths) {
+    console.log(path)
+    const data = fs.readFileSync(path)
+    const insert = Buffer.from('"use client"\n')
+    fs.writeFileSync(path, insert + data)
+  }
 })()
