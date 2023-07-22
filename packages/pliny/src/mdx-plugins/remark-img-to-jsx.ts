@@ -10,6 +10,10 @@ export type ImageNode = Parent & {
   attributes: (Literal & { name: string })[]
 }
 
+/**
+ * Converts markdown image nodes to next/image jsx.
+ *
+ */
 export function remarkImgToJsx() {
   return (tree: Node) => {
     visit(

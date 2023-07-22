@@ -1,73 +1,310 @@
 # Pliny
 
-**Note: Pliny is currently in alpha. Expect breaking changes.**
+Pliny provides out of the box components to enhance your static site:
 
-Pliny makes creating, editing and publishing markdown content easy and simple. It is based on [Next.js][nextjs], [Tailwind CSS][tailwindcss] and [Contentlayer][contentlayer].
+- Analytics
+  - Google Analytics
+  - Plausible Analytics
+  - Simple Analytics
+  - Umami Analytics
+  - Posthog
+- Comments
+  - Disqus
+  - Giscus
+  - Utterances
+- Newsletter (uses Next 13 API Routes)
+  - Buttondown
+  - Convertkit
+  - Email Octopus
+  - Klaviyo
+  - Mailchimp
+  - Revue
+- Command palette search with tailwind style sheet
+  - Algolia
+  - Kbar (local search)
+- UI utility components
+  - Bleed
+  - Newsletter / Blog Newsletter
+  - Pre / Code block
+  - Table of Contents
 
-![](pliny-sketch.png)
+as well as a bunch of MDX and contentlayer utility functions which I use to build [Tailwind Nextjs Starter Blog][tnsb] and my own sites.
+
+It is based on [Next.js][nextjs], [Tailwind CSS][tailwindcss] and [Contentlayer][contentlayer]. For an example of how all the components can be used together, check out the [Tailwind Nextjs Starter Blog][tnsb].
+
+Note: The previous cli and starter template have been deprecated. Please use the new components directly in your favourite Next 13 websites.
+
+Note 2: The components are intended to be use within Next 13 app directory setup with [Contentlayer][contentlayer]. You might still be able to use the components in older websites but there's no official support for it, especially since many components are now using `next/navigation` instead of `next/router`.
+
+This project is still in beta. Please report any issues or feedbacks.
 
 ## Installation
 
 ```bash
-npm i -g @pliny/cli
+npm i pliny
 ```
 
-## Usage
+As many of the components are styled with tailwindcss, you will need to include the path to the library within the `content` section of your tailwind config file:
 
-Here are some examples of common commands:
-
-### Create a new starter blog project called "my-blog"
-
-```bash
-pliny new --template=starter-blog my-blog
+```js
+module.exports = {
+  content: [
+    './node_modules/pliny/**/*.js',
+    './pages/**/*.{html,js}',
+    './components/**/*.{html,js}',
+  ],
+  // ...
+}
 ```
 
-### Add a recipe
+## Components
 
-Currently, there are 2 main types of recipes - scaffolding a content type e.g. the pages associated with a blog or adding templates to the `layouts` folder. As a convention, recipes to scaffold are in the form of `add-[content type]` while layouts are in the form of `[content type]-[theme]`.
+### Analytics
 
-Adding a blog page to an existing Next.js application (assumes you have contentlayer setup, as it will automatically add `defineDocumentType`)
+The `Analytics` component provides an easy interface to switch between different analytics providers. It might not be as feature rich as the official analytics providers but it should be sufficient for simple use cases.
 
-```bash
-pliny install add-blog ContentDir=data ContentName=Blog
+```tsx
+import { Analytics, AnalyticsConfig } from 'pliny/analytics'
+
+const analytics: AnalyticsConfig = {
+  plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
+  simpleAnalytics: false, // true or false
+  umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
+  posthogProjectApiKey: '', // e.g. AhnJK8392ndPOav87as450xd
+  googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
+}
+
+export default function Layout() {
+  return (
+    ...
+    <Analytics analyticsConfig={analyticsConfig} />
+  )
+}
 ```
 
-Add the blog-classic templates to the `layouts` folder:
+You can also use the individual analytics components directly.
 
-```bash
-pliny install blog-classic
+#### Google Analytics
+
+```tsx
+import { GA } from 'pliny/analytics/GoogleAnalytics'
+
+const googleAnalyticsId = '' // e.g. UA-000000-2 or G-XXXXXXX
+
+export default function Layout() {
+  return (
+    ...
+    <GA googleAnalyticsId={googleAnalyticsId} />
+  )
+}
 ```
 
-## Features
+#### Plausible Analytics
 
-### Content Modeling with [Contentlayer]
+```tsx
+import { Plausible } from 'pliny/analytics/Plausible'
 
-- Live reload on content changes
-- Fast and incremental builds
-- Simple but powerful schema DSL to design your content model (validates your content and generates types)
-- Auto-generated TypeScript types based on your content model (e.g. frontmatter or CMS schema)
+const plausibleDataDomain = '' // e.g. tailwind-nextjs-starter-blog.vercel.app
 
-### Templates
+export default function Layout() {
+  return (
+    ...
+    <Plausible plausibleDataDomain={plausibleDataDomain} />
+  )
+}
+```
 
-- Based on [Next.js][nextjs] and [Tailwindcss][tailwindcss]
-- Highly configurable config, easily extendable [nextjs] website
-- Mobile friendly
-- Supports light and dark theme
-- Layouts to customize templates
-- Blog theme is completed, docs is in the works
+#### Simple Analytics
 
-### Full suite of markdown plugins
+```tsx
+import { SimpleAnalytics } from 'pliny/analytics/SimpleAnalytics'
 
-- Server-side syntax highlighting with line numbers and line highlighting via [rehype-prism-plus]
-- Math display supported via [KaTeX][katex]
-- Citation and bibliography support via [rehype-citation]
+export default function Layout() {
+  return (
+    ...
+    <SimpleAnalytics />
+  )
+}
+```
 
-### Modular React components for services
+#### Umami Analytics
 
-- Newsletter (Buttondown, Convertkit, Email Octopus, Klaviyo, Mailchimp, Revue)
-- Analytics (Google Analytics, Plausible Analytics, Simple Analytics, Umami Analytics, Posthog)
-- Comments (Disqus, Giscus, Utterances)
-- Search (Algolia, Kbar local search)
+```tsx
+import { Umami } from 'pliny/analytics/Umami'
+
+const umamiWebsiteId = '' // e.g. 123e4567-e89b-12d3-a456-426614174000
+
+export default function Layout() {
+  return (
+    ...
+    <Umami umamiWebsiteId={umamiWebsiteId} />
+  )
+}
+```
+
+#### Posthog
+
+```tsx
+import { Posthog } from 'pliny/analytics/Posthog'
+
+const posthogProjectApiKey: '', // e.g. AhnJK8392ndPOav87as450xd
+
+export default function Layout() {
+  return (
+    ...
+    <Posthog posthogProjectApiKey={posthogProjectApiKey} />
+  )
+}
+```
+
+### Comments
+
+The `Comments` component provides an easy interface to switch between different comments providers.
+
+```tsx
+import { Comments, CommentsConfig } from 'pliny/comments'
+import siteMetadata from '@/data/siteMetadata'
+
+export default function BlogComments({ slug }: { slug: string }) {
+  return <Comments commentsConfig={commentsConfig as CommentsConfig} slug={slug} />
+}
+```
+
+You can also use the individual comments components directly.
+
+#### Giscus
+
+```tsx
+import { Giscus, GiscusProps } from 'pliny/comments/Giscus'
+
+export default function BlogComments(props: GiscusProps) {
+  return <Giscus {...props} />
+}
+```
+
+#### Disqus
+
+```tsx
+import { Disqus, DisqusProps } from 'pliny/comments/Disqus'
+
+export default function BlogComments(props: DisqusProps) {
+  return <Disqus {...props} />
+}
+```
+
+#### Utterances
+
+```tsx
+import { Utterances, UtterancesProps } from 'pliny/comments/Utterances'
+
+export default function BlogComments(props: UtterancesProps) {
+  return <Utterances {...props} />
+}
+```
+
+### Newsletter
+
+The `Newsletter` component provides a Next 13 API route to integrate a newsletter subscription API with various providers. E.g. in `app/api/newsletter/route.ts`
+
+```tsx
+import { NewsletterAPI } from 'pliny/newsletter'
+import siteMetadata from '@/data/siteMetadata'
+
+const handler = NewsletterAPI({
+  provider: '', // Use one of mailchimp, buttondown, convertkit, klaviyo, revue, emailOctopus
+})
+
+export { handler as GET, handler as POST }
+```
+
+You can then send a `POST` request to the API route with a body with the email - `{ email: 'new_email@gmail.com' }`. See the `NewsletterForm` component in `pliny/ui/NewsletterForm` for an example.
+
+### Search
+
+The `Search` component provides an easy interface to switch between different search providers. If you are using algolia, you will need to import the css file as well - `import 'pliny/search/algolia.css'`.
+
+```tsx
+import { SearchProvider, SearchConfig } from 'pliny/search'
+
+export default function Layout() {
+  return <SearchProvider searchConfig={searchConfig as SearchConfig}>...</SearchProvider>
+}
+```
+
+You can also use the individual search components directly.
+
+#### Kbar
+
+You can pass in an optional `defaultActions` to `kbarConfig` to customize the default actions. See [Kbar documentation](https://kbar.vercel.app/docs/concepts/actions) for more details.
+
+```tsx
+import { KBarSearchProvider } from 'pliny/search/KBar'
+
+export default function Layout() {
+  return <KBarSearchProvider kbarConfig={{ searchDocumentsPath: 'abc' }}>...</KBarSearchProvider>
+}
+```
+
+#### Algolia
+
+```tsx
+import 'pliny/search/algolia.css'
+import { AlgoliaSearchProvider } from 'pliny/search/Algolia'
+
+export default function Layout() {
+  return (
+    <AlgoliaSearchProvider
+      algoliaConfig={{
+        appId: 'R2IYF7ETH7',
+        apiKey: '599cec31baffa4868cae4e79f180729b',
+        indexName: 'docsearch',
+      }}
+    >
+      ...
+    </AlgoliaSearchProvider>
+  )
+}
+```
+
+### MDX plugins
+
+Add the plugins to `remarkPlugins` in contentlayer or other MDX processors.
+
+#### Remark Extract Frontmatter
+
+Extracts frontmatter from markdown file and adds it to the file's data object. Used to pass frontmatter fields to subsequent remark / rehype plugins.
+
+#### Remark code title
+
+Parses title from code block and inserts it as a sibling title node.
+
+#### Remark Img To Jsx
+
+Converts markdown image nodes to next/image jsx.
+
+#### Remark TOC Headings
+
+Extracts TOC headings from markdown file and adds it to the file's data object. Alternatively, it also exports a `extractTocHeadings` function which can be used within contentlayer to create a `computedField` with the TOC headings.
+
+### MDX components
+
+While these can be used in any React code, they can also be passed down as MDXComponents and used within MDX files.
+
+#### Bleed
+
+Useful component to break out of a constrained-width layout and fill the entire width.
+
+#### Pre / Code block
+
+Simple code block component with copy to clipboard button.
+
+#### TOCInline
+
+Table of contents component which can be used within a markdown file.
+
+#### NewsletterForm / BlogNewsletterForm
+
+Newsletter form component to add a subscriber to your mailing list.
 
 [nextjs]: https://nextjs.org/
 [tailwindcss]: https://tailwindcss.com/
@@ -75,3 +312,4 @@ pliny install blog-classic
 [rehype-prism-plus]: https://github.com/timlrx/rehype-prism-plus
 [katex]: https://katex.org/
 [rehype-citation]: https://github.com/timlrx/rehype-citation
+[tnsb]: https://github.com/timlrx/tailwind-nextjs-starter-blog
