@@ -16,7 +16,11 @@ import globby from 'globby'
     }
   }
   // Handle ui differently as they are not split
-  const clientPaths = await globby(['ui/NewsletterForm.js', 'ui/Pre.js'])
+  const clientPaths = await globby([
+    'ui/NewsletterForm.js',
+    'ui/BlogNewsletterForm.js',
+    'ui/Pre.js',
+  ])
   for (const path of clientPaths) {
     console.log(path)
     const data = fs.readFileSync(path)

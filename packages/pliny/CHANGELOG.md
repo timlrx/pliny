@@ -1,5 +1,11 @@
 # pliny
 
+## 0.1.0-beta.10
+
+### Patch Changes
+
+- 9f87280: Fix kbar fetch to load relative to base url and add back starting actions
+
 ## 0.1.0-beta.9
 
 ### Patch Changes
