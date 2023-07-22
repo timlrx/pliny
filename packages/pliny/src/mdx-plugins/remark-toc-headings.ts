@@ -12,6 +12,9 @@ export type Toc = {
   url: string
 }[]
 
+/**
+ * Extracts TOC headings from markdown file and adds it to the file's data object.
+ */
 export function remarkTocHeadings() {
   return (tree: Parent, file: VFile) => {
     const toc: Toc = []
