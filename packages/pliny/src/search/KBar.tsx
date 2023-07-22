@@ -39,20 +39,6 @@ export const KBarSearchProvider: FC<{
   const [modalLoaded, setModalLoaded] = useState(false)
   const [dataLoaded, setDataLoaded] = useState(false)
 
-  const startingActions = useMemo(() => {
-    return Array.isArray(defaultActions)
-      ? defaultActions
-      : [
-          {
-            id: 'homepage',
-            name: 'Homepage',
-            keywords: '',
-            section: 'Home',
-            perform: () => router.push('/'),
-          },
-        ]
-  }, [defaultActions, router])
-
   const importDocSearchModalIfNeeded = useCallback(() => {
     if (KBarModal) {
       return Promise.resolve()
@@ -73,7 +59,18 @@ export const KBarSearchProvider: FC<{
       }
     }
     const mapPosts = (posts: CoreContent<MDXDocument>[]) => {
-      const actions: Action[] = []
+      const startingActions = Array.isArray(defaultActions)
+        ? defaultActions
+        : [
+            {
+              id: 'homepage',
+              name: 'Homepage',
+              keywords: '',
+              section: 'Home',
+              perform: () => router.push('/'),
+            },
+          ]
+      const actions: Action[] = startingActions
       for (const post of posts) {
         actions.push({
           id: post.path,
@@ -87,7 +84,11 @@ export const KBarSearchProvider: FC<{
       return actions
     }
     async function fetchData() {
-      const res = await fetch(searchDocumentsPath)
+      const url =
+        searchDocumentsPath.indexOf('://') > 0 || searchDocumentsPath.indexOf('//') === 0
+          ? searchDocumentsPath
+          : new URL(searchDocumentsPath, window.location.origin)
+      const res = await fetch(url)
       const json = await res.json()
       const actions = mapPosts(json)
       setSearchActions(actions)
@@ -103,14 +104,7 @@ export const KBarSearchProvider: FC<{
       /*removes event listener on cleanup*/
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [
-    importDocSearchModalIfNeeded,
-    modalLoaded,
-    dataLoaded,
-    startingActions,
-    router,
-    searchDocumentsPath,
-  ])
+  }, [importDocSearchModalIfNeeded, modalLoaded, dataLoaded, router, searchDocumentsPath])
 
   return (
     <>
