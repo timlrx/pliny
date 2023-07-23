@@ -7,7 +7,7 @@ export interface UmamiProps {
 
 export const Umami = ({
   umamiWebsiteId,
-  src = 'https://umami.example.com/umami.js',
+  src = 'https://analytics.umami.is/script.js',
 }: UmamiProps) => {
   return (
     <Script
