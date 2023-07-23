@@ -2,15 +2,29 @@ import Script from 'next/script.js'
 
 export interface PlausibleProps {
   plausibleDataDomain: string
+  dataApi?: string
+  src?: string
 }
 
-export const Plausible = ({ plausibleDataDomain }: PlausibleProps) => {
+/**
+ * Plausible analytics component.
+ * To proxy the requests through your own domain, you can use the dataApi and src attribute.
+ * See [Plausible docs](https://plausible.io/docs/proxy/guides/nextjs#step-2-adjust-your-deployed-script)
+ * for more information.
+ *
+ */
+export const Plausible = ({
+  plausibleDataDomain,
+  dataApi = undefined,
+  src = 'https://plausible.io/js/plausible.js',
+}: PlausibleProps) => {
   return (
     <>
       <Script
         strategy="lazyOnload"
         data-domain={plausibleDataDomain}
-        src="https://plausible.io/js/plausible.js"
+        data-api={dataApi}
+        src={src}
       />
       <Script strategy="lazyOnload" id="plausible-script">
         {`
