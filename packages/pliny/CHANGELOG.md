@@ -1,5 +1,12 @@
 # pliny
 
+## 0.1.0-beta.11
+
+### Patch Changes
+
+- e0aa18c: Expose option to configure host for analytics scripts
+- 562605b: Fix algolia css specificity issues with tailwind
+
 ## 0.1.0-beta.10
 
 ### Patch Changes

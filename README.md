@@ -63,16 +63,31 @@ module.exports = {
 
 The `Analytics` component provides an easy interface to switch between different analytics providers. It might not be as feature rich as the official analytics providers but it should be sufficient for simple use cases.
 
+All components default to the hosted service, but can be configured to use a self-hosted or proxied version of the script by providing the `src` / `apiHost` props to the respective analytics component.
+
+Note: As an external script will be loaded, do ensure that `script-src` in the content security policy of `next.config.js` has been configured to whitelist the domain.
+
 ```tsx
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 
 const analytics: AnalyticsConfig = {
-  plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
-  simpleAnalytics: false, // true or false
-  umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
-  posthogProjectApiKey: '', // e.g. AhnJK8392ndPOav87as450xd
-  googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
-}
+    // If you want to use an analytics provider you have to add it to the
+    // content security policy in the `next.config.js` file.
+    // supports Plausible, Simple Analytics, Umami, Posthog or Google Analytics.
+    plausibleAnalytics: {
+      plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
+    },
+    simpleAnalytics: {},
+    umamiAnalytics: {
+      umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
+    },
+    posthogAnalytics: {
+      posthogProjectApiKey: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
+    },
+    googleAnalytics: {
+      googleAnalyticsId: '', // e.g. G-XXXXXXX
+    },
+  }
 
 export default function Layout() {
   return (

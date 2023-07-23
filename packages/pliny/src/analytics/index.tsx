@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { GA, GoogleAnalyticsProps } from './GoogleAnalytics'
 import { Plausible, PlausibleProps } from './Plausible'
-import { SimpleAnalytics } from './SimpleAnalytics.js'
+import { SimpleAnalytics, SimpleAnalyticsProps } from './SimpleAnalytics.js'
 import { Umami, UmamiProps } from './Umami'
 import { Posthog, PosthogProps } from './Posthog'
 
@@ -13,12 +13,12 @@ declare global {
   }
 }
 
-export interface AnalyticsConfig
-  extends Partial<GoogleAnalyticsProps>,
-    Partial<PlausibleProps>,
-    Partial<PosthogProps>,
-    Partial<UmamiProps> {
-  simpleAnalytics?: boolean
+export interface AnalyticsConfig {
+  googleAnalytics?: GoogleAnalyticsProps
+  plausibleAnalytics?: PlausibleProps
+  umamiAnalytics?: UmamiProps
+  posthogAnalytics?: PosthogProps
+  simpleAnalytics?: SimpleAnalyticsProps
 }
 
 /**
@@ -38,8 +38,11 @@ export interface AnalyticsProps {
 const isProduction = process.env.NODE_ENV === 'production'
 
 /**
- * Supports plausible, simpleAnalytics, umami or googleAnalytics.
- * If you want to use an analytics provider you have to add it to the
+ * Supports Plausible, Simple Analytics, Umami, Posthog or Google Analytics.
+ * All components default to the hosted service, but can be configured to use a self-hosted
+ * or proxied version of the script by providing the `src` / `apiHost` props.
+ *
+ * Note: If you want to use an analytics provider you have to add it to the
  * content security policy in the `next.config.js` file.
  * @param {AnalyticsProps} { analytics }
  * @return {*}
@@ -47,18 +50,20 @@ const isProduction = process.env.NODE_ENV === 'production'
 export const Analytics = ({ analyticsConfig }: AnalyticsProps) => {
   return (
     <>
-      {isProduction && analyticsConfig.plausibleDataDomain && (
-        <Plausible plausibleDataDomain={analyticsConfig.plausibleDataDomain} />
+      {isProduction && analyticsConfig.plausibleAnalytics && (
+        <Plausible {...analyticsConfig.plausibleAnalytics} />
       )}
-      {isProduction && analyticsConfig.simpleAnalytics && <SimpleAnalytics />}
-      {isProduction && analyticsConfig.posthogProjectApiKey && (
-        <Posthog posthogProjectApiKey={analyticsConfig.posthogProjectApiKey} />
+      {isProduction && analyticsConfig.simpleAnalytics && (
+        <SimpleAnalytics {...analyticsConfig.simpleAnalytics} />
       )}
-      {isProduction && analyticsConfig.umamiWebsiteId && (
-        <Umami umamiWebsiteId={analyticsConfig.umamiWebsiteId} />
+      {isProduction && analyticsConfig.posthogAnalytics && (
+        <Posthog {...analyticsConfig.posthogAnalytics} />
       )}
-      {isProduction && analyticsConfig.googleAnalyticsId && (
-        <GA googleAnalyticsId={analyticsConfig.googleAnalyticsId} />
+      {isProduction && analyticsConfig.umamiAnalytics && (
+        <Umami {...analyticsConfig.umamiAnalytics} />
+      )}
+      {isProduction && analyticsConfig.googleAnalytics && (
+        <GA {...analyticsConfig.googleAnalytics} />
       )}
     </>
   )
@@ -66,4 +71,4 @@ export const Analytics = ({ analyticsConfig }: AnalyticsProps) => {
 
 export { GA, Plausible, SimpleAnalytics, Umami, Posthog }
 
-export type { GoogleAnalyticsProps, PlausibleProps, UmamiProps, PosthogProps }
+export type { GoogleAnalyticsProps, PlausibleProps, UmamiProps, PosthogProps, SimpleAnalyticsProps }

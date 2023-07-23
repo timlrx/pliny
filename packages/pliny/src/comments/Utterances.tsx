@@ -37,7 +37,7 @@ export const Utterances = ({ theme, darkTheme, repo, label, issueTerm }: Utteran
       const comments = document.getElementById(COMMENTS_ID)
       if (comments) comments.innerHTML = ''
     }
-  }, [commentsTheme, issueTerm])
+  }, [commentsTheme, issueTerm, label, repo])
 
   // Reload on theme change
   useEffect(() => {
