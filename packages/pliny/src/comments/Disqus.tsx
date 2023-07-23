@@ -33,7 +33,7 @@ export const Disqus = ({ shortname, slug }: DisqusProps) => {
       //@ts-ignore
       window.DISQUS.reset({ reload: true })
     }
-  }, [])
+  }, [shortname, slug])
 
   useEffect(() => {
     LoadComments()
