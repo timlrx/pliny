@@ -783,7 +783,9 @@ svg.DocSearch-Hit-Select-Icon {
 }
 
 .light .DocSearch-Input,
-.dark .DocSearch-Input {
+.dark .DocSearch-Input,
+.light .DocSearch-Input:focus,
+.dark .DocSearch-Input:focus {
   box-shadow: 0 0 #0000;
   background: transparent;
 }
