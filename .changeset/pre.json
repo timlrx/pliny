@@ -6,6 +6,7 @@
     "pliny": "0.0.10"
   },
   "changesets": [
+    "afraid-queens-fold",
     "dry-dolphins-burn",
     "fuzzy-apples-judge",
     "giant-geckos-dress",
@@ -26,6 +27,7 @@
     "unlucky-keys-join",
     "weak-swans-heal",
     "wicked-maps-rest",
-    "yellow-ligers-sort"
+    "yellow-ligers-sort",
+    "young-hats-lie"
   ]
 }

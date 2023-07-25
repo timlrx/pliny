@@ -1,5 +1,12 @@
 # pliny
 
+## 0.1.0-beta.13
+
+### Patch Changes
+
+- 245b6d3: make algolia search input focus style more specific
+- 4ba59d6: fix allCoreContent logic
+
 ## 0.1.0-beta.12
 
 ### Patch Changes
