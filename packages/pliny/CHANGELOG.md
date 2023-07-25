@@ -1,5 +1,12 @@
 # pliny
 
+## 0.1.0-beta.12
+
+### Patch Changes
+
+- 75533d5: fix bleed full mode
+- c41211e: Improve typing of contentlayer utility functions and filter posts only in prod
+
 ## 0.1.0-beta.11
 
 ### Patch Changes
