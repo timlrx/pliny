@@ -1,5 +1,7 @@
 import type { Document, MDX } from 'contentlayer/core'
 
+const isProduction = process.env.NODE_ENV === 'production'
+
 export type MDXDocument = Document & { body: MDX }
 export type MDXDocumentDate = MDXDocument & {
   date: string
@@ -19,8 +21,26 @@ export function dateSortDesc(a: string, b: string) {
   return 0
 }
 
+/**
+ * Sorts a list of MDX documents by date in descending order
+ *
+ * @param {MDXDocumentDate[]} allBlogs
+ * @param {string} [dateKey='date']
+ * @return {*}
+ */
+export function sortPosts(allBlogs: MDXDocumentDate[], dateKey: string = 'date') {
+  return allBlogs.sort((a, b) => dateSortDesc(a[dateKey], b[dateKey]))
+}
+
+/**
+ * Kept for backwards compatibility
+ * Please use `sortPosts` instead
+ * @deprecated
+ * @param {MDXBlog[]} allBlogs
+ * @return {*}
+ */
 export function sortedBlogPost(allBlogs: MDXDocumentDate[]) {
-  return allBlogs.sort((a, b) => dateSortDesc(a.date, b.date))
+  return sortPosts(allBlogs)
 }
 
 type ConvertUndefined<T> = OrNull<{
@@ -68,10 +88,26 @@ export const omit = <Obj, Keys extends keyof Obj>(obj: Obj, keys: Keys[]): Omit<
 
 export type CoreContent<T> = Omit<T, 'body' | '_raw' | '_id'>
 
-export function coreContent<T extends MDXDocument>(content: T) {
+/**
+ * Omit body, _raw, _id from MDX document and return only the core content
+ *
+ * @param {T} content
+ * @return {*}  {CoreContent<T>}
+ */
+export function coreContent<T extends MDXDocument>(content: T): CoreContent<T> {
   return omit(content, ['body', '_raw', '_id'])
 }
 
-export function allCoreContent<T extends MDXDocument>(contents: T[]) {
-  return contents.map((c) => coreContent(c)).filter((c) => !('draft' in c && c.draft === true))
+/**
+ * Omit body, _raw, _id from a list of MDX documents and returns only the core content
+ * If `NODE_ENV` === "production", it will also filter out any documents with draft: true.
+ *
+ * @param {T[]} contents
+ * @return {*}  {CoreContent<T>[]}
+ */
+export function allCoreContent<T extends MDXDocument>(contents: T[]): CoreContent<T>[] {
+  const coreContent = contents.map((c) => coreContent(c))
+  if (isProduction)
+    return coreContent.filter((c: CoreContent<T>) => !('draft' in c && c.draft === true))
+  return coreContent
 }
