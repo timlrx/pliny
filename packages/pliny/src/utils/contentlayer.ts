@@ -28,7 +28,7 @@ export function dateSortDesc(a: string, b: string) {
  * @param {string} [dateKey='date']
  * @return {*}
  */
-export function sortPosts(allBlogs: MDXDocumentDate[], dateKey: string = 'date') {
+export function sortPosts<T extends MDXDocumentDate>(allBlogs: T[], dateKey: string = 'date') {
   return allBlogs.sort((a, b) => dateSortDesc(a[dateKey], b[dateKey]))
 }
 
@@ -106,8 +106,7 @@ export function coreContent<T extends MDXDocument>(content: T): CoreContent<T> {
  * @return {*}  {CoreContent<T>[]}
  */
 export function allCoreContent<T extends MDXDocument>(contents: T[]): CoreContent<T>[] {
-  const coreContent = contents.map((c) => coreContent(c))
   if (isProduction)
-    return coreContent.filter((c: CoreContent<T>) => !('draft' in c && c.draft === true))
-  return coreContent
+    return contents.map((c) => coreContent(c)).filter((c) => !('draft' in c && c.draft === true))
+  return contents.map((c) => coreContent(c))
 }
