@@ -1,5 +1,41 @@
 # pliny
 
+## 0.1.0
+
+### Minor Changes
+
+- 1faee5c: bump package dependencies
+
+### Patch Changes
+
+- 245b6d3: make algolia search input focus style more specific
+- e669506: Split all files except ui components so that they are default exported
+- 23d9149: Remove dynamic load of comments
+- 72932a3: Use default export for components
+
+  Named export breaks react server components. See https://github.com/vercel/next.js/issues/51593
+
+- 21080de: Fix newsletter route handlers
+- 44a6f19: Use official giscus component which fixes styling issues
+- 3533d4f: Fix algolia styles
+- 75533d5: fix bleed full mode
+- c41211e: Improve typing of contentlayer utility functions and filter posts only in prod
+- 1e82c4e: update google analytics to follow ga4 recommendations
+- 7f2539a: Remove functions superseded in next 13 or new set up
+- e0aa18c: Expose option to configure host for analytics scripts
+- 562605b: Fix algolia css specificity issues with tailwind
+- 7d2f6b3: update algolia component
+- 86b57e7: Export example css for algolia
+- 33d15e3: Remove next/dynamic from search component
+  Remove redundant context components
+  load kbar data in advance and refactor code
+- 7f71035: Fix newsletter typo
+- 459c5d8: Update to use next 13 app dir navigation router
+- 3e31a82: Add support for newsletter route handler
+- 9f87280: Fix kbar fetch to load relative to base url and add back starting actions
+- 1fe37b1: Add back code splitting and add use client at the chunk level
+- 4ba59d6: fix allCoreContent logic
+
 ## 0.1.0-beta.13
 
 ### Patch Changes
