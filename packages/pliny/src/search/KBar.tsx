@@ -1,7 +1,8 @@
-import { useState, useEffect, useCallback, FC, ReactNode, useMemo } from 'react'
+import { useState, useEffect, FC, ReactNode } from 'react'
 import type { Action } from 'kbar'
+import { KBarProvider } from 'kbar'
 import { useRouter } from 'next/navigation.js'
-import { KBarModal as KBarModalType } from './KBarModal'
+import { KBarModal } from './KBarModal'
 import { CoreContent, MDXDocument } from '../utils/contentlayer'
 import { formatDate } from '../utils/formatDate'
 
@@ -14,8 +15,6 @@ export interface KBarConfig {
   provider: 'kbar'
   kbarConfig: KBarSearchProps
 }
-
-let KBarModal: typeof KBarModalType | null = null
 
 /**
  * Command palette like search component with kbar - `ctrl-k` to open the palette.
@@ -36,28 +35,9 @@ export const KBarSearchProvider: FC<{
   const router = useRouter()
   const { searchDocumentsPath, defaultActions } = kbarConfig
   const [searchActions, setSearchActions] = useState<Action[]>([])
-  const [modalLoaded, setModalLoaded] = useState(false)
   const [dataLoaded, setDataLoaded] = useState(false)
 
-  const importDocSearchModalIfNeeded = useCallback(() => {
-    if (KBarModal) {
-      return Promise.resolve()
-    }
-    return Promise.all([import('./KBarModal')]).then(([{ KBarModal: Modal }]) => {
-      KBarModal = Modal
-    })
-  }, [])
-
   useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.ctrlKey && event.key === 'k') {
-        event.preventDefault()
-        importDocSearchModalIfNeeded().then(() => {
-          setModalLoaded(true)
-          window.removeEventListener('keydown', handleKeyDown)
-        })
-      }
-    }
     const mapPosts = (posts: CoreContent<MDXDocument>[]) => {
       const startingActions = Array.isArray(defaultActions)
         ? defaultActions
@@ -94,31 +74,15 @@ export const KBarSearchProvider: FC<{
       setSearchActions(actions)
       setDataLoaded(true)
     }
-    if (!modalLoaded) {
-      window.addEventListener('keydown', handleKeyDown)
-    }
     if (!dataLoaded) {
       fetchData()
     }
-    return () => {
-      /*removes event listener on cleanup*/
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [importDocSearchModalIfNeeded, modalLoaded, dataLoaded, router, searchDocumentsPath])
+  }, [defaultActions, dataLoaded, router, searchDocumentsPath])
 
   return (
-    <>
-      {modalLoaded && KBarModal ? (
-        <KBarModal
-          actions={searchActions}
-          searchDocumentsPath={searchDocumentsPath}
-          isLoading={!dataLoaded}
-        >
-          {children}
-        </KBarModal>
-      ) : (
-        children
-      )}
-    </>
+    <KBarProvider actions={defaultActions}>
+      <KBarModal actions={searchActions} isLoading={!dataLoaded} />
+      {children}
+    </KBarProvider>
   )
 }
