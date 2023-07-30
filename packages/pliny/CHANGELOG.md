@@ -1,5 +1,11 @@
 # pliny
 
+## 0.1.1-beta.1
+
+### Patch Changes
+
+- dbe5de2: add use client directive
+
 ## 0.1.1-beta.0
 
 ### Patch Changes
