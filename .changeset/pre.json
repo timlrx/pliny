@@ -6,6 +6,7 @@
     "pliny": "0.1.0"
   },
   "changesets": [
-    "gold-dingos-breathe"
+    "gold-dingos-breathe",
+    "metal-ants-camp"
   ]
 }
