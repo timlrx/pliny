@@ -1,5 +1,14 @@
 # pliny
 
+## 0.1.1
+
+### Patch Changes
+
+- 306917e: Improve kbar styling
+  Simplify kbar component
+  Add new KBarButton and AlgoliaButton wrapper which toggles their respective modals on click event
+- dbe5de2: add use client directive
+
 ## 0.1.1-beta.1
 
 ### Patch Changes
