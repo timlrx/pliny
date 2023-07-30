@@ -24,6 +24,8 @@ import globby from 'globby'
     'ui/NewsletterForm.js',
     'ui/BlogNewsletterForm.js',
     'ui/Pre.js',
+    'search/KBarButton.js',
+    'search/AlgoliaButton.js',
   ])
   for (const path of clientPaths) {
     console.log(path)
