@@ -5,5 +5,7 @@
     "@pliny/config": "0.0.0",
     "pliny": "0.1.0"
   },
-  "changesets": []
+  "changesets": [
+    "gold-dingos-breathe"
+  ]
 }
