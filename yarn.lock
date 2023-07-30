@@ -5804,9 +5804,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"kbar@npm:0.1.0-beta.40":
-  version: 0.1.0-beta.40
-  resolution: "kbar@npm:0.1.0-beta.40"
+"kbar@npm:0.1.0-beta.41":
+  version: 0.1.0-beta.41
+  resolution: "kbar@npm:0.1.0-beta.41"
   dependencies:
     "@radix-ui/react-portal": ^1.0.1
     command-score: ^0.1.2
@@ -5816,7 +5816,7 @@ __metadata:
   peerDependencies:
     react: ^16.0.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
-  checksum: 0c2cbe520e48ba210cbcfd04529178a772c112ea8e674953bbb6343f74109bf3fd3cb8d23bb4235093f04018b28e8e2e485852d23c39dfe96eab6189cc82c361
+  checksum: 4ce40d59c27b0a9367fbface0780f906c20109bc279b038041e51b0f97fee50261599fda8cfc5ba8e45550589639517f580935ec6443e835081057d9bb5a6e54
   languageName: node
   linkType: hard
 
@@ -7691,7 +7691,7 @@ __metadata:
     github-slugger: ^1.4.0
     image-size: 1.0.0
     js-yaml: 4.1.0
-    kbar: 0.1.0-beta.40
+    kbar: 0.1.0-beta.41
     next: 13.4.10
     next-contentlayer: ^0.3.4
     next-themes: ^0.2.1

@@ -9,7 +9,11 @@ import globby from 'globby'
   const chunkPaths = await globby('chunk*')
   for (const path of chunkPaths) {
     const data = fs.readFileSync(path, 'utf8')
-    if (/useState|useEffect|useRef|useCallback|useMemo|useTheme|useRouter/.test(data)) {
+    if (
+      /useState|useEffect|useRef|useCallback|useContext|useMemo|useTheme|useRouter|useRegisterActions|useMatches|useKBar/.test(
+        data
+      )
+    ) {
       console.log(path)
       const insert = Buffer.from('"use client"\n')
       fs.writeFileSync(path, insert + data)
