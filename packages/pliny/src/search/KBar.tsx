@@ -7,8 +7,10 @@ import { CoreContent, MDXDocument } from '../utils/contentlayer'
 import { formatDate } from '../utils/formatDate'
 
 export interface KBarSearchProps {
-  searchDocumentsPath: string
+  searchDocumentsPath: string | false
   defaultActions?: Action[]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onSearchDocumentsLoad?: (json: any) => Action[]
 }
 
 export interface KBarConfig {
@@ -18,6 +20,11 @@ export interface KBarConfig {
 
 /**
  * Command palette like search component with kbar - `ctrl-k` to open the palette.
+ *
+ * Default actions can be overridden by passing in an array of actions to `defaultActions`.
+ * To load actions dynamically, pass in a `searchDocumentsPath` to a JSON file.
+ * `onSearchDocumentsLoad` can be used to transform the JSON into actions.
+ *
  * To toggle the modal or search from child components, use the search context:
  * ```
  * import { useKBar } from 'kbar'
@@ -33,24 +40,13 @@ export const KBarSearchProvider: FC<{
   kbarConfig: KBarSearchProps
 }> = ({ kbarConfig, children }) => {
   const router = useRouter()
-  const { searchDocumentsPath, defaultActions } = kbarConfig
+  const { searchDocumentsPath, defaultActions, onSearchDocumentsLoad } = kbarConfig
   const [searchActions, setSearchActions] = useState<Action[]>([])
   const [dataLoaded, setDataLoaded] = useState(false)
 
   useEffect(() => {
     const mapPosts = (posts: CoreContent<MDXDocument>[]) => {
-      const startingActions = Array.isArray(defaultActions)
-        ? defaultActions
-        : [
-            {
-              id: 'homepage',
-              name: 'Homepage',
-              keywords: '',
-              section: 'Home',
-              perform: () => router.push('/'),
-            },
-          ]
-      const actions: Action[] = startingActions
+      const actions: Action[] = []
       for (const post of posts) {
         actions.push({
           id: post.path,
@@ -64,20 +60,24 @@ export const KBarSearchProvider: FC<{
       return actions
     }
     async function fetchData() {
-      const url =
-        searchDocumentsPath.indexOf('://') > 0 || searchDocumentsPath.indexOf('//') === 0
-          ? searchDocumentsPath
-          : new URL(searchDocumentsPath, window.location.origin)
-      const res = await fetch(url)
-      const json = await res.json()
-      const actions = mapPosts(json)
-      setSearchActions(actions)
+      if (searchDocumentsPath) {
+        const url =
+          searchDocumentsPath.indexOf('://') > 0 || searchDocumentsPath.indexOf('//') === 0
+            ? searchDocumentsPath
+            : new URL(searchDocumentsPath, window.location.origin)
+        const res = await fetch(url)
+        const json = await res.json()
+        const actions = onSearchDocumentsLoad ? onSearchDocumentsLoad(json) : mapPosts(json)
+        setSearchActions(actions)
+        setDataLoaded(true)
+      }
+    }
+    if (!dataLoaded && searchDocumentsPath) {
+      fetchData()
+    } else {
       setDataLoaded(true)
     }
-    if (!dataLoaded) {
-      fetchData()
-    }
-  }, [defaultActions, dataLoaded, router, searchDocumentsPath])
+  }, [defaultActions, dataLoaded, router, searchDocumentsPath, onSearchDocumentsLoad])
 
   return (
     <KBarProvider actions={defaultActions}>
