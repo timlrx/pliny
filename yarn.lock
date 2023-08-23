@@ -3235,13 +3235,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"command-score@npm:^0.1.2":
-  version: 0.1.2
-  resolution: "command-score@npm:0.1.2"
-  checksum: b733fd552d7e569070da3d474b1ed5f54785fdf3dd61670002e0a00b2eff1a547c2b6d3af3683c012f4f39c6455f9e7ee5e9997a79c08048ec37ec2195d3df08
-  languageName: node
-  linkType: hard
-
 "commander@npm:^4.0.0":
   version: 4.1.1
   resolution: "commander@npm:4.1.1"
@@ -4680,6 +4673,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fuse.js@npm:^6.6.2":
+  version: 6.6.2
+  resolution: "fuse.js@npm:6.6.2"
+  checksum: 17ae758ce205276ebd88bd9c9f088a100be0b4896abac9f6b09847151269d1690f41d7f98ff5813d4a58973162dbd99d0072ce807020fee6f9de60170f6b08eb
+  languageName: node
+  linkType: hard
+
 "gauge@npm:^4.0.3":
   version: 4.0.4
   resolution: "gauge@npm:4.0.4"
@@ -5804,19 +5804,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"kbar@npm:0.1.0-beta.41":
-  version: 0.1.0-beta.41
-  resolution: "kbar@npm:0.1.0-beta.41"
+"kbar@npm:0.1.0-beta.43":
+  version: 0.1.0-beta.43
+  resolution: "kbar@npm:0.1.0-beta.43"
   dependencies:
     "@radix-ui/react-portal": ^1.0.1
-    command-score: ^0.1.2
     fast-equals: ^2.0.3
+    fuse.js: ^6.6.2
     react-virtual: ^2.8.2
     tiny-invariant: ^1.2.0
   peerDependencies:
     react: ^16.0.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
-  checksum: 4ce40d59c27b0a9367fbface0780f906c20109bc279b038041e51b0f97fee50261599fda8cfc5ba8e45550589639517f580935ec6443e835081057d9bb5a6e54
+  checksum: cb3eee56295cd6697149ca083ae42957dccbc15cc52b9fbe62b4ebb6e7e3613a812ed8a0083e81be7aadcb85e22d007a59ac5cee25e0a0caa4ba4c95bb5606c8
   languageName: node
   linkType: hard
 
@@ -7691,7 +7691,7 @@ __metadata:
     github-slugger: ^1.4.0
     image-size: 1.0.0
     js-yaml: 4.1.0
-    kbar: 0.1.0-beta.41
+    kbar: 0.1.0-beta.43
     next: 13.4.10
     next-contentlayer: ^0.3.4
     next-themes: ^0.2.1
