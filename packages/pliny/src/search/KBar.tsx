@@ -3,8 +3,8 @@ import type { Action } from 'kbar'
 import { KBarProvider } from 'kbar'
 import { useRouter } from 'next/navigation.js'
 import { KBarModal } from './KBarModal'
-import { CoreContent, MDXDocument } from 'pliny/utils/contentlayer'
-import { formatDate } from 'pliny/utils/formatDate'
+import { CoreContent, MDXDocument } from '../utils/contentlayer'
+import { formatDate } from '../utils/formatDate'
 
 export interface KBarSearchProps {
   searchDocumentsPath: string | false
