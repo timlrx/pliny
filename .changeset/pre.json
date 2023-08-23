@@ -1,0 +1,9 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "@pliny/config": "0.0.0",
+    "pliny": "0.1.1"
+  },
+  "changesets": []
+}
