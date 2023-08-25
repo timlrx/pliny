@@ -1,5 +1,19 @@
 # pliny
 
+## 0.1.2
+
+### Patch Changes
+
+- a19ed9f: upgrade kbar version
+- 79ed1c1: Expose onSearchDocumentsLoad for kbar and allow searchDocumentsPath to be false
+- 9ff4d94: render shortcut key in kbar item
+
+## 0.1.2-beta.1
+
+### Patch Changes
+
+- 9ff4d94: render shortcut key in kbar item
+
 ## 0.1.2-beta.0
 
 ### Patch Changes

@@ -34,10 +34,10 @@ export const KBarModal = ({ actions, isLoading }: { actions: Action[]; isLoading
                   />
                 </svg>
               </span>
-              <KBarSearch className="h-8 w-full bg-transparent text-slate-600 placeholder-slate-400 focus:outline-none dark:text-slate-200 dark:placeholder-slate-500" />
-              <span className="inline-block whitespace-nowrap rounded border border-slate-400/70 px-1.5 align-middle font-medium leading-4 tracking-wide text-slate-500 [font-size:10px] dark:border-slate-600 dark:text-slate-400">
+              <KBarSearch className="h-8 w-full bg-transparent text-gray-600 placeholder-gray-400 focus:outline-none dark:text-gray-200 dark:placeholder-gray-500" />
+              <kbd className="inline-block whitespace-nowrap rounded border px-1.5 align-middle font-medium leading-4 tracking-wide text-xs text-gray-400 border-gray-400">
                 ESC
-              </span>
+              </kbd>
             </div>
             {!isLoading && <RenderResults />}
             {isLoading && (
@@ -69,18 +69,34 @@ const RenderResults = () => {
               </div>
             ) : (
               <div
-                className={`block cursor-pointer px-4 py-2 ${
+                className={`flex cursor-pointer justify-between px-4 py-2 ${
                   active
                     ? 'bg-primary-600 text-gray-100'
                     : 'text-gray-700 dark:text-gray-100 bg-transparent'
                 }`}
               >
-                {item.subtitle && (
-                  <div className={`${active ? 'text-gray-200' : 'text-gray-400'} text-xs`}>
-                    {item.subtitle}
+                <div className="block">
+                  {item.subtitle && (
+                    <div className={`${active ? 'text-gray-200' : 'text-gray-400'} text-xs`}>
+                      {item.subtitle}
+                    </div>
+                  )}
+                  <div>{item.name}</div>
+                </div>
+                {item.shortcut?.length ? (
+                  <div aria-hidden className="flex flex-row items-center justify-center gap-x-2">
+                    {item.shortcut.map((sc) => (
+                      <kbd
+                        key={sc}
+                        className={`font-medium h-7 w-6 flex items-center	justify-center text-xs rounded border ${
+                          active ? 'text-gray-200 border-gray-200' : 'text-gray-400 border-gray-400'
+                        }`}
+                      >
+                        {sc}
+                      </kbd>
+                    ))}
                   </div>
-                )}
-                <div>{item.name}</div>
+                ) : null}
               </div>
             )}
           </div>
