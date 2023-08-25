@@ -1,5 +1,11 @@
 # pliny
 
+## 0.1.2-beta.1
+
+### Patch Changes
+
+- 9ff4d94: render shortcut key in kbar item
+
 ## 0.1.2-beta.0
 
 ### Patch Changes
