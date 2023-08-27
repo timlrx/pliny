@@ -26,7 +26,6 @@ export const Disqus = ({ shortname, slug }: DisqusProps) => {
       script.src = 'https://' + shortname + '.disqus.com/embed.js'
       // @ts-ignore
       script.setAttribute('data-timestamp', +new Date())
-      script.setAttribute('crossorigin', 'anonymous')
       script.async = true
       document.body.appendChild(script)
     } else {
