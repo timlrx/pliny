@@ -13,7 +13,7 @@ export type DisqusProps = DisqusConfig['disqusConfig'] & {
 }
 
 export const Disqus = ({ shortname, slug }: DisqusProps) => {
-  const { theme: nextTheme } = useTheme()
+  const { theme } = useTheme()
 
   const COMMENTS_ID = 'disqus_thread'
 
@@ -31,7 +31,7 @@ export const Disqus = ({ shortname, slug }: DisqusProps) => {
     } else {
       ;(window as any).DISQUS.reset({ reload: true })
     }
-  }, [shortname, slug, nextTheme])
+  }, [shortname, slug, theme])
 
   useEffect(() => {
     LoadComments()
