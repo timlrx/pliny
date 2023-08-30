@@ -1,3 +1,4 @@
+import { useTheme } from 'next-themes'
 import { useEffect, useCallback } from 'react'
 
 export interface DisqusConfig {
@@ -12,28 +13,25 @@ export type DisqusProps = DisqusConfig['disqusConfig'] & {
 }
 
 export const Disqus = ({ shortname, slug }: DisqusProps) => {
+  const { theme } = useTheme()
+
   const COMMENTS_ID = 'disqus_thread'
 
   const LoadComments = useCallback(() => {
-    //@ts-ignore
     window.disqus_config = function () {
       this.page.url = window.location.href
       this.page.identifier = slug
     }
-    //@ts-ignore
     if (window.DISQUS === undefined) {
       const script = document.createElement('script')
       script.src = 'https://' + shortname + '.disqus.com/embed.js'
-      // @ts-ignore
-      script.setAttribute('data-timestamp', +new Date())
-      script.setAttribute('crossorigin', 'anonymous')
+      script.setAttribute('data-timestamp', Date.now().toString())
       script.async = true
       document.body.appendChild(script)
     } else {
-      //@ts-ignore
-      window.DISQUS.reset({ reload: true })
+      ;(window as any).DISQUS.reset({ reload: true })
     }
-  }, [shortname, slug])
+  }, [shortname, slug, theme])
 
   useEffect(() => {
     LoadComments()
