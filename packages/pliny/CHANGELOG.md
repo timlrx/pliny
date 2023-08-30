@@ -1,5 +1,11 @@
 # pliny
 
+## 0.1.3
+
+### Patch Changes
+
+- 53a7617: Corrected cors error in disqus
+
 ## 0.1.2
 
 ### Patch Changes
