@@ -1,5 +1,11 @@
 # pliny
 
+## 0.1.4
+
+### Patch Changes
+
+- e9bcff8: Added icon support to KBar
+
 ## 0.1.3
 
 ### Patch Changes
