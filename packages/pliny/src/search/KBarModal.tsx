@@ -1,3 +1,5 @@
+// noinspection TypeScriptMissingConfigOption
+
 import {
   KBarPortal,
   KBarSearch,
@@ -75,13 +77,16 @@ const RenderResults = () => {
                     : 'text-gray-700 dark:text-gray-100 bg-transparent'
                 }`}
               >
-                <div className="block">
-                  {item.subtitle && (
-                    <div className={`${active ? 'text-gray-200' : 'text-gray-400'} text-xs`}>
-                      {item.subtitle}
-                    </div>
-                  )}
-                  <div>{item.name}</div>
+                <div className={'flex space-x-2'}>
+                  {item.icon && <div className={"self-center"}>{item.icon}</div> }
+                  <div className="block">
+                    {item.subtitle && (
+                      <div className={`${active ? 'text-gray-200' : 'text-gray-400'} text-xs`}>
+                        {item.subtitle}
+                      </div>
+                    )}
+                    <div>{item.name}</div>
+                  </div>
                 </div>
                 {item.shortcut?.length ? (
                   <div aria-hidden className="flex flex-row items-center justify-center gap-x-2">
