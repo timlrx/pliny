@@ -1,6 +1,6 @@
 import { Parent, Node, Literal } from 'unist'
 import { visit } from 'unist-util-visit'
-import sizeOf from 'image-size'
+import { sync as sizeOf } from 'probe-image-size'
 import fs from 'fs'
 
 export type ImageNode = Parent & {
@@ -26,7 +26,7 @@ export function remarkImgToJsx() {
 
         // only local files
         if (fs.existsSync(`${process.cwd()}/public${imageNode.url}`)) {
-          const dimensions = sizeOf(`${process.cwd()}/public${imageNode.url}`)
+          const dimensions = sizeOf(fs.readFileSync(`${process.cwd()}/public${imageNode.url}`))
 
           // Convert original node to next/image
           ;(imageNode.type = 'mdxJsxFlowElement'),
