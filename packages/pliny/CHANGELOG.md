@@ -1,5 +1,11 @@
 # pliny
 
+## 0.1.5
+
+### Patch Changes
+
+- f03903d: replace image-size with probe-image-size to support avif and other image formats
+
 ## 0.1.4
 
 ### Patch Changes
