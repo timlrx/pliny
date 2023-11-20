@@ -22,15 +22,13 @@ export const Disqus = ({ shortname, slug }: DisqusProps) => {
       this.page.url = window.location.href
       this.page.identifier = slug
     }
-    if (window.DISQUS === undefined) {
-      const script = document.createElement('script')
-      script.src = 'https://' + shortname + '.disqus.com/embed.js'
-      script.setAttribute('data-timestamp', Date.now().toString())
-      script.async = true
-      document.body.appendChild(script)
-    } else {
-      ;(window as any).DISQUS.reset({ reload: true })
-    }
+    // Reset Disqus does not reset the style
+    // As an ugly workaround we just reload it
+    const script = document.createElement('script')
+    script.src = 'https://' + shortname + '.disqus.com/embed.js'
+    script.setAttribute('data-timestamp', Date.now().toString())
+    script.async = true
+    document.body.appendChild(script)
   }, [shortname, slug, theme])
 
   useEffect(() => {
