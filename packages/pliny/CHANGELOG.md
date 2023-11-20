@@ -1,5 +1,14 @@
 # pliny
 
+## 0.1.6
+
+### Patch Changes
+
+- 0f6f3ab: fix disqus style when changing theme
+- 06973b1: Add option to collapse TOCInline
+- 2ad37da: Bump kbar to 0.1.0-beta.44
+- bc8f351: fix remark-img-to-jsx and only replace image node
+
 ## 0.1.5
 
 ### Patch Changes
