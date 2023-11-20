@@ -7,12 +7,16 @@ export interface TOCInlineProps {
   toHeading?: number
   asDisclosure?: boolean
   exclude?: string | string[]
+  collapse?: boolean
 }
 
 /**
  * Generates an inline table of contents
  * Exclude titles matching this string (new RegExp('^(' + string + ')$', 'i')).
  * If an array is passed the array gets joined with a pipe (new RegExp('^(' + array.join('|') + ')$', 'i')).
+ *
+ * `asDisclosure` will wrap the TOC in a `details` element with a `summary` element.
+ * `collapse` will collapse the TOC when `AsDisclosure` is true.
  *
  * @param {TOCInlineProps} {
  *   toc,
@@ -21,6 +25,7 @@ export interface TOCInlineProps {
  *   toHeading = 6,
  *   asDisclosure = false,
  *   exclude = '',
+ *   collapse = false,
  * }
  *
  */
@@ -31,6 +36,7 @@ const TOCInline = ({
   toHeading = 6,
   asDisclosure = false,
   exclude = '',
+  collapse = false,
 }: TOCInlineProps) => {
   const re = Array.isArray(exclude)
     ? new RegExp('^(' + exclude.join('|') + ')$', 'i')
@@ -54,7 +60,7 @@ const TOCInline = ({
   return (
     <>
       {asDisclosure ? (
-        <details open>
+        <details open={!collapse}>
           <summary className="ml-6 pt-2 pb-2 text-xl font-bold">Table of Contents</summary>
           <div className="ml-6">{tocList}</div>
         </details>
