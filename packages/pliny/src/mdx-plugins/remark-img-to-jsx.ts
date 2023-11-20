@@ -22,7 +22,8 @@ export function remarkImgToJsx() {
       (node: Parent): node is Parent =>
         node.type === 'paragraph' && node.children.some((n) => n.type === 'image'),
       (node: Parent) => {
-        const imageNode = node.children.find((n) => n.type === 'image') as ImageNode
+        const imageNodeIndex = node.children.findIndex((n) => n.type === 'image')
+        const imageNode = node.children[imageNodeIndex] as ImageNode
 
         // only local files
         if (fs.existsSync(`${process.cwd()}/public${imageNode.url}`)) {
@@ -37,10 +38,9 @@ export function remarkImgToJsx() {
               { type: 'mdxJsxAttribute', name: 'width', value: dimensions.width },
               { type: 'mdxJsxAttribute', name: 'height', value: dimensions.height },
             ])
-
           // Change node type from p to div to avoid nesting error
           node.type = 'div'
-          node.children = [imageNode]
+          node.children[imageNodeIndex] = imageNode
         }
       }
     )
