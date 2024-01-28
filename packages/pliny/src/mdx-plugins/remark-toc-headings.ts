@@ -6,11 +6,13 @@ import slugger from 'github-slugger'
 import { toString } from 'mdast-util-to-string'
 import { remark } from 'remark'
 
-export type Toc = {
+export type TocItem = {
   value: string
-  depth: number
   url: string
-}[]
+  depth: number
+}
+
+export type Toc = TocItem[]
 
 /**
  * Extracts TOC headings from markdown file and adds it to the file's data object.

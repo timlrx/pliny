@@ -369,7 +369,7 @@ Simple code block component with copy to clipboard button.
 
 #### TOCInline
 
-Table of contents component which can be used within a markdown file.
+Table of contents component which can be used within a markdown file. `asDisclosure` will wrap the TOC in a `details` element with a `summary` element. `collapse` will collapse the TOC when `AsDisclosure` is true. Modify the list style by passing in a `ulClassName` prop. For example, if you are using Tailwind css and want to revert to the default HTML list style set `ulClassName="[&_ul]:list-[revert]"`.
 
 #### NewsletterForm / BlogNewsletterForm
 
