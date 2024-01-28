@@ -1,5 +1,12 @@
 # pliny
 
+## 0.1.7
+
+### Patch Changes
+
+- 0af664f: update kbar and github slugger versions
+- 61fa6f0: support nested toc headings and ul classname
+
 ## 0.1.6
 
 ### Patch Changes
