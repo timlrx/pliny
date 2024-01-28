@@ -4769,10 +4769,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"github-slugger@npm:^1.4.0":
-  version: 1.5.0
-  resolution: "github-slugger@npm:1.5.0"
-  checksum: c70988224578b3bdaa25df65973ffc8c24594a77a28550c3636e495e49d17aef5cdb04c04fa3f1744babef98c61eecc6a43299a13ea7f3cc33d680bf9053ffbe
+"github-slugger@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "github-slugger@npm:2.0.0"
+  checksum: 250375cde2058f21454872c2c79f72c4637340c30c51ff158ca4ec71cbc478f33d54477d787a662f9207aeb095a2060f155bc01f15329ba8a5fb6698e0fc81f8
   languageName: node
   linkType: hard
 
@@ -5793,9 +5793,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"kbar@npm:0.1.0-beta.44":
-  version: 0.1.0-beta.44
-  resolution: "kbar@npm:0.1.0-beta.44"
+"kbar@npm:0.1.0-beta.45":
+  version: 0.1.0-beta.45
+  resolution: "kbar@npm:0.1.0-beta.45"
   dependencies:
     "@radix-ui/react-portal": ^1.0.1
     fast-equals: ^2.0.3
@@ -5805,7 +5805,7 @@ __metadata:
   peerDependencies:
     react: ^16.0.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
-  checksum: ac14067b79d30e34639205d9d2d643c1b7983192cda4ec914b01e695dced7b86c29673ef0a4eb3ab522573873e8f79fe5f2480b9f0ba490e1b1c9ed7070d7c4a
+  checksum: d72c0ad334793ed4df62b929cfdd2502e8102ca55c44091604c8b9ae50655e33f0c1a266c86015d55aa3786ca484da38f2c5b521060bbc4cadb2389d45404efb
   languageName: node
   linkType: hard
 
@@ -7690,9 +7690,9 @@ __metadata:
     "@types/copyfiles": ^2
     contentlayer: ^0.3.4
     copyfiles: ^2.4.1
-    github-slugger: ^1.4.0
+    github-slugger: ^2.0.0
     js-yaml: 4.1.0
-    kbar: 0.1.0-beta.44
+    kbar: 0.1.0-beta.45
     next: 13.4.10
     next-contentlayer: ^0.3.4
     next-themes: ^0.2.1
