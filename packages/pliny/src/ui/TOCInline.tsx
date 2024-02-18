@@ -8,6 +8,7 @@ export interface TOCInlineProps {
   exclude?: string | string[]
   collapse?: boolean
   ulClassName?: string
+  liClassName?: string
 }
 
 export interface NestedTocItem extends TocItem {
@@ -57,6 +58,7 @@ const createNestedList = (items: TocItem[]): NestedTocItem[] => {
  *   exclude = '',
  *   collapse = false,
  *   ulClassName = '',
+ *   liClassName = '',
  * }
  *
  */
@@ -68,6 +70,7 @@ const TOCInline = ({
   exclude = '',
   collapse = false,
   ulClassName = '',
+  liClassName = '',
 }: TOCInlineProps) => {
   const re = Array.isArray(exclude)
     ? new RegExp('^(' + exclude.join('|') + ')$', 'i')
@@ -86,7 +89,7 @@ const TOCInline = ({
     return (
       <ul className={ulClassName}>
         {items.map((item, index) => (
-          <li key={index}>
+          <li key={index} className={liClassName}>
             <a href={item.url}>{item.value}</a>
             {createList(item.children)}
           </li>
