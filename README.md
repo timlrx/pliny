@@ -87,6 +87,9 @@ const analytics: AnalyticsConfig = {
     googleAnalytics: {
       googleAnalyticsId: '', // e.g. G-XXXXXXX
     },
+    clarityAnalytics: {
+      ClarityWebsiteId: '', // e.g. abcdefjhij
+    },
   }
 
 export default function Layout() {
@@ -110,6 +113,21 @@ export default function Layout() {
   return (
     ...
     <GA googleAnalyticsId={googleAnalyticsId} />
+  )
+}
+```
+
+#### Microsoft Clarity Analytics
+
+```tsx
+import { GA } from 'pliny/analytics/MicrosoftClarity'
+
+const ClarityWebsiteId = '' // e.g. abcdefjhij
+
+export default function Layout() {
+  return (
+    ...
+    <Clarity ClarityWebsiteId={ClarityWebsiteId} />
   )
 }
 ```

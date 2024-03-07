@@ -4,6 +4,7 @@ import { Plausible, PlausibleProps } from './Plausible'
 import { SimpleAnalytics, SimpleAnalyticsProps } from './SimpleAnalytics.js'
 import { Umami, UmamiProps } from './Umami'
 import { Posthog, PosthogProps } from './Posthog'
+import { Clarity, ClarityProps } from './MicrosoftClarity'
 
 declare global {
   interface Window {
@@ -19,6 +20,7 @@ export interface AnalyticsConfig {
   umamiAnalytics?: UmamiProps
   posthogAnalytics?: PosthogProps
   simpleAnalytics?: SimpleAnalyticsProps
+  clarityAnalytics?: ClarityProps
 }
 
 /**
@@ -29,6 +31,7 @@ export interface AnalyticsConfig {
  *  umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
  *  posthogProjectApiKey: '', // e.g. AhnJK8392ndPOav87as450xd
  *  googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
+ *  ClarityWebsiteId: '', // e.g. abcdefjhij
  * }
  */
 export interface AnalyticsProps {
@@ -65,10 +68,13 @@ export const Analytics = ({ analyticsConfig }: AnalyticsProps) => {
       {isProduction && analyticsConfig.googleAnalytics && (
         <GA {...analyticsConfig.googleAnalytics} />
       )}
+      {isProduction && analyticsConfig.clarityAnalytics && (
+        <Clarity {...analyticsConfig.clarityAnalytics} />
+      )}
     </>
   )
 }
 
-export { GA, Plausible, SimpleAnalytics, Umami, Posthog }
+export { GA, Plausible, SimpleAnalytics, Umami, Posthog, Clarity }
 
-export type { GoogleAnalyticsProps, PlausibleProps, UmamiProps, PosthogProps, SimpleAnalyticsProps }
+export type { GoogleAnalyticsProps, PlausibleProps, UmamiProps, PosthogProps, SimpleAnalyticsProps, ClarityProps }
