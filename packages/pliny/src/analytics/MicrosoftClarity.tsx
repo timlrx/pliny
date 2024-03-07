@@ -4,6 +4,8 @@ export interface ClarityProps {
   ClarityWebsiteId: string
 }
 
+// https://clarity.microsoft.com/
+// https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-setup
 export const Clarity = ({ ClarityWebsiteId }: ClarityProps) => {
   return (
     <>
