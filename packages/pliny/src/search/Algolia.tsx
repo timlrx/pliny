@@ -125,11 +125,11 @@ export const AlgoliaSearchProvider: React.FC<React.PropsWithChildren<AlgoliaSear
 
   const transformItems = useRef<DocSearchModalProps['transformItems']>((items) =>
     items.map((item) => {
-      // If Algolia contains a external domain, we should navigate without
-      // relative URL
+      // Assuming all entries indexed in algolia are internal domains
+
       const isInternalLink = item.url.startsWith('/')
       const isAnchorLink = item.url.startsWith('#')
-      if (!isInternalLink && !isAnchorLink) {
+      if (isInternalLink || isAnchorLink) {
         return item
       }
 
