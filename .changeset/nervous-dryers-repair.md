@@ -1,0 +1,5 @@
+---
+'pliny': minor
+---
+
+update dependencies

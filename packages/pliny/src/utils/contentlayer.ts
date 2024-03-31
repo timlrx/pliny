@@ -1,4 +1,4 @@
-import type { Document, MDX } from 'contentlayer/core'
+import type { Document, MDX } from 'contentlayer2/core'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
