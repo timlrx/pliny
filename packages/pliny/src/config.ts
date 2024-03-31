@@ -69,6 +69,9 @@ const sampleConfig: PlinyConfig = {
     googleAnalytics: {
       googleAnalyticsId: '', // e.g. G-XXXXXXX
     },
+    clarityAnalytics: {
+      ClarityWebsiteId: '', // e.g. abcdefjhij
+    },
   },
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailOctopus
