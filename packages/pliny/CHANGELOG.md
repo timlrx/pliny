@@ -1,5 +1,17 @@
 # pliny
 
+## 0.2.0
+
+### Minor Changes
+
+- 949804e: Fix converting internal domains to relative paths in the Algolia Search component.
+- fde0d56: update dependencies
+
+### Patch Changes
+
+- f0a7c10: Add liClassName prop for TOCInline
+- b0d057f: Add microsoft clarity analytics
+
 ## 0.1.7
 
 ### Patch Changes
