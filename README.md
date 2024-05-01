@@ -8,6 +8,7 @@ Pliny provides out of the box components to enhance your static site:
   - Simple Analytics
   - Umami Analytics
   - Posthog
+  - Microsoft Clarity
 - Comments
   - Disqus
   - Giscus
