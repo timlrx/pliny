@@ -1,5 +1,11 @@
 # pliny
 
+## 0.2.1
+
+### Patch Changes
+
+- 45243a4: update contentlayer2 to v0.4.6
+
 ## 0.2.0
 
 ### Minor Changes
