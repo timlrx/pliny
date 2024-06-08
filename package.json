@@ -1,10 +1,11 @@
 {
+  "name": "@pliny/monorepo",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "prepare": "husky install",
-    "build": "turbo run build --filter=!starter-blog",
-    "dev": "turbo run dev --parallel --no-cache --filter=!starter-blog",
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel --no-cache",
     "build:starter": "turbo run build",
     "dev:starter": "turbo run dev --parallel --no-cache",
     "serve": "turbo run serve",
@@ -32,11 +33,11 @@
     "@changesets/cli": "^2.26.0",
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.1.0",
-    "@types/react": "18.2.15",
+    "@types/react": "18.3.3",
     "husky": "^8.0.0",
     "lint-staged": "^13.0.0",
     "prettier": "^3.0.0",
-    "turbo": "1.13.0",
+    "turbo": "2.0.3",
     "vitest": "1.4.0"
   },
   "workspaces": {
