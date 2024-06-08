@@ -1,5 +1,11 @@
 # pliny
 
+## 0.2.2
+
+### Patch Changes
+
+- 5618d7b: include only relevant files in dist
+
 ## 0.2.1
 
 ### Patch Changes
