@@ -15,7 +15,18 @@
     "./utils/*": "./utils/*"
   },
   "files": [
-    "**"
+    "analytics",
+    "comments",
+    "mdx-plugins",
+    "newsletter",
+    "search",
+    "ui",
+    "utils",
+    "mdx-components.js",
+    "mdx-components.d.ts",
+    "config.js",
+    "config.d.ts",
+    "chunk*.js"
   ],
   "scripts": {
     "dev": "tsup && cp -fR dist/* ./ && tsup --config tsup.ui.config.ts && rimraf dist && node add-use-client.mjs",
