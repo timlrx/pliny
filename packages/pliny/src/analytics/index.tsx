@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { GA, GoogleAnalyticsProps } from './GoogleAnalytics'
 import { Plausible, PlausibleProps } from './Plausible'
+import { Swetrix, SwetrixProps } from './Swetrix'
 import { SimpleAnalytics, SimpleAnalyticsProps } from './SimpleAnalytics.js'
 import { Umami, UmamiProps } from './Umami'
 import { Posthog, PosthogProps } from './Posthog'
@@ -11,12 +12,17 @@ declare global {
     gtag?: (...args: any[]) => void
     plausible?: (...args: any[]) => void
     sa_event?: (...args: any[]) => void
+    swetrix?: {
+      track: (...args: any[]) => void
+      trackError: (...args: any[]) => void
+    }
   }
 }
 
 export interface AnalyticsConfig {
   googleAnalytics?: GoogleAnalyticsProps
   plausibleAnalytics?: PlausibleProps
+  swetrixAnalytics?: SwetrixProps
   umamiAnalytics?: UmamiProps
   posthogAnalytics?: PosthogProps
   simpleAnalytics?: SimpleAnalyticsProps
@@ -32,6 +38,7 @@ export interface AnalyticsConfig {
  *  posthogProjectApiKey: '', // e.g. AhnJK8392ndPOav87as450xd
  *  googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
  *  ClarityWebsiteId: '', // e.g. abcdefjhij
+ *  swetrixProjectId: '', // e.g. ABCdEfG123hI
  * }
  */
 export interface AnalyticsProps {
@@ -41,7 +48,7 @@ export interface AnalyticsProps {
 const isProduction = process.env.NODE_ENV === 'production'
 
 /**
- * Supports Plausible, Simple Analytics, Umami, Posthog or Google Analytics.
+ * Supports Plausible, Simple Analytics, Umami, Posthog, Swetrix or Google Analytics.
  * All components default to the hosted service, but can be configured to use a self-hosted
  * or proxied version of the script by providing the `src` / `apiHost` props.
  *
@@ -71,10 +78,21 @@ export const Analytics = ({ analyticsConfig }: AnalyticsProps) => {
       {isProduction && analyticsConfig.clarityAnalytics && (
         <Clarity {...analyticsConfig.clarityAnalytics} />
       )}
+      {isProduction && analyticsConfig.swetrixAnalytics && (
+        <Swetrix {...analyticsConfig.swetrixAnalytics} />
+      )}
     </>
   )
 }
 
-export { GA, Plausible, SimpleAnalytics, Umami, Posthog, Clarity }
+export { GA, Plausible, SimpleAnalytics, Umami, Posthog, Clarity, Swetrix }
 
-export type { GoogleAnalyticsProps, PlausibleProps, UmamiProps, PosthogProps, SimpleAnalyticsProps, ClarityProps }
+export type {
+  GoogleAnalyticsProps,
+  PlausibleProps,
+  UmamiProps,
+  PosthogProps,
+  SimpleAnalyticsProps,
+  ClarityProps,
+  SwetrixProps,
+}
