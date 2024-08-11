@@ -19,7 +19,6 @@ Pliny provides out of the box components to enhance your static site:
   - Email Octopus
   - Klaviyo
   - Mailchimp
-  - Revue
 - Command palette search with tailwind style sheet
   - Algolia
   - Kbar (local search)
@@ -245,7 +244,7 @@ import { NewsletterAPI } from 'pliny/newsletter'
 import siteMetadata from '@/data/siteMetadata'
 
 const handler = NewsletterAPI({
-  provider: '', // Use one of mailchimp, buttondown, convertkit, klaviyo, revue, emailOctopus
+  provider: '', // Use one of mailchimp, buttondown, convertkit, klaviyo emailOctopus
 })
 
 export { handler as GET, handler as POST }

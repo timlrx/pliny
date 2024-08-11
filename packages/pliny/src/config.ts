@@ -74,7 +74,7 @@ const sampleConfig: PlinyConfig = {
     },
   },
   newsletter: {
-    // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailOctopus
+    // supports mailchimp, buttondown, convertkit, klaviyo, emailOctopus
     // Please add your .env file and modify it according to your selection
     provider: 'buttondown',
   },

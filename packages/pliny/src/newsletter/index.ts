@@ -5,11 +5,10 @@ import { buttondownSubscribe } from './buttondown'
 import { convertkitSubscribe } from './convertkit'
 import { mailchimpSubscribe } from './mailchimp'
 import { klaviyoSubscribe } from './klaviyo'
-import { revueSubscribe } from './revue'
 import { emailOctopusSubscribe } from './emailOctopus'
 
 export interface NewsletterConfig {
-  provider: 'buttondown' | 'convertkit' | 'klaviyo' | 'mailchimp' | 'revue' | 'emailoctopus'
+  provider: 'buttondown' | 'convertkit' | 'klaviyo' | 'mailchimp' | 'emailoctopus'
 }
 
 export interface NewsletterRequest extends NextApiRequest {
@@ -41,9 +40,6 @@ async function NewsletterAPIHandler(
         break
       case 'klaviyo':
         response = await klaviyoSubscribe(email)
-        break
-      case 'revue':
-        response = await revueSubscribe(email)
         break
       case 'emailoctopus':
         response = await emailOctopusSubscribe(email)
@@ -79,9 +75,6 @@ async function NewsletterRouteHandler(req: NextRequest, options: NewsletterConfi
         break
       case 'klaviyo':
         response = await klaviyoSubscribe(email)
-        break
-      case 'revue':
-        response = await revueSubscribe(email)
         break
       case 'emailoctopus':
         response = await emailOctopusSubscribe(email)
