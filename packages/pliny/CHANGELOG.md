@@ -1,5 +1,16 @@
 # pliny
 
+## 0.3.0
+
+### Minor Changes
+
+- a4f7aa1: remove revue from newsletter list
+
+### Patch Changes
+
+- c4a356a: update pliny to v0.5
+- f3f414e: update klaviyo api
+
 ## 0.2.2
 
 ### Patch Changes
