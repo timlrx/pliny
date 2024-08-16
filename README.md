@@ -19,6 +19,7 @@ Pliny provides out of the box components to enhance your static site:
   - Email Octopus
   - Klaviyo
   - Mailchimp
+  - Beehiiv
 - Command palette search with tailwind style sheet
   - Algolia
   - Kbar (local search)
