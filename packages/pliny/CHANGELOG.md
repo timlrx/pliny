@@ -1,5 +1,14 @@
 # pliny
 
+## 0.3.1
+
+### Patch Changes
+
+- 3b4fe2b: Added Beehiiv newsletter integration
+
+  - Created new beehiiv.ts file with subscription functionality
+  - Updated index.ts to include Beehiiv as a newsletter provider option
+
 ## 0.3.0
 
 ### Minor Changes
