@@ -6,9 +6,10 @@ import { convertkitSubscribe } from './convertkit'
 import { mailchimpSubscribe } from './mailchimp'
 import { klaviyoSubscribe } from './klaviyo'
 import { emailOctopusSubscribe } from './emailOctopus'
+import { beehiivSubscribe } from './beehiiv'
 
 export interface NewsletterConfig {
-  provider: 'buttondown' | 'convertkit' | 'klaviyo' | 'mailchimp' | 'emailoctopus'
+  provider: 'buttondown' | 'convertkit' | 'klaviyo' | 'mailchimp' | 'emailoctopus' | 'beehiiv'
 }
 
 export interface NewsletterRequest extends NextApiRequest {
@@ -44,6 +45,9 @@ async function NewsletterAPIHandler(
       case 'emailoctopus':
         response = await emailOctopusSubscribe(email)
         break
+      case 'beehiiv':
+        response = await beehiivSubscribe(email)
+        break
       default:
         res.status(500).json({ error: `${options.provider} not supported` })
     }
@@ -78,6 +82,9 @@ async function NewsletterRouteHandler(req: NextRequest, options: NewsletterConfi
         break
       case 'emailoctopus':
         response = await emailOctopusSubscribe(email)
+        break
+      case 'beehiiv':
+        response = await beehiivSubscribe(email)
         break
       default:
         return NextResponse.json({ error: `${options.provider} not supported` }, { status: 500 })
