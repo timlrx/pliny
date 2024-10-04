@@ -1,5 +1,11 @@
 # pliny
 
+## 0.3.2
+
+### Patch Changes
+
+- 8cfb933: fix beehiiv url
+
 ## 0.3.1
 
 ### Patch Changes
