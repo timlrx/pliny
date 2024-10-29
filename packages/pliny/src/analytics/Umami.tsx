@@ -1,8 +1,8 @@
 import Script from 'next/script.js'
 
 export interface UmamiProps {
-  umamiWebsiteId: string
   src?: string
+  umamiWebsiteId: string
 }
 
 export const Umami = ({
@@ -13,8 +13,8 @@ export const Umami = ({
     <Script
       async
       defer
-      data-website-id={umamiWebsiteId}
       src={src} // Replace with your umami instance
+      data-website-id={umamiWebsiteId}
     />
   )
 }
