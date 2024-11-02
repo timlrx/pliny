@@ -16,7 +16,7 @@ export const KBarModal = ({ actions, isLoading }: { actions: Action[]; isLoading
 
   return (
     <KBarPortal>
-      <KBarPositioner className="bg-gray-300/50 p-4 backdrop-blur backdrop-filter dark:bg-black/50">
+      <KBarPositioner className="z-50 bg-gray-300/50 p-4 backdrop-blur backdrop-filter dark:bg-black/50">
         <KBarAnimator className="w-full max-w-xl">
           <div className="overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-gray-900">
             <div className="flex items-center space-x-4 p-4">
@@ -78,7 +78,7 @@ const RenderResults = () => {
                 }`}
               >
                 <div className={'flex space-x-2'}>
-                  {item.icon && <div className={"self-center"}>{item.icon}</div> }
+                  {item.icon && <div className={'self-center'}>{item.icon}</div>}
                   <div className="block">
                     {item.subtitle && (
                       <div className={`${active ? 'text-gray-200' : 'text-gray-400'} text-xs`}>
