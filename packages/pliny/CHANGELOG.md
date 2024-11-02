@@ -1,5 +1,14 @@
 # pliny
 
+## 0.3.3
+
+### Patch Changes
+
+- a2de4cb: add support for react 19 and next 15
+- 5dfaf6a: fix toc slugs are tracked across documents
+- 464eaf6: add z-index to kbar modal
+- 464eaf6: add umami options
+
 ## 0.3.2
 
 ### Patch Changes
