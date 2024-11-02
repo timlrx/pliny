@@ -1,5 +1,11 @@
 # pliny
 
+## 0.4.0
+
+### Minor Changes
+
+- ef38b03: remove dependency on internal types
+
 ## 0.3.3
 
 ### Patch Changes
