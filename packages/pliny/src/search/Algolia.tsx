@@ -10,7 +10,6 @@ import type {
   DocSearchProps,
   DocSearchModalProps,
 } from '@docsearch/react'
-import type { InternalDocSearchHit, StoredDocSearchHit } from '@docsearch/react/dist/esm/types'
 
 export type AlgoliaSearchProps = {
   algoliaConfig: DocSearchProps
@@ -51,7 +50,7 @@ function Hit({
   hit,
   children,
 }: {
-  hit: InternalDocSearchHit | StoredDocSearchHit
+  hit: Parameters<NonNullable<DocSearchProps['hitComponent']>>[0]['hit']
   children: React.ReactNode
 }) {
   return <CustomLink href={hit.url}>{children}</CustomLink>
