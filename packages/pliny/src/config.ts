@@ -59,6 +59,9 @@ const sampleConfig: PlinyConfig = {
     plausibleAnalytics: {
       plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
     },
+    swetrixAnalytics: {
+      swetrixProjectId: '', // e.g. ABCdEfG123hI
+    },
     simpleAnalytics: {},
     umamiAnalytics: {
       umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
