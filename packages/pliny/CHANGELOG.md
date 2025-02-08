@@ -1,5 +1,11 @@
 # pliny
 
+## 0.4.1
+
+### Patch Changes
+
+- f45452b: change buttondown api params email to email_address
+
 ## 0.4.0
 
 ### Minor Changes
