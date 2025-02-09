@@ -7,6 +7,7 @@ Pliny provides out of the box components to enhance your static site:
   - Plausible Analytics
   - Simple Analytics
   - Umami Analytics
+  - Swetrix
   - Posthog
   - Microsoft Clarity
 - Comments
@@ -91,6 +92,9 @@ const analytics: AnalyticsConfig = {
     clarityAnalytics: {
       ClarityWebsiteId: '', // e.g. abcdefjhij
     },
+    swetrixAnalytics: {
+      swetrixProjectId: '', // e.g. ABCdEfG123hI
+    },
   }
 
 export default function Layout() {
@@ -172,6 +176,21 @@ export default function Layout() {
   return (
     ...
     <Umami umamiWebsiteId={umamiWebsiteId} />
+  )
+}
+```
+
+#### Swetrix
+
+```tsx
+import { Swetrix } from 'pliny/analytics/Swetrix'
+
+const swetrixProjectId = '' // e.g. ABCdEfG123hI
+
+export default function Layout() {
+  return (
+    ...
+    <Swetrix swetrixProjectId={swetrixProjectId} />
   )
 }
 ```
