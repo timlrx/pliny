@@ -2,6 +2,7 @@ import { Toc, TocItem } from '../mdx-plugins/remark-toc-headings'
 
 export interface TOCInlineProps {
   toc: Toc
+  indentDepth?: number
   fromHeading?: number
   toHeading?: number
   asDisclosure?: boolean
@@ -52,6 +53,7 @@ const createNestedList = (items: TocItem[]): NestedTocItem[] => {
  * If you are using tailwind css and want to revert to the default HTML list style, set `ulClassName="[&_ul]:list-[revert]"`
  * @param {TOCInlineProps} {
  *   toc,
+ *   indentDepth = 3,
  *   fromHeading = 1,
  *   toHeading = 6,
  *   asDisclosure = false,
@@ -64,6 +66,7 @@ const createNestedList = (items: TocItem[]): NestedTocItem[] => {
  */
 const TOCInline = ({
   toc,
+  indentDepth = 3,
   fromHeading = 1,
   toHeading = 6,
   asDisclosure = false,
@@ -89,7 +92,13 @@ const TOCInline = ({
     return (
       <ul className={ulClassName}>
         {items.map((item, index) => (
-          <li key={index} className={liClassName}>
+          <li
+            key={index}
+            className={
+              liClassName +
+              `${item.depth >= indentDepth && item.depth > fromHeading + 1 ? ' ml-6' : ''}`
+            }
+          >
             <a href={item.url}>{item.value}</a>
             {createList(item.children)}
           </li>
