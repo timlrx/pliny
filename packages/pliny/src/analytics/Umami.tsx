@@ -37,7 +37,7 @@ const propToDataAttributeMap: { [key: string]: string } = {
  * @param props - The props for the Umami component.
  * @returns A Script element with the Umami analytics script and dynamic data attributes.
  */
-export const Umami = ({ src = 'https://analytics.umami.is/script.js', ...props }: UmamiProps) => {
+export const Umami = ({ src = 'https://cloud.umami.is/script.js', ...props }: UmamiProps) => {
   const dataAttributes: Record<string, any> = {}
 
   // Map known Umami props to data attributes
