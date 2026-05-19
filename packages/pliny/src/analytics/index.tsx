@@ -5,6 +5,7 @@ import { SimpleAnalytics, SimpleAnalyticsProps } from './SimpleAnalytics.js'
 import { Umami, UmamiProps } from './Umami'
 import { Posthog, PosthogProps } from './Posthog'
 import { Clarity, ClarityProps } from './MicrosoftClarity'
+import { Gizmo, GizmoProps } from './Gizmo'
 
 declare global {
   interface Window {
@@ -21,6 +22,7 @@ export interface AnalyticsConfig {
   posthogAnalytics?: PosthogProps
   simpleAnalytics?: SimpleAnalyticsProps
   clarityAnalytics?: ClarityProps
+  gizmoAnalytics?: GizmoProps
 }
 
 /**
@@ -41,7 +43,7 @@ export interface AnalyticsProps {
 const isProduction = process.env.NODE_ENV === 'production'
 
 /**
- * Supports Plausible, Simple Analytics, Umami, Posthog or Google Analytics.
+ * Supports Plausible, Simple Analytics, Umami, Posthog, Google Analytics, or Gizmo.
  * All components default to the hosted service, but can be configured to use a self-hosted
  * or proxied version of the script by providing the `src` / `apiHost` props.
  *
@@ -71,10 +73,13 @@ export const Analytics = ({ analyticsConfig }: AnalyticsProps) => {
       {isProduction && analyticsConfig.clarityAnalytics && (
         <Clarity {...analyticsConfig.clarityAnalytics} />
       )}
+      {isProduction && analyticsConfig.gizmoAnalytics && (
+        <Gizmo {...analyticsConfig.gizmoAnalytics} />
+      )}
     </>
   )
 }
 
-export { GA, Plausible, SimpleAnalytics, Umami, Posthog, Clarity }
+export { GA, Plausible, SimpleAnalytics, Umami, Posthog, Clarity, Gizmo }
 
-export type { GoogleAnalyticsProps, PlausibleProps, UmamiProps, PosthogProps, SimpleAnalyticsProps, ClarityProps }
+export type { GoogleAnalyticsProps, PlausibleProps, UmamiProps, PosthogProps, SimpleAnalyticsProps, ClarityProps, GizmoProps }
