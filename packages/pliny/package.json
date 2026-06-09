@@ -2,6 +2,14 @@
   "name": "pliny",
   "description": "Main entry point for pliny components",
   "homepage": "https://github.com/timlrx/pliny",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timlrx/pliny.git",
+    "directory": "packages/pliny"
+  },
+  "bugs": {
+    "url": "https://github.com/timlrx/pliny/issues"
+  },
   "version": "0.4.1",
   "type": "module",
   "exports": {
